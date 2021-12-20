@@ -1492,10 +1492,10 @@ a:hover {
 
 @media screen and (min-width: 1280px) {
   .hero-image-left {
-    width: 403px;
+    width: 475px;
   }
   .hero-image-right {
-    width: 760px;
+    width: 850px;
   }
 }
 
