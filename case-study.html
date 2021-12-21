@@ -705,1147 +705,479 @@
           </p>
           <br />
 
+          <h2 class="h2">4. Overview of Synapse</h2>
+        
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 13: Synapse is a GraphQL Gateway</figcaption>
+          </figure>
+          <br>
+          <p>
+            As seen in Figure 13, Synapse is a GraphQL API Gateway solution, which creates and 
+            deploys a GraphQL server, allowing users to connect various types of different legacy 
+            APIs and data sources using GraphQL and resulting in a single endpoint for clients to query. 
+          </p>
+          <p>
+            The primary goal behind Synapse was to provide an intuitive way to unify legacy APIs into a single 
+            GraphQL endpoint. Additionally, our team wanted to include some extra features, inspired by some 
+            other GraphQL API Gateway solutions, which would allow developers with smaller skill sets to be 
+            able to utilize Synapse. 
+          </p>
+          <p>
+            In the 2021 State of API Integration Report, respondents said they felt GraphQL would become the 
+            de facto standard, but felt skill sets were the largest barrier. For that reason, Synapse made it 
+            a priority to allow developers with little knowledge of GraphQL to use it, more specifically to adopt 
+            a GraphQL API Gateway. Synapse attempted to accomplish this with three main features.
+          </p>
+          <p>
+            First, our team aimed to have a simple and intuitive way to configure the GraphQL Gateway. Synapse 
+            provides an intuitive GUI interface to allow the developer to easily add their existing APIs and data 
+            sources to the Gateway. This eliminated the need to add and modify configuration files manually in a 
+            backend directory or require learning the GraphQL syntax.
+          </p>
+          <p>
+            Additionally, our team wanted to include the option for developers to be able to automatically deploy 
+            their configured Gateway on AWS with minimal effort. Synapse provides a single command for deploying 
+            to AWS once the Gateway has been configured. 
+          </p>
+          <p>
+            Lastly, our team aimed to allow the developer an easy way to monitor all requests coming through 
+            their new Gateway. Synapse creates a monitoring dashboard for viewing request latencies, as well 
+            as any errors produced by requests that hit the Gateway. We will explain these features thoroughly 
+            later in our case study.
+          </p>
+
+          <h2>5. Who Should Use Synapse</h2>
+          <h3>5.1 Existing Solutions</h3>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 14: Existing GraphQL API Gateway Solutions</figcaption>
+          </figure>
+          <br>
+          <p>
+            When it comes to solutions for creating a GraphQL API gateway, companies have a few options as 
+            seen in Figure 14. It is important to note there aren’t really any managed solutions that use 
+            Federation due the logic having to be interspersed within underlying services. A small company 
+            may be able to utilize federation themselves in a DIY fashion, but they may not have the 
+            resources or time needed for training developers to learn the federation specification and then 
+            reworking all their legacy APIs and data sources. Let’s look at the options for a small company 
+            that does not have a lot of time or resources to spend and would like to keep their legacy APIs 
+            and data sources unaltered. 
+          </p>
+          <p>
+            First, they could pick an integration platform as a service option (IPaaS) such as AWS AppSync. 
+            Such a service will have a lot of features, including an intuitive GUI interface for setting up 
+            the gateway, as well as extensive monitoring and security features. The downside would be that 
+            such a service could be very costly for a small company and would limit the company’s flexibility 
+            to move platforms in the future, inducing getting locked into a specific vendor like AWS.
+          </p>
+          <p>
+            Additionally, they could choose an Open Core option like GraphQL Portal. Using this type of service, 
+            they would have the flexibility of deploying where they want, the ease of easy configuration through 
+            an intuitive GUI, as well as many additional features including monitoring and security. The downside 
+            of this option would be that a small company may not be able to afford the cost of using the full 
+            features of this service on top of the deployment cost. 
+          </p>
+          <p>
+            Third, they could opt to create the Gateway themselves manually. This would allow the company the 
+            freedom to host where they want, while also creating whatever features they deem necessary for their 
+            unique situation. However, for a small company, the complexity of creating all the features and doing 
+            it manually may drive the cost, in terms of training their employees and development time, much too high. 
+            Their employees may be new to GraphQL and they may not have the resources and time to go through the 
+            training and development process.
+          </p>
+          <p>
+            Synapse was created to fill a void for a small company that may not have all their needs met by 
+            the existing solutions.
+          </p>
+          <h3>5.2 Synapse vs. Existing Solutions</h3>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 15: Solutions for a GraphQL API Gateway Solutions</figcaption>
+          </figure>
+          <br>
+          <p>
+            As seen in figure 15, Synapse provides an easy and intuitive GUI for configuration 
+            and monitoring, and gives the company the option to deploy where they want. Synapse stands 
+            out by offering a feature to automatically deploy onto AWS. The only cost involved with 
+            using Synapse would be the cost of hosting on AWS. Everything else is free and open source. 
+            Although Synapse looks attractive compared to other options, it does have the tradeoff of 
+            not providing quite as many features as other services. The monitoring in Synapse has fewer 
+            features and Synapse currently does not provide additional features such as gateway security.
+            However, for a small company looking to take advantage of GraphQL while keeping their existing 
+            APIs and data sources, Synapse can provide all the features they need at a low cost.
+          </p>
+          <h2>6. Synapse Walkthrough</h2>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 16: Four Phases of Synapse</figcaption>
+          </figure>
+          <br>
+          <p>
+            As you can see in Figure 16, using Synapse is split into four phases. First, the developer will 
+            download and setup Synapse on their local machine. Then, they use the provided GUI interface, more 
+            formally known as the Gateway Manager, to configure their Synapse GraphQL Gateway. Once configured, 
+            the developer is able to test out their Gateway on their local machine using the Apollo server 
+            provided in the gateway. Lastly, if desired, the developer can deploy Synapse onto AWS where the 
+            Synapse architecture will be modified, preparing it for high volume traffic.
+          </p>
+          <p>
+            Since the architecture changes slightly in production, Synapse technically has two states: one for 
+            configuration and one for production. In configuration, everything is run on the developer’s local 
+            machine. They download Synapse, and start it up on their local machine. They then configure the 
+            GraphQL Gateway. Once configured, the Gateway is able to be tested on their local machine. 
+          </p>
+          <p>
+            After testing of the Gateway, the developer is able to deploy Synapse into production, where their 
+            Synapse application will now be hosted and run on AWS. At this point, Synapse is in the production 
+            state and the developer loses the ability to configure the Gateway through the deployed Gateway Manager. 
+            However, this functionality is replaced with management of users for the Gateway Manager. Additionally, 
+            when deployed, Synapse will use a new MongoDB database, removing all data from the configuration phase 
+            and being seeded with the credentials of the root user. This allows the production gateway data to be 
+            completely separate from testing data that may have been collected during configuration.
+          </p>
+          <p>
+            Let’s investigate deeper, going through the four phases shown in Figure 16.
+          </p>
+          <h3>6.1 Download and Setup</h3>
+          <p>
+            To start, the developer must first download and configure Synapse to run on 
+            their local machine. They are able to do so by running the command 
+            <code>npx @synapse-team/start-synapse</code>. This command will prompt the 
+            user for a couple inputs, and then will set up Synapse on their local machine 
+            so it can be started right away.
+          </p>
+          <p>
+            Afterwards, the developer is able to start using Synapse on their local machine 
+            by running the command <code>synapse up</code>. This will start up and run the 
+            entire architecture on the developer’s local machine. Keep in mind, this architecture 
+            is Synapse in its configuration state, as shown in Figure 17.
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 17: Synapse Architecture in Configuration State</figcaption>
+          </figure>
+          <br>
+          <p>
+            Synapse consists of three components: the GraphQL Gateway, the Gateway Manager, 
+            and MongoDB. Each part is containerized via Docker and when the <code>synapse up</code> command 
+            is run, a docker-compose file is used to start up all three containers.
+          </p>
+          <h3>6.2 Configure</h3>
+          <p>
+            Now that Synapse is running on their local machine, the developer is able to configure and customize 
+            the GraphQL Gateway. As mentioned, the synapse up command instantiates a containerized instance 
+            of the Gateway Manager on the developer’s local machine. The Gateway Manager is essentially a GUI 
+            interface that allows the developer to configure their Gateway, with a couple additional features. 
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 18: How the Gateway Manager Interacts with the GraphQL API Gateway</figcaption>
+          </figure>
+          <br>
+          <p>
+            As you can see in Figure 18, the Gateway Manager makes changes to the developer’s external file 
+            system on their local machine, which updates and configures the GraphQL API Gateway. After changes 
+            are made to the file system, the GraphQL API Gateway container is restarted to reflect those changes. 
+            Therefore, the two don’t talk directly to each other, but are linked by the local file system.
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 19: Configuring the Gateway Through the Gateway Manager</figcaption>
+          </figure>
+          <br>
+          <p>
+            As shown in Figure 19, the Gateway Manager lets the developer configure the Gateway by providing a 
+            Data Sources tab where the user can add data sources to their Gateway. They can easily add as many 
+            data sources as they’d like with intuitive forms and tooltips showing them what is required of them. 
+            All they have to do is add some data sources, input the necessary files/URLs and click on “Create Synapse” 
+            and their GraphQL Gateway will be configured and ready to be queried. Synapse was able to do this under the 
+            hood through the open-source tool GraphQL Mesh. GraphQL Mesh is able to take in a variety of data sources 
+            and automatically create a unified schema and set of resolver functions for them. We will investigate what 
+            a schema and resolvers are and then look at how GraphQL Mesh integrates into Synapse.
+          </p>
+          <h5>Schema and Resolvers</h5>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 20: Typical GraphQL Server</figcaption>
+          </figure>
+          <br>
+          <p>
+            To explain what a schema and resolver functions are, we will follow a GraphQL request 
+            through a typical GraphQL server, as seen in Figure 20.
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 21: Validation of Schema</figcaption>
+          </figure>
+          <br>
+          <p>
+            As seen in Figure 21, when a request comes in, the GraphQL server will first parse and validate the 
+            request to make sure it is compatible with the GraphQL schema that the server is using. One can think 
+            of the schema as a list of rules for how GraphQL requests need to be formatted with regards to the data 
+            being requested. This usually is manually written in accordance with the GraphQL specification and can take 
+            a significant amount of time, even for someone who may not be new to GraphQL.
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 22: Resolver Functions Retrieve Necessary Data</figcaption>
+          </figure>
+          <br>
+          <p>
+            If the validation passes, the server will create an execution plan and pass off the request to the resolvers, 
+            as seen in Figure 22. The resolvers are functions that dictate how to grab information needed from the 
+            request. In the example shown in Figure 22, the resolver functions would have to make requests to the correct 
+            REST API endpoints to retrieve the necessary data for the GraphQL server to send a response back to the client. 
+            If the data source was a database instead of a REST API, the resolvers would be responsible for querying that 
+            database. Usually, all of these functions would have to be manually written by the developer and then the 
+            information they retrieved would have to be parsed and put in the correct format for the server to serve a 
+            response back to the client. 
+          </p>
+          <h5>GraphQL Mesh</h5>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 23: GraphQL Mesh Automatically Creates Unified Schema and Set of Resolvers</figcaption>
+          </figure>
+          <br>
+          <p>
+            As mentioned before and shown in Figure 23, GraphQL Mesh is able to take in a variety of data sources and 
+            automatically create a unified schema and set of resolvers for them.  The way GraphQL Mesh does this is through 
+            either introspection or taking in a specification file that outlines a certain data source. 
+          </p>
+          
+          <h6>Introspection</h6>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 24: Introspection Request to PostgreSQL</figcaption>
+          </figure>
+          <br>
+          <p>
+            Introspection is essentially making a request to an API or database to inspect the models or types it is composed of. 
+            An example of how GraphQL Mesh might introspect a PostgreSQL database is shown in Figure 24. First, GraphQL Mesh makes 
+            an introspection request, which looks at the database to see that it has a books table. GraphQL Mesh is able to take 
+            this information and create a GraphQL schema with a type of Book and associated subfields, as well as resolver 
+            functions. If GraphQL Mesh was introspecting a GraphQL endpoint instead, it would get the GraphQL schema as a response 
+            that it could just use directly. This is why the Gateway Manager is able to have the developer only input a URL for 
+            some data sources like GraphQL or PostgreSQL.
+          </p>
+          <h6>Specification File</h6>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 25: Open API Specification File for REST API</figcaption>
+          </figure>
+          <br>
+          <p>
+            A specification file is a file in a yaml or json format that describes all the entities supplied by a certain endpoint, 
+            as well as all the operations for them. The example in Figure 25 shows a specification file that defines a REST API. 
+            As you can see, this file shows all the operations, as well as entities that those operations apply to. GraphQL Mesh 
+            is able to use this file to automatically create a GraphQL schema and resolvers. This allows the Gateway Manager to 
+            only require the developer to upload one of these files to integrate certain data sources like REST APIs. 
+          </p>
+          <h5>How Synapse Uses GraphQL Mesh</h5>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 26: Synapse Gateway is an Apollo Server Instance</figcaption>
+          </figure>
+          <br>
+          <p>
+            The Synapse GraphQL Gateway provides a wrapper for GraphQL Mesh and an easy way to interact with it using the Gateway Manager. 
+            As seen in Figure 26, under the hood, the Synapse Gateway is really just an instance of Apollo Server. Apollo provides a 
+            GraphQL library, which includes a server, specifically an Apollo Server which is designed specifically for GraphQL. This 
+            server is able to be instantiated as a fully functional GraphQL server if supplied with the correct GraphQL schema and resolvers.
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 27: Synapse uses GraphQL Schema and Resolver Generated from GraphQL Mesh</figcaption>
+          </figure>
+          <br>
+          <p>
+            As seen in Figure 27, the Synapse GraphQL Gateway uses the automated schema and resolver from GraphQL Mesh by passing it to an 
+            Apollo Server instance. Apollo Server is part of the Apollo library and is essentially a GraphQL server that can be instantiated by 
+            providing an appropriate schema and resolver functions. In addition to the schema and resolvers, we pass two plugins to the Apollo 
+            Server to retrieve monitoring data from requests that hit the server. We will go over these in more detail in the Implementation 
+            Details section.
+          </p>
+          <h3>6.3 Test</h3>
+          <p>With the Gateway configured, the developer is able to test the Gateway on their local machine. </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 28: GraphQL Playground</figcaption>
+          </figure>
+          <br>
+          <p>
+            As seen in Figure 28, a GraphQL playground is provided to the developer when they navigate to their GraphQL Gateway on their local 
+            machine. The playground allows them to test out sample queries and errors to see if the gateway is working as intended.
+          </p>
+          <p>
+            Synapse also provides the developer the freedom to go into their local repository and manually add extra logic to their Gateway, 
+            which was not provided by default through Synapse. This may include, for example, custom queries or extra permission features. If 
+            the developer decides to do this, they only need to run the command <code>synapse restart</code> after the changes are made and the Gateway will 
+            update with their changes. 
+          </p>
+          <h5>Monitoring</h5>
+          <p>
+            Additionally, the Gateway Manager provides monitoring of the GraphQL Gateway to aid in testing, as well as to monitor production traffic.
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 29: Monitoring Request Latencies Through Gateway Manager</figcaption>
+          </figure>
+          <br>
+          <p>
+            As you can see in Figure 29, the developer is able to monitor request latencies through the Gateway Manager. It will show the developer 
+            their slowest requests, as well as requests within certain time frames. These requests can be filtered by individual request, or even by 
+            individual field resolvers to find the slowest latencies easily and efficiently. 
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 30: Monitoring Errors Through Gateway Manager</figcaption>
+          </figure>
+          <br>
+          <p>
+            As you can see in Figure 30, the developer is also able to monitor errors through the Gateway Manager. Errors can be filtered by hour 
+            range and provide information that includes when the error occurred, the origin of the request that caused the error, the actual list 
+            of errors from the request, as well as the original query that was sent in the request to cause the errors.
+          </p>
+          <h5>Use of MongoDB Database</h5>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 31: Data Stored In and Retrieved From MongoDB</figcaption>
+          </figure>
+          <br>
+          <p>
+            All monitoring data is stored in the MongoDB, which retrieves the data from the GraphQL Gateway, as seen in Figure 31. Our team used 
+            MongoDB instead of a relational database for a few reasons.
+          </p>
+          <p>
+            First, our data was going to have a very high write-to-read ratio. We wanted to store every request that came in, envisioning that 
+            the user would only check the Gateway Manager for monitoring every so often. In order to accommodate an extremely high write 
+            volume, MongoDB seemed like a good choice as document stores scale very well, more so than relational databases. This is because 
+            document stores are able to be easily scaled horizontally since documents are typically not interconnected. Relational databases, 
+            on the other hand, are very hard to shard and scale horizontally because of how connected all the data is to each other. 
+          </p>
+          <p>
+            Secondly, our data was not inherently relational. The data was split into four main collections: errors, whole requests, resolvers, 
+            and users. None of the collections needed information from each other and served their purpose as standalone documents. A relational 
+            database would have been much more attractive if we had to make use of foreign key relations, but since our data is not connected at 
+            all, we opted for a database that would be more efficient at handling a high volume of writes with the tradeoff of losing increased 
+            performance if we ever wanted to connect our data in the future.
+          </p>
+          <p>
+            Lastly, we did not want to adhere to the strict schemas imposed by relational databases. GraphQL queries, by their nature, can vary 
+            significantly, and therefore, errors and responses may sometimes differ greatly from predetermined schemas. We wanted to go with a 
+            database where we would be able to dump information as it came regardless of schema since there was so much variation that could 
+            be observed.
+          </p>
+          <h3>6.4 Deploy</h3>
+          <p>
+            With the Gateway fully tested, the developer is able to deploy their Gateway. To start, the developer must first teardown Synapse 
+            on their local machine by running the command <code>synapse restart</code>. 
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 32: Synapse Automated Deployment</figcaption>
+          </figure>
+          <br>
+          <p>
+            As seen in Figure 32, the developer then only needs to run the command synapse deploy and their Synapse application will be 
+            deployed on AWS in the production state. The only architectural difference in the production state is that the Gateway Manager 
+            container changes slightly. The functionality of adding data sources and configuring the Gateway is no longer present and is 
+            replaced by a User Management tab.
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 33: User Management Replaces Adding Data Sources in Gateway Manager once in Production</figcaption>
+          </figure>
+          <br>
+          <p>
+            As seen in Figure 33, admin and root users are able to view all authorized users and their roles and delete users at their 
+            pleasure. In addition, they also are able to create new users and assign them an admin or non-admin role.
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 34: Synapse Architecture on AWS</figcaption>
+          </figure>
+          <br>
+          <p>
+            After the deployment is complete, the Synapse landscape on AWS looks as shown in Figure 34. Each part of Synapse is put on 
+            Amazon’s Elastic Container Registry (AWS ECS). For each part, an AWS Fargate instance is also provisioned. Fargate is a 
+            technology that you can use with Amazon ECS to run containers without having to manage servers or clusters of Amazon EC2 
+            instances. In addition, a load balancer is created and put in front of ECS clusters that are composed of the three 
+            containerized applications. This architecture allows Synapse to be able to handle high volume and traffic through AWS’ 
+            automatic scaling/descaling.
+          </p>
+          <h2>7. Implementation Details</h2>
+          <p>
+            As seen in the walkthrough, Synapse provides monitoring of requests, as well as an automated deployment using a single 
+            command. We can investigate further how this is possible.
+          </p>
+          <h3>7.1 Monitoring</h3>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 35: Synapse GraphQL Gateway Architecture</figcaption>
+          </figure>
+          <br>
+          <p>
+            As you can see in Figure 35, the Synapse GraphQL API Gateway passes two plugins to the Apollo Server 
+            instance. These plugins are what allowed Synapse to capture monitoring data from each request.
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 36: useTiming Plugin from GraphQL Envelop</figcaption>
+          </figure>
+          <br>
+          <p>
+            The useTiming plugin from the open-source tool GraphQL Envelop was used to capture request and resolver latency 
+            data. As shown in Figure 36, the useTiming plugin provides several events throughout the lifecycle of a GraphQL 
+            request where data could be pulled from. The events highlighted in Figure 36, the on-Resolver-Measurement event 
+            and the on-Execution-Measurement event, allowed us to grab the total request latency, as well as data on the 
+            latency of the individual resolvers. Our team created a callback function that captured the data we needed at 
+            these events and stored it in MongoDB.
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 37: Apollo Server Events</figcaption>
+          </figure>
+          <br>
+          <p>
+            An Apollo Server Custom plugin was used to capture error data from requests. Since Synapse uses Apollo Server 
+            under the hood, we were able to take advantage of Apollo Server events to capture error data. As seen in 
+            Figure 37, Apollo Server events are different from the events the useTiming plugin emits, with Apollo Server 
+            emitting a did-Encounter-Errors event that we were able to create a listener for.
+          </p>
+          <h3>7.2 Deployment</h3>
+          <p>
+            Although the developer only needs to run the command synapse deploy to deploy their Synapse application, 
+            under the hood many different API calls are made through the Amazon CLI. This was all possible by using 
+            AWS Copilot.
+          </p>
+          <figure>
+            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <figcaption>Fig. 38: Deployment via AWS Copilot</figcaption>
+          </figure>
+          <br>
+          <p>
+            As seen in Figure 38, AWS Copilot provides a CLI that is able to take Dockerfiles and provision the 
+            necessary resources to deploy and put them up on AWS. Under the hood, Copilot takes the Dockerfiles 
+            and registers them to the AWS Elastic Container Registry, which is Amazon’s version of Dockerhub. 
+            Once the containers are registered, AWS will generate a CloudFormation template based on some inputs 
+            to the command line. After the CloudFormation Template is generated, Copilot will deploy the 
+            containers onto their elastic container service (AWS ECS) and then provision the other resources 
+            defined in the generated CloudFormation template to make sure the application is scalable and production-ready.
+          </p>
+          <p>
+            Copilot is able to do this by executing API calls to the AWS CLI under the hood. For that reason, the 
+            only prerequisite for deploying with Synapse is that the developer has the AWS CLI configured with their credentials. 
+          </p>
+          <p>
+            The Synapse CLI command synapse deploy aliases commands made to Copilot for deployment. Additionally, Synapse 
+            automatically provisions default settings in manifest files for AWS and provides all the necessary Dockerfiles.
+          </p>
+
+          <h1>STOP HERE</h1>
+
           <!-- Section 2 -->
-          <h2 class="h2">4 Overview of Synapse</h2>
-          <h3>4.1 How does Synapse help teams?</h3>
-          <p>
-            To explore exactly how Synapse empowers small teams working on
-            distributed applications, let’s think back to the example of NapTime
-            after they’ve scaled their architecture.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/Synapse-agent.gif"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 9: Synapse's CLI helps you install and configure a collection
-              agent on your nodes
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            Synapse includes a collection agent that the team installs on each
-            node in their system. That collection agent gathers log and metric
-            data from both the services running on the server, as well as
-            information about the server itself.
-          </p>
-          <br />
-          <p>
-            But how does the data make the jump from those machines to the
-            central database? That would require an infrastructure pipeline, in
-            addition to the deployment of some type of collection software.
-          </p>
-          <br />
-
-          <h3>2.2 What’s in Synapse?</h3>
-          <p>
-            This is an overview of Synapse’s architecture and the infrastructure
-            behind this framework. We’ll dive into it in more detail later, but
-            for now let’s stick to the main conceptual pieces.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/Synapse-architecture.gif"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 10: An overview of Synapse's architecture, split into
-              conceptual components
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            We’ve already discussed how Synapse helps you set up the automated
-            collection of logs and metrics from your services. You don’t need to
-            change a single line of your application code-- Synapse runs as a
-            fully-decoupled agent process on your nodes, tapping into the log
-            files to which your services already write and scraping metrics from
-            the server. But collecting your logs and metrics is only the tip of
-            the iceberg.
-          </p>
-          <br />
-          <p>
-            The collection agent streams data at the time of generation to your
-            own pipeline that Synapse creates. Getting the data off of the
-            machine as quickly as possible is important for both your ability to
-            monitor in real-time, as well as ensuring that data isn’t lost if an
-            ephemeral virtual machine gets spun down outside of your control.
-          </p>
-          <br />
-          <p>
-            The pipeline also features a processing step where the collectors
-            deployed by Synapse take the raw data coming off of your servers and
-            rework it into predictable, structured output, before storing it in
-            a time-series database optimized for writing, processing, and
-            querying time-series data. Synapse builds a single source of truth
-            for you with each table representing a different capture source,
-            while preserving the identity of the host machine or process for
-            each row of data.
-          </p>
-          <br />
-          <p>
-            All of your monitoring data existing in the same place (your
-            Timestream database) allows you to keep context switching at an
-            absolute minimum while debugging, while also maintaining
-            high-resolution in your data so you can visualize and explore
-            granular changes in the performance and state of your servers and
-            services over time.
-          </p>
-          <br />
-
-          <h3>2.3 Why did we build Synapse?</h3>
-          <p>
-            The goal we had in mind when we set out to build Synapse was to help
-            teams start collecting, centralizing, storing, and getting value out
-            of their logs and metrics today, so they have them when they need
-            them.
-          </p>
-          <br />
-
-          <!-- Section 3 -->
-          <h2 class="h2">5 Who should use Synapse?</h2>
-          <p>
-            When it comes to picking a monitoring solution, companies generally
-            consider three options: buy, operate, or build.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/buy-operate-build.gif"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 11: Teams generally choose between buying, personally
-              operating, or building their own monitoring solution
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            If a small company like NapTime was to
-            <span class="bold">buy</span> a solution, they might look at working
-            with a SaaS vendor like Datadog. Outsourcing your monitoring to a
-            vendor makes the whole process very easy and painless, but that ease
-            comes with a pretty steep price. Not every small company has enough
-            runway to justify spending money on yet another SaaS service.
-          </p>
-          <br />
-          <p>
-            The next option then is to <span class="bold">operate</span>. Open
-            source platforms like Elastic were developed to make this relatively
-            simple. However, if you want to use the open source Elastic Stack,
-            you’re still responsible for hosting all of it, and managing an
-            Elasticsearch server requires knowledge of Java and prolonged
-            attention. What if NapTime’s engineers don’t have that expertise or
-            time?
-          </p>
-          <br />
-          <p>
-            The third option, <span class="bold">build</span>, simply isn’t
-            feasible for a small company. If you’re a tech giant like Facebook
-            or Twitter, with a huge budget and plenty of infrastructure, you can
-            roll your own observability platform. For a small company, their
-            time is much better spent on their own core-business product that
-            keeps the lights on.
-          </p>
-          <br />
-          <p>
-            But what if there were another option? That’s where we think Synapse
-            fits in.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/Synapse-comparison.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 12: How our team chose to position Synapse in the marketplace
-              of monitoring solutions
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            Synapse combines the
-            <span class="bold">ease of deployment</span> and
-            <span class="bold">low maintenance</span>
-            of a SaaS solution thanks to its collection agents and
-            fully-serverless pipeline.
-          </p>
-          <br />
-          <p>
-            Synapse mirrors the
-            <span class="bold">ownership of data</span> promised by Open Source
-            or DIY solutions. Log data can be extremely sensitive, and you don’t
-            necessarily want someone else having access to your records in their
-            god view/admin platform.
-          </p>
-          <br />
-          <p>
-            However, Synapse isn’t nearly as
-            <span class="bold">feature rich</span> as any of the other
-            solutions. We built Synapse with a specific, niche use-case in mind
-            and can’t come close to offering the richness of a Datadog, Elastic
-            Stack, or highly custom DIY platform.
-          </p>
-          <br />
-          <p>
-            One of Synapse’s main differentiators is that
-            <span class="bold"
-              >Synapse treats time-series data as a first-class citizen</span
-            >. The time-series database in Synapse’s pipeline is optimized for
-            inserting and indexing time-based data, and comes with a whole slew
-            of time-series query and aggregation functionality that
-            Elasticsearch does not support.
-          </p>
-          <br />
-          <p>
-            But, what we traded for the ease and speed of setup and time-series
-            optimization is cost. We designed the pipeline using AWS components,
-            and while their pricing can be opaque and tricky to calculate at
-            times Synapse certainly costs more to keep running than the Elastic
-            Stack or a DIY platform because you’re not operating the platform on
-            your own infrastructure.
-          </p>
-          <br />
-
-          <!-- Section 4 -->
-          <h2 class="h2">6 Design Decisions</h2>
-
-          <p>
-            Our primary goal while designing Synapse was to help teams start
-            collecting, centralizing, storing, and getting value out of their
-            logs and metrics as soon as possible. That way, teams have their
-            monitoring data already saved and explorable when they need it the
-            most: in the stress of an outage. Our team took that goal and broke
-            it up into three components:
-
-            <!-- TODO: Bulletpoints -->
-            <span class="bold">The need for a “low-toil framework”</span>
-            <span class="bold"
-              >Treating time-series data as a first class citizen</span
-            >
-            <span class="bold">Decreasing Mean Time to Resolve (MTTR)</span>
-          </p>
-          <br />
-
-          <h3>4.1 Low-toil</h3>
-          <p>
-            A low-toil framework is one that is easy to set up and maintain,
-            helping your core development flow without adding to your busy
-            workload. There are 3 factors the team decided were crucial to
-            determining whether a framework could be called “low-toil”:
-          </p>
-          <br />
-
-          <h5>Ease of Integration</h5>
-          <p>
-            To start aggregating logs and scraping metrics, users generally need
-            to deploy a collection tool onto their servers. Ideally, such a tool
-            should be able to collect, transform and route all monitoring data.
-            Moreover, it should be able to configure monitoring for multiple
-            services without requiring users to write custom integration code.
-          </p>
-          <br />
-          <h5>A ready-made pipeline</h5>
-          <p>
-            A low-toil framework should provision and deploy a
-            pre-designed/opinionated logging pipeline for users, freeing them
-            from the need to research and construct their own -- enabling them
-            to focus on their core functionality.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/api-calls.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 13: Synapse's CLI commands abstract away the dozens of API
-              calls to AWS required for setting up a pipeline
-            </figcaption>
-          </figure>
-          <br />
-          <h5>Low maintenance</h5>
-          <p>
-            Provisioning and maintaining servers takes time and can be
-            difficult. And even under close observation, they can still crash at
-            seemingly random times. The ideal low-toil framework would feature a
-            pipeline that is completely serverless to avoid extra stress and
-            overhead for development teams.
-          </p>
-          <br />
-          <p>
-            Every service in Synapse’s pipeline is fully serverless and managed
-            for you by AWS. Users don’t need to worry about Synapse crashing or
-            becoming bogged down during peak loads.
-          </p>
-          <br />
-
-          <h3>4.2 Time-series native</h3>
-          <p>
-            Time series data is a collection of observations obtained through
-            repeated measurements over time. Think of a graph that has time as
-            the x-axis-- that’s time-series data. At the level of a single
-            record, time-series data is indistinguishable from normal relational
-            data that features a timestamp as a field.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/timestream-schema.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 14: An example schema for Timestream, AWS's time-series
-              database
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            With that in mind, log data is perfectly suited to being treated as
-            time-series data. For example, time series data could measure the
-            average response time of a web server over the course of a week. The
-            distinction between normal relational data and time-series data is
-            more meaningful when one thinks about aggregating and querying data
-            at the database level.
-          </p>
-          <br />
-          <!-- TODO: Kreps block quote: “A log is an append-only, totally-ordered sequence of records ordered by time.” -->
-          <p>
-            Elasticsearch & other such stores/services are optimized for
-            text-based indexing and querying, but are not optimized for time,
-            and so typical queries you’d want to perform with time-based data
-            are either slow or not possible to perform.
-          </p>
-          <br />
-          <p>
-            Mapping logs from plain-text log lines to time-series records in a
-            database unlocks a large range of time-specific querying
-            functionality that helps Synapse improve your ability to extract
-            insights from your logs over time.
-          </p>
-          <br />
-          <p>
-            If we look at a web server such as Apache or nginx, we can think of
-            a few important metrics that use time as a measurement.
-            <!-- TODO: Numbers -->
-            1. Request time duration - “What happened yesterday that caused our
-            average request time to double?” 2. Request status codes - “What
-            happened at 4pm that started causing 500 status codes?” 3. Requests
-            per second - “When are our slowest hours so the team can schedule
-            maintenance?”
-          </p>
-          <br />
-
-          <h3>4.3 Decrease Mean Time to Resolve (MTTR)</h3>
-          <p>Getting insights into distributed systems is cumbersome.</p>
-          <br />
-          <p>
-            For example, think back to NapTime’s scaled architecture. Their
-            system includes 8 different nodes and 16 different network
-            connections that could fail. If some error occurs, where did it
-            happen? What node failed? What logs do they check? Without log
-            aggregation and centralization, NapTime would have to check each
-            node individually.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/connections.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 15: How can engineers debug systems with exponentially
-              growing numbers of nodes/connections?
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            Synapse aims to decrease the time between an outage occurring and
-            the time it takes for you to resolve it. We don’t want your outages
-            to be a murder mystery. And we don’t want you or your team being
-            reactive.
-          </p>
-          <br />
-          <p>
-            Instead, we want you to be proactive. Synapse not only helps you
-            catch issues early, but also informs you in real-time precisely
-            what’s broken, helping you pinpoint exactly what went wrong and on
-            which node. Synapse does so by monitoring incoming logs and metrics
-            to notify users of failures, thereby decreasing the time it takes
-            for your team to become aware of a problem.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/proactive.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 16: Synapse helps you be proactive, rather than reactive, in
-              debugging your system
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            With Synapse, NapTime’s engineer’s no longer need to check 8
-            different nodes. By aggregating logs into a single database and
-            providing a dashboard to query and view health metrics, Synapse
-            helps solve outages efficiently without your engineers having to
-            play detective.
-          </p>
-          <br />
-
-          <!-- Section 5 -->
-          <h2 class="h2">7 Synapse's Architecture</h2>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/architecture.png"
-              class="case-study-image"
-            />
-            <figcaption>Fig. 17: Synapse's architecture</figcaption>
-          </figure>
-          <br />
-          <p>
-            We’ve seen how Synapse’s architecture is split up into four major
-            conceptual sections. In this next section we’re going to more
-            closely examine these pieces as well as the individual components
-            that comprise them.
-          </p>
-          <br />
-
-          <h3>5.1 Collection</h3>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/collection.png"
-              class="case-study-image"
-            />
-            <figcaption>Fig. 18: Synapse's collection step</figcaption>
-          </figure>
-          <br />
-          <p>
-            For each service in a user’s distributed app that they want to
-            monitor, they need to set up collection. Synapse uses a collection
-            agent called
-            <a href="https://vector.dev/" target="_blank">Vector</a> to gather,
-            transform, and send a user’s distributed logs to the pipeline.
-          </p>
-          <br />
-          <p>
-            Raw logs are text based, unqueryable and generally hard to work
-            with. Vector makes it possible to take this raw, plaintext nginx
-            access log and convert it to JSON prior to sending the log off to
-            the pipeline for further processing.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/highlighted-log.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 19: Extracting information from raw logs is difficult
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            Looking at this log, we can see several important pieces of
-            information. The path that was requested, the amount of time it took
-            to complete the request, as well as the time the event occurred.
-            Synapse needs to somehow identify and capture this information from
-            this dynamic log.
-          </p>
-          <br />
-          <p>
-            To properly function on each node it’s deployed on, Vector requires
-            a lengthy configuration file. It includes all of the log and metric
-            sources you want to gather from and the sinks you’re sending to. It
-            requires writing esoteric regexes to transform those logs from
-            plaintext to a structured format, and configuring your AWS
-            credentials to ship to the pipeline. Synapse adds a “type” field to
-            each collected record, identifying the service that produced the
-            log. This type property is crucial for a sorting step that occurs
-            later on in the pipeline and which we’ll discuss below.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/vector-config.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 20: A basic config file for vector is dozens of lines long
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            Writing out all of this information is extremely laborious. A fully
-            fleshed out configuration file is over 400 lines long, and this
-            caused our team plenty of headaches when we were first manually
-            typing it out.
-          </p>
-          <br />
-          <p>
-            In order to streamline this, the team built a `Synapse configure`
-            CLI command that launches a configuration wizard, providing a prompt
-            to select which services our users want to monitor. With these
-            services selected, Synapse is able to dynamically generate the long
-            config file Vector requires without manual effort.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/Synapse-config.gif"
-              class="case-study-image"
-            />
-            <figcaption>Fig. 21: Synapse's configure command</figcaption>
-          </figure>
-          <br />
-          <p>
-            Once Vector is properly configured, it gathers logs and metrics,
-            transforms them from plaintext to JSON, and then sends them off to
-            the cloud pipeline. Once in the pipeline, the first stop is AWS
-            Kinesis Data Firehose.
-          </p>
-          <br />
-
-          <h3>5.2 Transform</h3>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/transform.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 22: Tranformation section of Synapse's cloud infrastructure
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            Kinesis Data Firehose is a fully-managed, real-time streaming
-            platform that captures, transforms & delivers data. It ingests new
-            data up to a predefined threshold (Synapse defaults to use one
-            minute/1MB) in order to optimize network efficiency, and because
-            it’s completely serverless, it adds no additional infrastructure for
-            the users of Synapse to manage.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/connections-bad.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 22: An impossible to manage web of connections between
-              services
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            In today’s distributed world, data produced by one service is often
-            consumed by multiple other services. Connecting all of these is
-            difficult, time-consuming and hyper-specific. Synapse uses Kinesis
-            to help decouple services from one another. Instead of connecting
-            every service together in a hyper-specific manner, each service can
-            publish to or consume from the Data Firehose.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/connections-good.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 23: Services decoupled from one another
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            Once the data buffering threshold is met, data is pointed to the
-            static HTTP Endpoint of an S3 bucket. Data is temporarily staged in
-            the bucket for two main reasons: to assist with retries of failed
-            deliveries and persist any records that errored out before being
-            stored in Timestream (which will prompt an alert from Synapse’s
-            monitoring setup, as we’ll discuss later), as well as to trigger a
-            Lambda function on being written.
-          </p>
-          <br />
-          <p>
-            Lambda is a serverless compute service that allows users to execute
-            code without provisioning servers. Lambdas can be invoked in
-            response to certain triggers making them event-driven, and they can
-            scale proportionally to the incoming workload by concurrently
-            invoking more instances of a function when needed. This ability to
-            continuously scale is perfect for Synapse because log data tends to
-            be very bursty.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/lambda-go.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 24: Synapse's Lambda function sorting and inserting records
-              into Timestream
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            The Lambda function serves to transform, sort, and load data into
-            Timestream, our selected time-series database. The team initially
-            wrote the Lambda function in JavaScript, but later rewrote it in
-            Golang because the Lambda function is pivotal to the throughput of
-            data ingestion and using a compiled language offered faster speeds
-            and lower overhead. This rewrite to Go netted us a two-fold increase
-            in throughput when processing 1,000 records.
-          </p>
-          <br />
-          <p>
-            Once invoked, Synapse’s Lambda function retrieves the newly written
-            records from the bucket, sorts, and stores them into separate tables
-            in Timestream based on the type property, which is added earlier
-            using Vector.
-          </p>
-          <br />
-
-          <h3>5.3 Store</h3>
-          <p>
-            This takes us to Timestream, a time-series optimized database
-            service. With the user’s data extracted, transformed, and finally
-            loaded into Timestream, they are able to analyze and query this data
-            across arbitrary periods of time. Synapse has taken their raw logs
-            and metrics and converted them into a form that's easily analyzable
-            and processable.
-          </p>
-          <br />
-          <p>
-            This is possible because Timestream provides a SQL-like language to
-            query this data. This query language is extremely powerful because
-            not only is it already familiar to most developers, but also it adds
-            some very powerful functions that work with time-series datasets.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/timeseries-query.png"
-              class="case-study-image"
-            />
-            <figcaption>Fig. 25: Time-series analysis with SQL</figcaption>
-          </figure>
-          <br />
-          <p>
-            The power of a time-series database can be summed up by the idea
-            that changes in data over time are tracked as INSERTS, rather than
-            as UPDATES. There’s no rewriting of existing data when you’re
-            thinking in terms of time-series, there are just multiple
-            observations over time. This unlocks rich potential for graphing,
-            visualizing, and understanding trends in your data over time--
-            precisely what the team set out to do when we designed Synapse.
-          </p>
-          <br />
-
-          <h3>5.4 Monitor</h3>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/monitor.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 26: Monitoring section of Synapse's cloud infrastructure
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            With the aforementioned infrastructure in place, the team was able
-            to build a monitoring and alerting system to harness the incoming
-            logs. This enables some useful functionality, like the ability to
-            email our users as soon as critical errors in their distributed
-            system occur (like a web server suddenly only returning 500 response
-            codes). This core functionality is made possible by CloudWatch.
-          </p>
-          <br />
-          <p>
-            CloudWatch provides a centralized view of all the logs coming from
-            the user’s cloud infrastructure. Synapse users are able to set up
-            metric filters on incoming logs and set heuristic thresholds that,
-            when activated, will set off an alarm. Triggered alarms publish an
-            event to their corresponding Simple Notification Service topic,
-            which will in turn email any users that have subscribed to that
-            topic during setup. This allows us to watch for any errors as they
-            occur and immediately notify our users.
-          </p>
-          <br />
-          <p>
-            Finally, we arrive at Synapse’s custom-built data exploration and
-            dashboarding server.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/dashboard-charts.png"
-              class="case-study-image"
-            />
-            <figcaption>Fig. 27: Synapse's chart page</figcaption>
-          </figure>
-          <br />
-          <p>
-            We built a dashboarding hub to help users visualize and query their
-            data in near real-time as it's being produced. This dashboard is
-            available for view on any machine in the user’s distributed system
-            that has Synapse installed. The team has pre-populated the dashboard
-            with charts that allow users of Synapse to isolate anomalies and see
-            historical trends. These charts are generated and populated in real
-            time, providing an up-to-the-minute view of system state in a single
-            location.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/dashboard-query.png"
-              class="case-study-image"
-            />
-            <figcaption>Fig. 28: Synapse's query page</figcaption>
-          </figure>
-          <br />
-          <p>
-            Because accessing AWS functionality through their actual website GUI
-            can take time and effort, we also built in the ability to query
-            Timestream directly from the dashboarding hub, exploring any
-            returned rows for convenience and exporting the data as JSON with
-            the click of a button.
-          </p>
-          <br />
-          <p>
-            Now that we’ve individually examined each component of Synapse,
-            we’re better equipped to understand Synapse as a whole and how to
-            use it.
-          </p>
-          <br />
-
-          <!-- Section 6 -->
-          <h2 class="h2">8 Installing and Using Synapse</h2>
-          <h3>6.1 Installing Synapse</h3>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/5-steps-to-install.png"
-              class="case-study-image large-image"
-            />
-            <figcaption>Fig. 29: Five Steps to Installing Synapse</figcaption>
-          </figure>
-          <br />
-          <p>
-            Synapse is an npm package, which means the first step is to download
-            and install it just like any other npm package. Make sure to use the
-            <code class="command">-g</code> flag so that the command is
-            available throughout your local environment.
-          </p>
-          <br />
-          <p>
-            The second step is to install the data collecting agent, Vector, on
-            the local machine. Synapse provides a command which helps the user
-            to install Vector given their particular package manager.
-          </p>
-          <br />
-          <p>
-            The third step is to configure Synapse for that server using the
-            <code class="command">Synapse configure</code>
-            command. This step results in two configuration files: 1. a file
-            that Vector uses to monitor the selected services on that machine,
-            2. A file that Synapse uses to deploy the pipeline, including AWS
-            credentials and database tables that match the selected services for
-            that server.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/Synapse-configure.gif"
-              class="case-study-image demo"
-            />
-            <figcaption>Fig. 30: Synapse Configure</figcaption>
-          </figure>
-          <br />
-          <p>
-            Synapse now knows which services the user wants to monitor on their
-            machine. The fourth step is to actually build the pipeline by
-            running the command <code class="command">Synapse deploy</code>.
-            Again, the pipeline provides a centralized location where all of the
-            monitoring data from the user's various servers will live.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/Synapse-deploy.gif"
-              class="case-study-image demo"
-            />
-            <figcaption>Fig. 31: Synapse Deploy</figcaption>
-          </figure>
-          <br />
-          <p>
-            Running the Synapse deploy command sets up the AWS infrastructure,
-            including the IAM role, the Kinesis Firehose stream, the S3 bucket,
-            the Lambda function, and the Timestream database with the correct
-            tables.
-          </p>
-          <br />
-          <p>
-            It asks if the user’s AWS credentials have the appropriate
-            permissions, providing a link where they can confirm that they do,
-            then it asks if they want to set up alerting, which will send them
-            an email under specific failure conditions.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/Synapse-teardown.gif"
-              class="case-study-image demo"
-            />
-            <figcaption>Fig. 32: Synapse Teardown</figcaption>
-          </figure>
-          <br />
-          <p>
-            The user can run the teardown command to remove all deployed AWS
-            services. It will ask them to confirm that the user wants to delete
-            the resources. The teardown command is for ease of use and to ensure
-            that there are no extra AWS services floating around in the user’s
-            account.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/vector-run.gif"
-              class="case-study-image demo"
-            />
-            <figcaption>Fig. 33: Running Vector</figcaption>
-          </figure>
-          <br />
-          <p>
-            Now that the pipeline is set up, the user is ready to send data to
-            it. They do this by running vector.
-          </p>
-          <br />
-          <p>
-            <!-- TODO: stylize code -->
-            The user starts Vector by running the command
-            <code class="command">vector --config vector-config.toml</code>,
-            passing in the configuration file generated from the configure
-            command. This file ensures that they are monitoring the appropriate
-            services on this machine. Vector is now streaming logs and metrics
-            to the AWS pipeline.
-          </p>
-          <br />
-
-          <h3>6.2 Using Synapse</h3>
-
-          <br />
-          <p>
-            Now that the user has data passing through to the database, they can
-            visit the frontend, which is accessed by running the command Synapse
-            start:server from any computer that has Synapse installed and
-            configured, and then visiting localhost port 3000 on a browser.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/frontend-home.gif"
-              class="case-study-image demo"
-            />
-            <figcaption>Fig. 34: Frontend Home</figcaption>
-          </figure>
-          <br />
-          <p>
-            There are three pages listed on the sidebar. A homepage, a charts
-            page, and a query page. On the homepage, the user can see what
-            services are being monitored and check that the pipeline is
-            successfully writing records to the database.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/frontend-charts.gif"
-              class="case-study-image demo"
-            />
-            <figcaption>Fig. 35: Frontend Charts</figcaption>
-          </figure>
-          <br />
-          <p>
-            On the charts page, the user sees real-time data for the services
-            currently being monitored. This includes key metrics from the
-            <a
-              href="https://grafana.com/blog/2018/08/02/the-red-method-how-to-instrument-your-services/"
-              target="_blank"
-              >RED method</a
-            >, such as the rate of requests, the number of errors among those
-            requests, and the duration of the requests.
-          </p>
-          <br />
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/frontend-query.gif"
-              class="case-study-image demo"
-            />
-            <figcaption>Fig. 36: Frontend Query</figcaption>
-          </figure>
-          <br />
-          <p>
-            The query page enables the user to query the Timestream database. In
-            this example, they query the nginx access logs for all 500 errors
-            that occurred in the last 2 hours. A user can also export the data
-            and begin to drill down to find the source of the problem.
-          </p>
-          <br />
-
-          <!-- Section 7 -->
-          <h2 class="h2">9 Implementation Challenges</h2>
-          <p>
-            We had to overcome 3 major technical challenges while building
-            Synapse.
-
-            <!-- TODO: Bullet points -->
-            AWS: the optimistic Response object Real-time data transformations
-            What does Synapse visualize?
-          </p>
-          <br />
-
-          <h3>7.1 AWS: the optimistic Response object</h3>
-          <p>
-            One major challenge the team faced while building the
-            <code>deploy</code> and <code>teardown</code> commands was related
-            to spinning up or destroying AWS services that depend on the
-            existence of another service in order to successfully deploy or that
-            cannot be destroyed while another service depends on it.
-            <code>deploy</code> fires off 37 API calls, while
-            <code>teardown</code> executes 25.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/api-calls.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 37: The services spun up/destroyed by Synapse's
-              <code>deploy</code> and <code>teardown</code> commands
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            For example, certain services couldn’t be spun up before the
-            requisite IAM permissions were created or attached, or Timestream
-            tables couldn’t be created until the database was successfully
-            created.
-          </p>
-          <br />
-          <p>
-            When an HTTP request is dependent on a successful response to a
-            previous one, you expect to be able to make the first request, wait
-            to receive the response, and only then send the second request.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/optimistic-response.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 38: Expected behavior when a second async request is
-              dependent on a successful response to a first
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            When using the AWS SDK, AWS returns an AWS Response object that
-            doesn’t necessarily indicate that the service has been created! So
-            when you predicate the next step on the receipt of the Response
-            object and send the subsequent request, it often fails.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/long-polling.gif"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 39: Our solution to premature responses: implementing
-              long-polling (with exponential backoff)
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            To overcome this, we implemented long polling AWS with exponential
-            back off. Synapse asks Amazon repeatedly whether the operation has
-            been completed, increasing the time between failed polls at an
-            exponential rate in order to avoid overwhelming the server or
-            hitting a rate limit. Once the AWS Response object returns a state
-            that is not <span class="bold">LOADING</span>, Synapse can then
-            react to that state change accordingly.
-          </p>
-          <br />
-
-          <h3>7.2 Transforming data in real-time</h3>
-          <p>
-            How does Synapse take raw, plain-text logs and prepare them for
-            insertion to a time-series database? To achieve this, the team had
-            to build in two separate data transformation steps throughout the
-            pipeline. The first happens at the point of collection, while the
-            second happens in the Lambda function triggered by Kinesis Data
-            Firehose writing to the S3 bucket. We have already discussed how
-            both work but to reiterate:
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/apache-log.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 40: Sample plaintext log line from a web server
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            Logs are typically emitted as plain-text. During the log collection
-            process, Synapse takes some steps to prepare it for insertion into
-            the database. It first has to parse the record using a regex pattern
-            written specifically to match this particular log format. Parsing
-            that plain-text log with such a regex pattern gives us a structured
-            JSON object. Synapse then injects a `type` key into the JSON object
-            to note the record source and transport it off the host server.
-          </p>
-          <br />
-          <p>
-            The second data transformation happens in the Lambda function where
-            Synapse takes an octet-stream, parses it, and then writes to the
-            database.
-          </p>
-          <br />
-          <p>
-            Part of the appeal of the Kinesis Data Firehose is that it can
-            accept data from any source: JSON, XML and numerous other formats.
-            Firehose just accepts that data without checking or enforcing its
-            validity. Unfortunately, the easiest way to accept any data is to
-            convert it to binary and keep appending it to a binary blob. This is
-            exactly what Firehose does and where it converts the JSON Synapse
-            built while collecting records into an octet-stream.
-          </p>
-          <br />
-          <p>
-            We first start by converting the binary data into a string. This
-            looks similar to an array of JSON records but is missing a few
-            tokens (brackets, commas, etc.) making it unparsable/invalid JSON.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/binary-to-json.gif"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 41: Using regex to parse a string back to JSON
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            We can use regex to insert those missing tokens and then
-            successfully parse the octet-stream back into JSON. Once the record
-            is parsable, Synapse checks that the <code>type</code> key that was
-            injected during the first data transformation phase. This key helps
-            us identify the source of the record, what data to pluck out and
-            store and what table within Timestream to insert it in.
-          </p>
-          <br />
-
-          <h3>7.3 What to Visualize</h3>
-          <p>
-            When Naptime’s servers are down and they view the Synapse dashboard,
-            what are the key metrics they need to see in order to resolve their
-            outage? The challenge here wasn’t in writing SQL queries, but
-            actually taking a step back and deciding how to represent what
-            Synapse tracks and measures visually.
-          </p>
-          <br />
-          <p>
-            There are some main schools of thought on what metrics matter most
-            for monitoring, named things like “The Four Golden Signals”, “USE”,
-            and the “RED Method”. Tom Wilkie, a former site reliability engineer
-            (SRE) at Google, created the microservice-oriented monitoring
-            philosophy called RED. It focuses on rate, errors & duration, and
-            the team found that it had the right balance of simplicity and
-            specificity for our use-case, as well as that it was particularly
-            well suited to time-series data.
-
-            <!-- TODO: bullet points -->
-            <span class="bold">“Rate”</span> refers to the number of requests
-            per second a service is receiving.
-            <span class="bold">“Errors”</span> is the number of the requests
-            that receive an error response from the service.
-            <span class="bold">“Duration”</span> is the length of time the
-            service takes to complete a response to a request.
-          </p>
-          <br />
-          <p>
-            We found that RED matched our use case nicely, perhaps due to the
-            fact that microservice architectures are typically distributed
-            systems.
-          </p>
-          <br />
-          <p>
-            Tom Wilkie has written that “understanding the error rate, the
-            request rate, and then some distribution of latency gives you a
-            nice, consistent view of how your architecture is behaving.” That’s
-            exactly what we wanted Synapse to provide: a consistent view of how
-            your architecture is behaving over time.
-          </p>
-          <br />
-
-          <!-- Section 8 -->
-          <h2 class="h2">10 Future Work</h2>
-          <p>
-            Of course, an open source project is never fully finished. While we
-            think Synapse is currently feature-complete, ready for people to use
-            and immediately benefit from, there are certain future work items
-            that would strengthen the overall framework.
-          </p>
-          <br />
-          <ul>
-            <li>
-              We would like to provide our users the ability to inject more and
-              more varied custom transforms into the pipeline. It’s possible as
-              of now if they go and edit the configuration files, but that’s
-              manual and Synapse is all about reducing toil.
-            </li>
-            <li>
-              We’d also like to provide built-in support for MySQL, which Vector
-              does not currently support as a native source but which they do
-              plan to build as part of a future milestone.
-            </li>
-            <li>
-              And finally, on the dashboard, we would like to provide syntax
-              highlighting for SQL queries as well as more out of the box graphs
-              and visualizations.
-            </li>
-          </ul>
-
+          
           <!-- Section 9 -->
           <h2>11 Team</h2>
           <br />
