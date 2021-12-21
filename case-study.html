@@ -1,1349 +1,1811 @@
 <!DOCTYPE html>
 <html data-wf-page="5f71dd169010d6326b65485d">
+  <head>
+    <meta charset="utf-8" />
+    <title>Synapse • Case Study</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+      type="text/javascript"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:regular,500,600,700"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Work+Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans"
+    />
+    <script type="text/javascript">
+      WebFont.load({ google: { families: ["Inter:regular,500,600,700"] } });
+    </script>
+    <script type="text/javascript">
+      !(function (o, c) {
+        var n = c.documentElement,
+          t = " w-mod-";
+        (n.className += t + "js"),
+          ("ontouchstart" in o ||
+            (o.DocumentTouch && c instanceof DocumentTouch)) &&
+            (n.className += t + "touch");
+      })(window, document);
+    </script>
+    <link
+      href="assets/images/logo-mono.png"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link href="assets/images/logo-mono.png" rel="apple-touch-icon" />
+    <script
+      src="https://kit.fontawesome.com/d019875f94.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta
+      name="image"
+      property="og:image"
+      content="assets/images/thumbnail.png"
+    />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Synapse • Case Study</title>
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:regular,500,600,700" media="all" />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Work+Sans"
-  />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Nunito+Sans"
-  />
-  <script type="text/javascript">
-    WebFont.load({ google: { families: ["Inter:regular,500,600,700"] } });
-  </script>
-  <script type="text/javascript">
-    !(function (o, c) {
-      var n = c.documentElement,
-        t = " w-mod-";
-      (n.className += t + "js"),
-        ("ontouchstart" in o ||
-          (o.DocumentTouch && c instanceof DocumentTouch)) &&
-        (n.className += t + "touch");
-    })(window, document);
-  </script>
-  <link href="assets/images/logo-mono.png" rel="shortcut icon" type="image/x-icon" />
-  <link href="assets/images/logo-mono.png" rel="apple-touch-icon" />
-  <script src="https://kit.fontawesome.com/d019875f94.js" crossorigin="anonymous"></script>
-  <meta name="image" property="og:image" content="assets/images/thumbnail.png" />
-</head>
-
-<body>
-  <div class="navigation-wrap">
-    <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="navigation w-nav">
-      <div class="navigation-container">
-        <div class="navigation-left">
-          <a
-            href="/"
-            aria-current="page"
-            class="brand w-nav-brand w--current"
-            aria-label="home"
-          >
-            <img
-              src="assets/images/logo-color.png"
-              alt=""
-              class="template-logo"
-              style="max-width: 33%"
-            />
-            <p class="work-sans" style="display: inline">synapse</p>
-          </a>
-
-          <nav role="navigation" class="nav-menu w-nav-menu">
-            <a href="/case-study" class="link-block w-inline-block">
-              <div>Case Study</div>
-            </a>
-            <a href="/team" class="link-block w-inline-block">
-              <div>Team</div>
-            </a>
-          </nav>
-        </div>
-        <div class="navigation-right">
-          <div class="login-buttons">
+  <body>
+    <div class="navigation-wrap">
+      <div
+        data-collapse="medium"
+        data-animation="default"
+        data-duration="400"
+        role="banner"
+        class="navigation w-nav"
+      >
+        <div class="navigation-container">
+          <div class="navigation-left">
             <a
-              href="https://github.com/Synapse-monitoring/Synapse"
-              target="_blank"
+              href="/"
+              aria-current="page"
+              class="brand w-nav-brand w--current"
+              aria-label="home"
             >
-              <span style="color: #0a0188">
-                <i class="fab fa-github fa-lg"></i>
-              </span>
+              <img
+                src="assets/images/logo-color.png"
+                alt=""
+                class="template-logo"
+                style="max-width: 33%"
+              />
+              <p class="work-sans" style="display: inline">synapse</p>
             </a>
+
+            <nav role="navigation" class="nav-menu w-nav-menu">
+              <a href="/case-study" class="link-block w-inline-block">
+                <div>Case Study</div>
+              </a>
+              <a href="/team" class="link-block w-inline-block">
+                <div>Team</div>
+              </a>
+            </nav>
+          </div>
+          <div class="navigation-right">
+            <div class="login-buttons">
+              <a
+                href="https://github.com/Synapse-monitoring/Synapse"
+                target="_blank"
+              >
+                <span style="color: #0a0188">
+                  <i class="fab fa-github fa-lg"></i>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
+        <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
       </div>
-      <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
     </div>
-  </div>
-  <div id="sidebar" class="toc">
-  </div>
-  <div class="section header">
-    <article class="container case-study-container">
-      <div class="hero-text-container">
-        <h1 class="h1 centered">Case Study</h1>
-      </div>
-      <div id="case-study">
+    <div id="sidebar" class="toc"></div>
+    <div class="section header">
+      <article class="container case-study-container">
+        <div class="hero-text-container">
+          <h1 class="h1 centered">Case Study</h1>
+        </div>
+        <div id="case-study">
+          <br />
+          <br />
 
-        <br />
-        <br />
+          <!-- Section 1 -->
+          <h2 class="h2">1 Introduction</h2>
+          <br />
+          <p>
+            The last decade has seen a paradigm shift in computing
+            infrastructure. Etc...
+          </p>
 
-        <!-- Section 1 -->
-        <h2 class="h2">1 Introduction</h2>
-        <br>
-        <p>
-          The last decade has seen a paradigm shift in computing infrastructure. Systems are becoming more and more
-          ephemeral, abstracted, and distributed. Innovations in computing infrastructure and software architectures
-          have yielded simpler components at higher levels of abstraction, but behind those simpler pieces lurk more
-          complex systems. Engineers are able to deploy and stitch together many more different kinds of software
-          components today, resulting in vastly increased complexity. As individual nodes in your system’s topology
-          become more decentralized, they also become more complicated to track and monitor.
-        </p>
+          <h3>1.1 What is Synapse?</h3>
+          <p>
+            Synapse is an open-source, serverless monitoring framework for
+            small, distributed apps. Our team built Synapse in order to help
+            small teams handle the challenges of operating a distributed system.
+          </p>
+          <br />
+          <p>
+            Synapse enables you to collect, centralize, and store log and metric
+            data emitted by the various disparate pieces of your system. With
+            Synapse, when something goes down in production, there’s no race to
+            SSH into a dozen different nodes to figure out what’s gone wrong;
+            all of the log data you’d use for debugging has already been
+            collected, processed and tagged with the servers and services that
+            originated the individual records, and stored in a single database
+            for querying.
+          </p>
+          <br />
+          <p>
+            All of this empowers the user to both greatly reduce costly downtime
+            or outages, and proactively improve the overall performance of their
+            systems. Prevention is important: you want to catch problems before
+            your users do. If you’re constantly applying ad-hoc, band-aid fixes,
+            you’re making your system more fragile instead of less.
+          </p>
+          <br />
+          <p>
+            To illustrate just exactly what Synapse does, let’s use the example
+            of a small company named NapTime.
+          </p>
+          <br />
 
-        <h3>1.1 What is Synapse?</h3>
-        <p>
-          Synapse is an open-source, serverless monitoring framework for small, distributed apps. Our team built Synapse
-          in order to help small teams handle the challenges of operating a distributed system.
-        </p>
-        <br />
-        <p>
-          Synapse enables you to collect, centralize, and store log and metric data emitted by the various disparate
-          pieces of your system. With Synapse, when something goes down in production, there’s no race to SSH into a
-          dozen different nodes to figure out what’s gone wrong; all of the log data you’d use for debugging has already
-          been collected, processed and tagged with the servers and services that originated the individual records, and
-          stored in a single database for querying.
-        </p>
-        <br />
-        <p>
-          All of this empowers the user to both greatly reduce costly downtime or outages, and proactively improve the
-          overall performance of their systems. Prevention is important: you want to catch problems before your users
-          do. If you’re constantly applying ad-hoc, band-aid fixes, you’re making your system more fragile instead of
-          less.
-        </p>
-        <br />
-        <p>
-          To illustrate just exactly what Synapse does, let’s use the example of a small company named NapTime.
-        </p>
-        <br />
+          <h3>1.2 NapTime: An Example User Story</h3>
+          <p>
+            NapTime has two engineers, and they recently completed the beta
+            build of their sleep monitoring app.
+          </p>
+          <br />
+          <p>
+            Their system itself has proven to be resilient so far, thanks to its
+            small size and simplicity.
+          </p>
+          <figure>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>Fig. 1: NapTime's beta architecture</figcaption>
+          </figure>
+          <br />
+          <p>
+            NapTime built a simple three-tier system in order to avoid premature
+            optimization, with their web server and application running on one
+            server, and their database on another.
+          </p>
+          <br />
+          <p>
+            The two engineers have been busy developing features and shipping
+            their first few builds. When an outage or critical bug pops up, it
+            derails their development flow. NapTime doesn’t currently have a
+            monitoring solution in place, so they’re totally reliant on either
+            hearing from users when something breaks, or coming across an issue
+            themselves by poking around the system.
+          </p>
+          <br />
 
-        <h3>1.2 NapTime: An Example User Story</h3>
-        <p>
-          NapTime has two engineers, and they recently completed the beta build of their sleep monitoring app.
-        </p>
-        <br />
-        <p>
-          Their system itself has proven to be resilient so far, thanks to its small size and simplicity.
-        </p>
-        <figure>
-          <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-          <figcaption>Fig. 1: NapTime's beta architecture</figcaption>
-        </figure>
-        <br />
-        <p>
-          NapTime built a simple three-tier system in order to avoid premature optimization, with their web server and
-          application running on one server, and their database on another.
-        </p>
-        <br />
-        <p>
-          The two engineers have been busy developing features and shipping their first few builds. When an outage or
-          critical bug pops up, it derails their development flow. NapTime doesn’t currently have a monitoring solution
-          in place, so they’re totally reliant on either hearing from users when something breaks, or coming across an
-          issue themselves by poking around the system.
-        </p>
-        <br />
+          <h3>1.3 An Outage at NapTime</h3>
+          <p>
+            What happens when an outage is reported? Say, for example, a couple
+            of users reach out to say that they’re trying to access their
+            homepages but they’re just receiving a 500-level error.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/debugging-small.gif"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 2: How can NapTime determine what's wrong?
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            The engineers decide on three priority debugging steps: ensure that
+            each server in their system is up, ensure that each of the services
+            running on those servers is up, and check whether those services are
+            sending and receiving requests and responses successfully.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/debugging-steps.gif"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 3: Some potential debugging steps for NapTime's engineers
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            First, if they have a list of their static IP addresses, they can
+            use the Unix command line utility `ping` to check whether each of
+            the servers is up at all. If the servers are up, it’ll be useful to
+            see their health metrics. NapTime engineers might run a utility like
+            `top` on each of the servers to see a summary of the system’s health
+            (e.g. overall CPU load or available memory) as well as what
+            processes are running on the server.
+          </p>
+          <br />
+          <p>
+            If everything checks out with the system’s health, it’s time to
+            start looking into the individual services running on each server.
+            If the engineers are interested in a running process, like an
+            application, they might check the status of their process manager.
+            Each service generally has a different method of checking its
+            health.
+          </p>
+          <br />
+          <p>
+            After the most obvious checks (e.g. is something even running?) come
+            the next steps. What if none of their checks turn up an issue?
+            Performing each of the aforementioned steps manually will tell them
+            how something is performing at the moment of observation, but what
+            about performance just before they checked? Or how about at the time
+            the complaints started coming in? The log files that each of
+            NapTime’s servers and services produce can provide the answers to
+            these questions.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/logs-historical.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 4: NapTime's servers and services write their historical
+              records to log files
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            Let’s say that the NapTime team is curious about what’s going on
+            with their Nginx web server. One of their next steps would be to
+            take a look at the access log file in the nginx subdirectory of
+            var/log.
+          </p>
+          <br />
+          <p>
+            Web servers like nginx and Apache produce access logs, where each
+            line contains information about each request sent to the system;
+            like the IP address of the requester, time of the request, the path
+            of the requested file, the server response code, the time it took
+            the server to fulfill the request, and more. If there are 500-level
+            errors occurring, exploring the access log of their web server is
+            where NapTime would find evidence of them.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/log-breakdown.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 5: An example of a single record from a web server's
+              plain-text access log
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            The individual log lines NapTime would find would look something
+            like the above diagram. An interested engineer can take logs like
+            these and analyze them, either one by one or aggregated, in order to
+            achieve a number of insights, like:
+            <!-- TODO: Bullet points -->
+            · Finding individual specific events in the past · Graphing trends
+            over time, like 500 response codes or aggregated requests per minute
+            · And alerting specific users when pre-defined heuristic thresholds
+            are met or surpassed
+          </p>
+          <br />
 
-        <h3>1.3 An Outage at NapTime</h3>
-        <p>
-          What happens when an outage is reported? Say, for example, a couple of users reach out to say that they’re
-          trying to access their homepages but they’re just receiving a 500-level error.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/debugging-small.gif" class="case-study-image" />
-          <figcaption>Fig. 2: How can NapTime determine what's wrong?</figcaption>
-        </figure>
-        <br />
-        <p>
-          The engineers decide on three priority debugging steps: ensure that each server in their system is up, ensure
-          that each of the services running on those servers is up, and check whether those services are sending and
-          receiving requests and responses successfully.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/debugging-steps.gif" class="case-study-image" />
-          <figcaption>Fig. 3: Some potential debugging steps for NapTime's engineers</figcaption>
-        </figure>
-        <br />
-        <p>
-          First, if they have a list of their static IP addresses, they can use the Unix command line utility `ping` to
-          check whether each of the servers is up at all. If the servers are up, it’ll be useful to see their health
-          metrics. NapTime engineers might run a utility like `top` on each of the servers to see a summary of the
-          system’s health (e.g. overall CPU load or available memory) as well as what processes are running on the
-          server.
-        </p>
-        <br />
-        <p>
-          If everything checks out with the system’s health, it’s time to start looking into the individual services
-          running on each server. If the engineers are interested in a running process, like an application, they might
-          check the status of their process manager. Each service generally has a different method of checking its
-          health.
-        </p>
-        <br />
-        <p>
-          After the most obvious checks (e.g. is something even running?) come the next steps. What if none of their
-          checks turn up an issue? Performing each of the aforementioned steps manually will tell them how something is
-          performing at the moment of observation, but what about performance just before they checked? Or how about at
-          the time the complaints started coming in? The log files that each of NapTime’s servers and services produce
-          can provide the answers to these questions.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/logs-historical.png" class="case-study-image" />
-          <figcaption>Fig. 4: NapTime's servers and services write their historical records to log files</figcaption>
-        </figure>
-        <br />
-        <p>
-          Let’s say that the NapTime team is curious about what’s going on with their Nginx web server. One of their
-          next steps would be to take a look at the access log file in the nginx subdirectory of var/log.
-        </p>
-        <br />
-        <p>
-          Web servers like nginx and Apache produce access logs, where each line contains information about each request
-          sent to the system; like the IP address of the requester, time of the request, the path of the requested file,
-          the server response code, the time it took the server to fulfill the request, and more. If there are 500-level
-          errors occurring, exploring the access log of their web server is where NapTime would find evidence of them.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/log-breakdown.png" class="case-study-image" />
-          <figcaption>Fig. 5: An example of a single record from a web server's plain-text access log</figcaption>
-        </figure>
-        <br />
-        <p>
-          The individual log lines NapTime would find would look something like the above diagram. An interested
-          engineer can take logs like these and analyze them, either one by one or aggregated, in order to achieve a
-          number of insights, like:
-          <!-- TODO: Bullet points -->
-          · Finding individual specific events in the past
-          · Graphing trends over time, like 500 response codes or aggregated requests per minute
-          · And alerting specific users when pre-defined heuristic thresholds are met or surpassed
-        </p>
-        <br />
+          <h3>1.4 Scaling up NapTime</h3>
+          <p>
+            Let’s consider NapTime’s architecture and processes after they scale
+            a bit more. They still have a three-tier architecture, with
+            presentation, business logic, and storage abstracted away from each
+            other, but now they have more overall servers and services.
+          </p>
+          <br />
+          <p>
+            Collecting and processing logs is straightforward when everything is
+            on a single machine, you just use some software to handle
+            aggregation. But when you have a distributed system with multiple
+            nodes, instead of just software you need both software AND some
+            infrastructure that can handle both transportation to and storage in
+            a new central location.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/naptime-scaled.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 6: NapTime's architecture after scaling
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            Suddenly NapTime is in charge of 8 nodes instead of 2, scaled out
+            app servers, more unique services, a load balancer, and multiple
+            databases. What is debugging like for them now? What if MongoDB
+            suddenly stops responding, or one of the app servers can no longer
+            write to the Main Postgres instance? How will NapTime isolate what
+            went wrong, let alone actually fix it? Their number of servers and
+            services keeps growing, and the number of connections between all of
+            them continues to grow exponentially. How is the team supposed to
+            get a holistic understanding of what’s happening across the entire
+            topology of their system?
+          </p>
+          <br />
+          <p>
+            Monitoring is toil. That is, if you don’t have an automated
+            framework taking care of it for you. As detailed above, one key
+            component in “monitoring” is examining the log output of your
+            systems. That can mean reading through files thousands of lines
+            long, like NapTime’s Nginx Access Log, one line at a time. No one
+            wants to read log files line by line if it can be avoided. After
+            all, one of the main motivations of the field of software
+            engineering is automating the toil out of processes.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/tail.gif"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 7: Running `tail -f` on a server/service's logfile can help
+              you understand what that server/service is doing over time
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            On Unix-like systems, a common strategy to gain a quick insight into
+            what’s happening with a service is to run the command `tail -f` on
+            the log file to which that service writes. Tail prints the last 10
+            lines of a given file to STDOUT, and the `-f` flag indicates that
+            the program should continue to “follow”, streaming new lines to
+            STDOUT as they are written to the file.
+          </p>
+          <br />
+          <p>
+            This process worked fine for NapTime when they wanted to watch the
+            real time stream of log messages on one machine or two. But what
+            about now that their system is distributed across nearly a dozen
+            servers? Are their engineers going to open a dozen terminal windows
+            and SSH onto each individual server?
+          </p>
+          <br />
+          <p>
+            Monitoring distributed applications is exponentially harder. The
+            Naptime engineers simply wouldn’t be able to watch and comprehend
+            the stream of logs coming in for every service on each server in
+            real time. They would want to be able to capture those logs as
+            they’re written or emitted and save them for later. Ideally on a
+            central server of some kind, so they don’t have to go SSHing around
+            to find what they need in the stress of an outage.
+          </p>
+          <br />
 
-        <h3>1.4 Scaling up NapTime</h3>
-        <p>
-          Let’s consider NapTime’s architecture and processes after they scale a bit more. They still have a three-tier
-          architecture, with presentation, business logic, and storage abstracted away from each other, but now they
-          have more overall servers and services.
-        </p>
-        <br />
-        <p>
-          Collecting and processing logs is straightforward when everything is on a single machine, you just use some
-          software to handle aggregation. But when you have a distributed system with multiple nodes, instead of just
-          software you need both software AND some infrastructure that can handle both transportation to and storage in
-          a new central location.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/naptime-scaled.png" class="case-study-image" />
-          <figcaption>Fig. 6: NapTime's architecture after scaling</figcaption>
-        </figure>
-        <br />
-        <p>
-          Suddenly NapTime is in charge of 8 nodes instead of 2, scaled out app servers, more unique services, a load
-          balancer, and multiple databases. What is debugging like for them now? What if MongoDB suddenly stops
-          responding, or one of the app servers can no longer write to the Main Postgres instance? How will NapTime
-          isolate what went wrong, let alone actually fix it? Their number of servers and services keeps growing, and
-          the number of connections between all of them continues to grow exponentially. How is the team supposed to get
-          a holistic understanding of what’s happening across the entire topology of their system?
-        </p>
-        <br />
-        <p>
-          Monitoring is toil. That is, if you don’t have an automated framework taking care of it for you. As detailed
-          above, one key component in “monitoring” is examining the log output of your systems. That can mean reading
-          through files thousands of lines long, like NapTime’s Nginx Access Log, one line at a time. No one wants to
-          read log files line by line if it can be avoided. After all, one of the main motivations of the field of
-          software engineering is automating the toil out of processes.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/tail.gif" class="case-study-image" />
-          <figcaption>Fig. 7: Running `tail -f` on a server/service's logfile can help you understand what that
-            server/service is doing over time</figcaption>
-        </figure>
-        <br />
-        <p>
-          On Unix-like systems, a common strategy to gain a quick insight into what’s happening with a service is to run
-          the command `tail -f` on the log file to which that service writes. Tail prints the last 10 lines of a given
-          file to STDOUT, and the `-f` flag indicates that the program should continue to “follow”, streaming new lines
-          to STDOUT as they are written to the file.
-        </p>
-        <br />
-        <p>
-          This process worked fine for NapTime when they wanted to watch the real time stream of log messages on one
-          machine or two. But what about now that their system is distributed across nearly a dozen servers? Are their
-          engineers going to open a dozen terminal windows and SSH onto each individual server?
-        </p>
-        <br />
-        <p>
-          Monitoring distributed applications is exponentially harder. The Naptime engineers simply wouldn’t be able to
-          watch and comprehend the stream of logs coming in for every service on each server in real time. They would
-          want to be able to capture those logs as they’re written or emitted and save them for later. Ideally on a
-          central server of some kind, so they don’t have to go SSHing around to find what they need in the stress of an
-          outage.
-        </p>
-        <br />
+          <h3>1.5 Observability</h3>
+          <p>
+            The visibility that a team like NapTime seeks into their system is
+            summed up by the concept of observability.
+          </p>
+          <br />
+          <!-- TODO: Ø Cindy blockquote formatting here -->
+          <p>
+            Due to the nature of software, no complex system is ever healthy.
+          </p>
+          <br />
+          <p>
+            Distributed systems in particular are pathologically unpredictable.
+            When multiple services in a distributed system are communicating
+            with each other over the wire, each hosted on a potentially
+            ephemeral node, the possible failure conditions are nearly endless.
+            What if a server is down? What if a service is down? What if both
+            services are up but are failing to communicate for some reason? Et
+            cetera.
+          </p>
+          <br />
+          <p>
+            In light of these challenges, a team must also keep in mind to
+            design their systems to facilitate debugging.. Things will break and
+            outages will occur. Hope is not a strategy; but preparedness is.
+          </p>
+          <br />
 
-        <h3>1.5 Observability</h3>
-        <p>
-          The visibility that a team like NapTime seeks into their system is summed up by the concept of observability.
-        </p>
-        <br />
-        <!-- TODO: Ø Cindy blockquote formatting here -->
-        <p>
-          Due to the nature of software, no complex system is ever healthy.
-        </p>
-        <br />
-        <p>
-          Distributed systems in particular are pathologically unpredictable. When multiple services in a distributed
-          system are communicating with each other over the wire, each hosted on a potentially ephemeral node, the
-          possible failure conditions are nearly endless. What if a server is down? What if a service is down? What if
-          both services are up but are failing to communicate for some reason? Et cetera.
-        </p>
-        <br />
-        <p>
-          In light of these challenges, a team must also keep in mind to design their systems to facilitate debugging..
-          Things will break and outages will occur. Hope is not a strategy; but preparedness is.
-        </p>
-        <br />
+          <h3>1.6 Need for a monitoring strategy</h3>
+          <p>
+            Things can get messy very quickly. Without a centralized platform
+            for handling the collection, transportation, and storage of your
+            data, those valuable records can get lost or never collected in the
+            first place. Developing a strategy for the collection,
+            centralization, and retention of your log and metric data means that
+            you don’t prematurely forfeit the benefits that logs and metrics
+            provide.
+          </p>
+          <br />
+          <p>Synapse acts as that strategy.</p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/single-source.gif"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 8: Synapse provides a single source of historical truth for
+              application state
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            A team can SSH into each of the nodes in their system, configure and
+            deploy a logging pipeline using Synapse’s cli tool, , and start
+            shipping all of their log and metric data off of their servers and
+            onto a central store. The logs and metrics produced can come either
+            from services running on the server, like nginx or Postgres, or from
+            the server itself, in the form of host metrics like CPU load or
+            available memory.
+          </p>
+          <br />
+          <p>
+            Synapse provides a single, centralized log management solution,
+            untangling the web of data producers and consumers. No more routing
+            logs from individual sources to multiple destinations over time. No
+            more custom aggregation scripts, cron jobs, or any of that. Synapse
+            collects the logs and metrics emitted from distributed servers and
+            services over time, building a single source of historical state.
+          </p>
+          <br />
+          <p>
+            That single source of truth about system and service state and
+            performance empowers the user to:
+            <!-- TODO: Bullet points -->
+            · Ensure that all output or generated data is reliably and
+            automatically captured, without having to do it manually · Avoid
+            context switching, or jumping between databases and machines trying
+            to dig up whatever went wrong · And reduce debugging time, because
+            everything exists in a single database and can be queried and
+            explored like normal relational data.
+          </p>
+          <br />
+          <p>
+            Each of these benefits brings the user closer to the holy grail for
+            engineers: automating away manual toil.
+          </p>
+          <br />
 
-        <h3>1.6 Need for a monitoring strategy</h3>
-        <p>
-          Things can get messy very quickly. Without a centralized platform for handling the collection, transportation,
-          and storage of your data, those valuable records can get lost or never collected in the first place.
-          Developing a strategy for the collection, centralization, and retention of your log and metric data means that
-          you don’t prematurely forfeit the benefits that logs and metrics provide.
-        </p>
-        <br />
-        <p>
-          Synapse acts as that strategy.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/single-source.gif" class="case-study-image" />
-          <figcaption>Fig. 8: Synapse provides a single source of historical truth for application state</figcaption>
-        </figure>
-        <br />
-        <p>
-          A team can SSH into each of the nodes in their system, configure and deploy a logging pipeline using Synapse’s
-          cli tool, , and start shipping all of their log and metric data off of their servers and onto a central store.
-          The logs and metrics produced can come either from services running on the server, like nginx or Postgres, or
-          from the server itself, in the form of host metrics like CPU load or available memory.
-        </p>
-        <br />
-        <p>
-          Synapse provides a single, centralized log management solution, untangling the web of data producers and
-          consumers. No more routing logs from individual sources to multiple destinations over time. No more custom
-          aggregation scripts, cron jobs, or any of that. Synapse collects the logs and metrics emitted from distributed
-          servers and services over time, building a single source of historical state.
-        </p>
-        <br />
-        <p>
-          That single source of truth about system and service state and performance empowers the user to:
-          <!-- TODO: Bullet points -->
-          · Ensure that all output or generated data is reliably and automatically captured, without having to do it
-          manually
-          · Avoid context switching, or jumping between databases and machines trying to dig up whatever went wrong
-          · And reduce debugging time, because everything exists in a single database and can be queried and explored
-          like normal relational data.
-        </p>
-        <br />
-        <p>
-          Each of these benefits brings the user closer to the holy grail for engineers: automating away manual toil.
-        </p>
-        <br />
+          <!-- Section 2 -->
+          <h2 class="h2">2 Overview of Synapse</h2>
+          <h3>2.1 How does Synapse help teams?</h3>
+          <p>
+            To explore exactly how Synapse empowers small teams working on
+            distributed applications, let’s think back to the example of NapTime
+            after they’ve scaled their architecture.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/Synapse-agent.gif"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 9: Synapse's CLI helps you install and configure a collection
+              agent on your nodes
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            Synapse includes a collection agent that the team installs on each
+            node in their system. That collection agent gathers log and metric
+            data from both the services running on the server, as well as
+            information about the server itself.
+          </p>
+          <br />
+          <p>
+            But how does the data make the jump from those machines to the
+            central database? That would require an infrastructure pipeline, in
+            addition to the deployment of some type of collection software.
+          </p>
+          <br />
 
-        <!-- Section 2 -->
-        <h2 class="h2">2 Overview of Synapse</h2>
-        <h3>2.1 How does Synapse help teams?</h3>
-        <p>
-          To explore exactly how Synapse empowers small teams working on distributed applications, let’s think back to
-          the example of NapTime after they’ve scaled their architecture.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/Synapse-agent.gif" class="case-study-image" />
-          <figcaption>Fig. 9: Synapse's CLI helps you install and configure a collection agent on your nodes</figcaption>
-        </figure>
-        <br />
-        <p>
-          Synapse includes a collection agent that the team installs on each node in their system. That collection agent
-          gathers log and metric data from both the services running on the server, as well as information about the
-          server itself.
-        </p>
-        <br />
-        <p>
-          But how does the data make the jump from those machines to the central database? That would require an
-          infrastructure pipeline, in addition to the deployment of some type of collection software.
-        </p>
-        <br />
+          <h3>2.2 What’s in Synapse?</h3>
+          <p>
+            This is an overview of Synapse’s architecture and the infrastructure
+            behind this framework. We’ll dive into it in more detail later, but
+            for now let’s stick to the main conceptual pieces.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/Synapse-architecture.gif"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 10: An overview of Synapse's architecture, split into
+              conceptual components
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            We’ve already discussed how Synapse helps you set up the automated
+            collection of logs and metrics from your services. You don’t need to
+            change a single line of your application code-- Synapse runs as a
+            fully-decoupled agent process on your nodes, tapping into the log
+            files to which your services already write and scraping metrics from
+            the server. But collecting your logs and metrics is only the tip of
+            the iceberg.
+          </p>
+          <br />
+          <p>
+            The collection agent streams data at the time of generation to your
+            own pipeline that Synapse creates. Getting the data off of the
+            machine as quickly as possible is important for both your ability to
+            monitor in real-time, as well as ensuring that data isn’t lost if an
+            ephemeral virtual machine gets spun down outside of your control.
+          </p>
+          <br />
+          <p>
+            The pipeline also features a processing step where the collectors
+            deployed by Synapse take the raw data coming off of your servers and
+            rework it into predictable, structured output, before storing it in
+            a time-series database optimized for writing, processing, and
+            querying time-series data. Synapse builds a single source of truth
+            for you with each table representing a different capture source,
+            while preserving the identity of the host machine or process for
+            each row of data.
+          </p>
+          <br />
+          <p>
+            All of your monitoring data existing in the same place (your
+            Timestream database) allows you to keep context switching at an
+            absolute minimum while debugging, while also maintaining
+            high-resolution in your data so you can visualize and explore
+            granular changes in the performance and state of your servers and
+            services over time.
+          </p>
+          <br />
 
-        <h3>2.2 What’s in Synapse?</h3>
-        <p>
-          This is an overview of Synapse’s architecture and the infrastructure behind this framework. We’ll dive into it
-          in more detail later, but for now let’s stick to the main conceptual pieces.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/Synapse-architecture.gif" class="case-study-image" />
-          <figcaption>Fig. 10: An overview of Synapse's architecture, split into conceptual components</figcaption>
-        </figure>
-        <br />
-        <p>
-          We’ve already discussed how Synapse helps you set up the automated collection of logs and metrics from your
-          services. You don’t need to change a single line of your application code-- Synapse runs as a fully-decoupled
-          agent process on your nodes, tapping into the log files to which your services already write and scraping
-          metrics from the server. But collecting your logs and metrics is only the tip of the iceberg.
-        </p>
-        <br />
-        <p>
-          The collection agent streams data at the time of generation to your own pipeline that Synapse creates. Getting
-          the data off of the machine as quickly as possible is important for both your ability to monitor in real-time,
-          as well as ensuring that data isn’t lost if an ephemeral virtual machine gets spun down outside of your
-          control.
-        </p>
-        <br />
-        <p>
-          The pipeline also features a processing step where the collectors deployed by Synapse take the raw data coming
-          off of your servers and rework it into predictable, structured output, before storing it in a time-series
-          database optimized for writing, processing, and querying time-series data. Synapse builds a single source of
-          truth for you with each table representing a different capture source, while preserving the identity of the
-          host machine or process for each row of data.
-        </p>
-        <br />
-        <p>
-          All of your monitoring data existing in the same place (your Timestream database) allows you to keep context
-          switching at an absolute minimum while debugging, while also maintaining high-resolution in your data so you
-          can visualize and explore granular changes in the performance and state of your servers and services over
-          time.
-        </p>
-        <br />
+          <h3>2.3 Why did we build Synapse?</h3>
+          <p>
+            The goal we had in mind when we set out to build Synapse was to help
+            teams start collecting, centralizing, storing, and getting value out
+            of their logs and metrics today, so they have them when they need
+            them.
+          </p>
+          <br />
 
-        <h3>2.3 Why did we build Synapse?</h3>
-        <p>
-          The goal we had in mind when we set out to build Synapse was to help teams start collecting, centralizing,
-          storing, and getting value out of their logs and metrics today, so they have them when they need them.
-        </p>
-        <br />
+          <!-- Section 3 -->
+          <h2 class="h2">3 Who should use Synapse?</h2>
+          <p>
+            When it comes to picking a monitoring solution, companies generally
+            consider three options: buy, operate, or build.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/buy-operate-build.gif"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 11: Teams generally choose between buying, personally
+              operating, or building their own monitoring solution
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            If a small company like NapTime was to
+            <span class="bold">buy</span> a solution, they might look at working
+            with a SaaS vendor like Datadog. Outsourcing your monitoring to a
+            vendor makes the whole process very easy and painless, but that ease
+            comes with a pretty steep price. Not every small company has enough
+            runway to justify spending money on yet another SaaS service.
+          </p>
+          <br />
+          <p>
+            The next option then is to <span class="bold">operate</span>. Open
+            source platforms like Elastic were developed to make this relatively
+            simple. However, if you want to use the open source Elastic Stack,
+            you’re still responsible for hosting all of it, and managing an
+            Elasticsearch server requires knowledge of Java and prolonged
+            attention. What if NapTime’s engineers don’t have that expertise or
+            time?
+          </p>
+          <br />
+          <p>
+            The third option, <span class="bold">build</span>, simply isn’t
+            feasible for a small company. If you’re a tech giant like Facebook
+            or Twitter, with a huge budget and plenty of infrastructure, you can
+            roll your own observability platform. For a small company, their
+            time is much better spent on their own core-business product that
+            keeps the lights on.
+          </p>
+          <br />
+          <p>
+            But what if there were another option? That’s where we think Synapse
+            fits in.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/Synapse-comparison.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 12: How our team chose to position Synapse in the marketplace
+              of monitoring solutions
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            Synapse combines the
+            <span class="bold">ease of deployment</span> and
+            <span class="bold">low maintenance</span>
+            of a SaaS solution thanks to its collection agents and
+            fully-serverless pipeline.
+          </p>
+          <br />
+          <p>
+            Synapse mirrors the
+            <span class="bold">ownership of data</span> promised by Open Source
+            or DIY solutions. Log data can be extremely sensitive, and you don’t
+            necessarily want someone else having access to your records in their
+            god view/admin platform.
+          </p>
+          <br />
+          <p>
+            However, Synapse isn’t nearly as
+            <span class="bold">feature rich</span> as any of the other
+            solutions. We built Synapse with a specific, niche use-case in mind
+            and can’t come close to offering the richness of a Datadog, Elastic
+            Stack, or highly custom DIY platform.
+          </p>
+          <br />
+          <p>
+            One of Synapse’s main differentiators is that
+            <span class="bold"
+              >Synapse treats time-series data as a first-class citizen</span
+            >. The time-series database in Synapse’s pipeline is optimized for
+            inserting and indexing time-based data, and comes with a whole slew
+            of time-series query and aggregation functionality that
+            Elasticsearch does not support.
+          </p>
+          <br />
+          <p>
+            But, what we traded for the ease and speed of setup and time-series
+            optimization is cost. We designed the pipeline using AWS components,
+            and while their pricing can be opaque and tricky to calculate at
+            times Synapse certainly costs more to keep running than the Elastic
+            Stack or a DIY platform because you’re not operating the platform on
+            your own infrastructure.
+          </p>
+          <br />
 
-        <!-- Section 3 -->
-        <h2 class="h2">3 Who should use Synapse?</h2>
-        <p>
-          When it comes to picking a monitoring solution, companies generally consider three options: buy, operate, or
-          build.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/buy-operate-build.gif" class="case-study-image" />
-          <figcaption>Fig. 11: Teams generally choose between buying, personally operating, or building their own
-            monitoring solution</figcaption>
-        </figure>
-        <br />
-        <p>
-          If a small company like NapTime was to <span class="bold">buy</span> a solution, they might look at working
-          with a SaaS vendor like Datadog. Outsourcing your monitoring to a vendor makes the whole process very easy and
-          painless, but that ease comes with a pretty steep price. Not every small company has enough runway to justify
-          spending money on yet another SaaS service.
-        </p>
-        <br />
-        <p>
-          The next option then is to <span class="bold">operate</span>. Open source platforms like Elastic were
-          developed to make this relatively simple. However, if you want to use the open source Elastic Stack, you’re
-          still responsible for hosting all of it, and managing an Elasticsearch server requires knowledge of Java and
-          prolonged attention. What if NapTime’s engineers don’t have that expertise or time?
-        </p>
-        <br />
-        <p>
-          The third option, <span class="bold">build</span>, simply isn’t feasible for a small company. If you’re a tech
-          giant like Facebook or Twitter, with a huge budget and plenty of infrastructure, you can roll your own
-          observability platform. For a small company, their time is much better spent on their own core-business
-          product that keeps the lights on.
-        </p>
-        <br />
-        <p>
-          But what if there were another option? That’s where we think Synapse fits in.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/Synapse-comparison.png" class="case-study-image" />
-          <figcaption>Fig. 12: How our team chose to position Synapse in the marketplace of monitoring solutions
-          </figcaption>
-        </figure>
-        <br />
-        <p>
-          Synapse combines the <span class="bold">ease of deployment</span> and <span class="bold">low maintenance</span>
-          of a SaaS solution thanks to its collection agents and fully-serverless pipeline.
-        </p>
-        <br />
-        <p>
-          Synapse mirrors the <span class="bold">ownership of data</span> promised by Open Source or DIY solutions. Log
-          data can be extremely sensitive, and you don’t necessarily want someone else having access to your records in
-          their god view/admin platform.
-        </p>
-        <br />
-        <p>
-          However, Synapse isn’t nearly as <span class="bold">feature rich</span> as any of the other solutions. We built
-          Synapse with a specific, niche use-case in mind and can’t come close to offering the richness of a Datadog,
-          Elastic Stack, or highly custom DIY platform.
-        </p>
-        <br />
-        <p>
-          One of Synapse’s main differentiators is that <span class="bold">Synapse treats time-series data as a
-            first-class citizen</span>. The time-series database in Synapse’s pipeline is optimized for inserting and
-          indexing time-based data, and comes with a whole slew of time-series query and aggregation functionality that
-          Elasticsearch does not support.
-        </p>
-        <br />
-        <p>
-          But, what we traded for the ease and speed of setup and time-series optimization is cost. We designed the
-          pipeline using AWS components, and while their pricing can be opaque and tricky to calculate at times Synapse
-          certainly costs more to keep running than the Elastic Stack or a DIY platform because you’re not operating the
-          platform on your own infrastructure.
-        </p>
-        <br />
+          <!-- Section 4 -->
+          <h2 class="h2">4 Design Decisions</h2>
 
+          <p>
+            Our primary goal while designing Synapse was to help teams start
+            collecting, centralizing, storing, and getting value out of their
+            logs and metrics as soon as possible. That way, teams have their
+            monitoring data already saved and explorable when they need it the
+            most: in the stress of an outage. Our team took that goal and broke
+            it up into three components:
 
-        <!-- Section 4 -->
-        <h2 class="h2">4 Design Decisions</h2>
+            <!-- TODO: Bulletpoints -->
+            <span class="bold">The need for a “low-toil framework”</span>
+            <span class="bold"
+              >Treating time-series data as a first class citizen</span
+            >
+            <span class="bold">Decreasing Mean Time to Resolve (MTTR)</span>
+          </p>
+          <br />
 
-        <p>
-          Our primary goal while designing Synapse was to help teams start collecting, centralizing, storing, and getting
-          value out of their logs and metrics as soon as possible. That way, teams have their monitoring data already
-          saved and explorable when they need it the most: in the stress of an outage. Our team took that goal and broke
-          it up into three components:
+          <h3>4.1 Low-toil</h3>
+          <p>
+            A low-toil framework is one that is easy to set up and maintain,
+            helping your core development flow without adding to your busy
+            workload. There are 3 factors the team decided were crucial to
+            determining whether a framework could be called “low-toil”:
+          </p>
+          <br />
 
-          <!-- TODO: Bulletpoints -->
-          <span class="bold">The need for a “low-toil framework”</span>
-          <span class="bold">Treating time-series data as a first class citizen</span>
-          <span class="bold">Decreasing Mean Time to Resolve (MTTR)</span>
-        </p>
-        <br />
+          <h5>Ease of Integration</h5>
+          <p>
+            To start aggregating logs and scraping metrics, users generally need
+            to deploy a collection tool onto their servers. Ideally, such a tool
+            should be able to collect, transform and route all monitoring data.
+            Moreover, it should be able to configure monitoring for multiple
+            services without requiring users to write custom integration code.
+          </p>
+          <br />
+          <h5>A ready-made pipeline</h5>
+          <p>
+            A low-toil framework should provision and deploy a
+            pre-designed/opinionated logging pipeline for users, freeing them
+            from the need to research and construct their own -- enabling them
+            to focus on their core functionality.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/api-calls.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 13: Synapse's CLI commands abstract away the dozens of API
+              calls to AWS required for setting up a pipeline
+            </figcaption>
+          </figure>
+          <br />
+          <h5>Low maintenance</h5>
+          <p>
+            Provisioning and maintaining servers takes time and can be
+            difficult. And even under close observation, they can still crash at
+            seemingly random times. The ideal low-toil framework would feature a
+            pipeline that is completely serverless to avoid extra stress and
+            overhead for development teams.
+          </p>
+          <br />
+          <p>
+            Every service in Synapse’s pipeline is fully serverless and managed
+            for you by AWS. Users don’t need to worry about Synapse crashing or
+            becoming bogged down during peak loads.
+          </p>
+          <br />
 
-        <h3>4.1 Low-toil</h3>
-        <p>
-          A low-toil framework is one that is easy to set up and maintain, helping your core development flow without
-          adding to your busy workload. There are 3 factors the team decided were crucial to determining whether a
-          framework could be called “low-toil”:
-        </p>
-        <br />
+          <h3>4.2 Time-series native</h3>
+          <p>
+            Time series data is a collection of observations obtained through
+            repeated measurements over time. Think of a graph that has time as
+            the x-axis-- that’s time-series data. At the level of a single
+            record, time-series data is indistinguishable from normal relational
+            data that features a timestamp as a field.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/timestream-schema.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 14: An example schema for Timestream, AWS's time-series
+              database
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            With that in mind, log data is perfectly suited to being treated as
+            time-series data. For example, time series data could measure the
+            average response time of a web server over the course of a week. The
+            distinction between normal relational data and time-series data is
+            more meaningful when one thinks about aggregating and querying data
+            at the database level.
+          </p>
+          <br />
+          <!-- TODO: Kreps block quote: “A log is an append-only, totally-ordered sequence of records ordered by time.” -->
+          <p>
+            Elasticsearch & other such stores/services are optimized for
+            text-based indexing and querying, but are not optimized for time,
+            and so typical queries you’d want to perform with time-based data
+            are either slow or not possible to perform.
+          </p>
+          <br />
+          <p>
+            Mapping logs from plain-text log lines to time-series records in a
+            database unlocks a large range of time-specific querying
+            functionality that helps Synapse improve your ability to extract
+            insights from your logs over time.
+          </p>
+          <br />
+          <p>
+            If we look at a web server such as Apache or nginx, we can think of
+            a few important metrics that use time as a measurement.
+            <!-- TODO: Numbers -->
+            1. Request time duration - “What happened yesterday that caused our
+            average request time to double?” 2. Request status codes - “What
+            happened at 4pm that started causing 500 status codes?” 3. Requests
+            per second - “When are our slowest hours so the team can schedule
+            maintenance?”
+          </p>
+          <br />
 
-        <h5>Ease of Integration</h5>
-        <p>
-          To start aggregating logs and scraping metrics, users generally need to deploy a collection tool onto their
-          servers. Ideally, such a tool should be able to collect, transform and route all monitoring data. Moreover, it
-          should be able to configure monitoring for multiple services without requiring users to write custom
-          integration code.
-        </p>
-        <br />
-        <h5>A ready-made pipeline</h5>
-        <p>
-          A low-toil framework should provision and deploy a pre-designed/opinionated logging pipeline for users,
-          freeing them from the need to research and construct their own -- enabling them to focus on their core
-          functionality.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/api-calls.png" class="case-study-image" />
-          <figcaption>Fig. 13: Synapse's CLI commands abstract away the dozens of API calls to AWS required for setting
-            up a pipeline</figcaption>
-        </figure>
-        <br />
-        <h5>Low maintenance</h5>
-        <p>
-          Provisioning and maintaining servers takes time and can be difficult. And even under close observation, they
-          can still crash at seemingly random times. The ideal low-toil framework would feature a pipeline that is
-          completely serverless to avoid extra stress and overhead for development teams.
-        </p>
-        <br />
-        <p>
-          Every service in Synapse’s pipeline is fully serverless and managed for you by AWS. Users don’t need to worry
-          about Synapse crashing or becoming bogged down during peak loads.
-        </p>
-        <br />
+          <h3>4.3 Decrease Mean Time to Resolve (MTTR)</h3>
+          <p>Getting insights into distributed systems is cumbersome.</p>
+          <br />
+          <p>
+            For example, think back to NapTime’s scaled architecture. Their
+            system includes 8 different nodes and 16 different network
+            connections that could fail. If some error occurs, where did it
+            happen? What node failed? What logs do they check? Without log
+            aggregation and centralization, NapTime would have to check each
+            node individually.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/connections.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 15: How can engineers debug systems with exponentially
+              growing numbers of nodes/connections?
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            Synapse aims to decrease the time between an outage occurring and
+            the time it takes for you to resolve it. We don’t want your outages
+            to be a murder mystery. And we don’t want you or your team being
+            reactive.
+          </p>
+          <br />
+          <p>
+            Instead, we want you to be proactive. Synapse not only helps you
+            catch issues early, but also informs you in real-time precisely
+            what’s broken, helping you pinpoint exactly what went wrong and on
+            which node. Synapse does so by monitoring incoming logs and metrics
+            to notify users of failures, thereby decreasing the time it takes
+            for your team to become aware of a problem.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/proactive.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 16: Synapse helps you be proactive, rather than reactive, in
+              debugging your system
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            With Synapse, NapTime’s engineer’s no longer need to check 8
+            different nodes. By aggregating logs into a single database and
+            providing a dashboard to query and view health metrics, Synapse
+            helps solve outages efficiently without your engineers having to
+            play detective.
+          </p>
+          <br />
 
-        <h3>4.2 Time-series native</h3>
-        <p>
-          Time series data is a collection of observations obtained through repeated measurements over time. Think of a
-          graph that has time as the x-axis-- that’s time-series data. At the level of a single record, time-series data
-          is indistinguishable from normal relational data that features a timestamp as a field.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/timestream-schema.png" class="case-study-image" />
-          <figcaption>Fig. 14: An example schema for Timestream, AWS's time-series database</figcaption>
-        </figure>
-        <br />
-        <p>
-          With that in mind, log data is perfectly suited to being treated as time-series data. For example, time series
-          data could measure the average response time of a web server over the course of a week. The distinction
-          between normal relational data and time-series data is more meaningful when one thinks about aggregating and
-          querying data at the database level.
-        </p>
-        <br />
-        <!-- TODO: Kreps block quote: “A log is an append-only, totally-ordered sequence of records ordered by time.” -->
-        <p>
-          Elasticsearch & other such stores/services are optimized for text-based indexing and querying, but are not
-          optimized for time, and so typical queries you’d want to perform with time-based data are either slow or not
-          possible to perform.
-        </p>
-        <br />
-        <p>
-          Mapping logs from plain-text log lines to time-series records in a database unlocks a large range of
-          time-specific querying functionality that helps Synapse improve your ability to extract insights from your logs
-          over time.
-        </p>
-        <br />
-        <p>
-          If we look at a web server such as Apache or nginx, we can think of a few important metrics that use time as a
-          measurement.
-          <!-- TODO: Numbers -->
-          1. Request time duration - “What happened yesterday that caused our average request time to double?”
-          2. Request status codes - “What happened at 4pm that started causing 500 status codes?”
-          3. Requests per second - “When are our slowest hours so the team can schedule maintenance?”
-        </p>
-        <br />
+          <!-- Section 5 -->
+          <h2 class="h2">5 Synapse's Architecture</h2>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/architecture.png"
+              class="case-study-image"
+            />
+            <figcaption>Fig. 17: Synapse's architecture</figcaption>
+          </figure>
+          <br />
+          <p>
+            We’ve seen how Synapse’s architecture is split up into four major
+            conceptual sections. In this next section we’re going to more
+            closely examine these pieces as well as the individual components
+            that comprise them.
+          </p>
+          <br />
 
-        <h3>4.3 Decrease Mean Time to Resolve (MTTR)</h3>
-        <p>
-          Getting insights into distributed systems is cumbersome.
-        </p>
-        <br />
-        <p>
-          For example, think back to NapTime’s scaled architecture. Their system includes 8 different nodes and 16
-          different network connections that could fail. If some error occurs, where did it happen? What node failed?
-          What logs do they check? Without log aggregation and centralization, NapTime would have to check each node
-          individually.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/connections.png" class="case-study-image" />
-          <figcaption>Fig. 15: How can engineers debug systems with exponentially growing numbers of nodes/connections?
-          </figcaption>
-        </figure>
-        <br />
-        <p>
-          Synapse aims to decrease the time between an outage occurring and the time it takes for you to resolve it. We
-          don’t want your outages to be a murder mystery. And we don’t want you or your team being reactive.
-        </p>
-        <br />
-        <p>
-          Instead, we want you to be proactive. Synapse not only helps you catch issues early, but also informs you in
-          real-time precisely what’s broken, helping you pinpoint exactly what went wrong and on which node. Synapse does
-          so by monitoring incoming logs and metrics to notify users of failures, thereby decreasing the time it takes
-          for your team to become aware of a problem.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/proactive.png" class="case-study-image" />
-          <figcaption>Fig. 16: Synapse helps you be proactive, rather than reactive, in debugging your system
-          </figcaption>
-        </figure>
-        <br />
-        <p>
-          With Synapse, NapTime’s engineer’s no longer need to check 8 different nodes. By aggregating logs into a single
-          database and providing a dashboard to query and view health metrics, Synapse helps solve outages efficiently
-          without your engineers having to play detective.
-        </p>
-        <br />
+          <h3>5.1 Collection</h3>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/collection.png"
+              class="case-study-image"
+            />
+            <figcaption>Fig. 18: Synapse's collection step</figcaption>
+          </figure>
+          <br />
+          <p>
+            For each service in a user’s distributed app that they want to
+            monitor, they need to set up collection. Synapse uses a collection
+            agent called
+            <a href="https://vector.dev/" target="_blank">Vector</a> to gather,
+            transform, and send a user’s distributed logs to the pipeline.
+          </p>
+          <br />
+          <p>
+            Raw logs are text based, unqueryable and generally hard to work
+            with. Vector makes it possible to take this raw, plaintext nginx
+            access log and convert it to JSON prior to sending the log off to
+            the pipeline for further processing.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/highlighted-log.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 19: Extracting information from raw logs is difficult
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            Looking at this log, we can see several important pieces of
+            information. The path that was requested, the amount of time it took
+            to complete the request, as well as the time the event occurred.
+            Synapse needs to somehow identify and capture this information from
+            this dynamic log.
+          </p>
+          <br />
+          <p>
+            To properly function on each node it’s deployed on, Vector requires
+            a lengthy configuration file. It includes all of the log and metric
+            sources you want to gather from and the sinks you’re sending to. It
+            requires writing esoteric regexes to transform those logs from
+            plaintext to a structured format, and configuring your AWS
+            credentials to ship to the pipeline. Synapse adds a “type” field to
+            each collected record, identifying the service that produced the
+            log. This type property is crucial for a sorting step that occurs
+            later on in the pipeline and which we’ll discuss below.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/vector-config.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 20: A basic config file for vector is dozens of lines long
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            Writing out all of this information is extremely laborious. A fully
+            fleshed out configuration file is over 400 lines long, and this
+            caused our team plenty of headaches when we were first manually
+            typing it out.
+          </p>
+          <br />
+          <p>
+            In order to streamline this, the team built a `Synapse configure`
+            CLI command that launches a configuration wizard, providing a prompt
+            to select which services our users want to monitor. With these
+            services selected, Synapse is able to dynamically generate the long
+            config file Vector requires without manual effort.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/Synapse-config.gif"
+              class="case-study-image"
+            />
+            <figcaption>Fig. 21: Synapse's configure command</figcaption>
+          </figure>
+          <br />
+          <p>
+            Once Vector is properly configured, it gathers logs and metrics,
+            transforms them from plaintext to JSON, and then sends them off to
+            the cloud pipeline. Once in the pipeline, the first stop is AWS
+            Kinesis Data Firehose.
+          </p>
+          <br />
 
+          <h3>5.2 Transform</h3>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/transform.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 22: Tranformation section of Synapse's cloud infrastructure
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            Kinesis Data Firehose is a fully-managed, real-time streaming
+            platform that captures, transforms & delivers data. It ingests new
+            data up to a predefined threshold (Synapse defaults to use one
+            minute/1MB) in order to optimize network efficiency, and because
+            it’s completely serverless, it adds no additional infrastructure for
+            the users of Synapse to manage.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/connections-bad.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 22: An impossible to manage web of connections between
+              services
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            In today’s distributed world, data produced by one service is often
+            consumed by multiple other services. Connecting all of these is
+            difficult, time-consuming and hyper-specific. Synapse uses Kinesis
+            to help decouple services from one another. Instead of connecting
+            every service together in a hyper-specific manner, each service can
+            publish to or consume from the Data Firehose.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/connections-good.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 23: Services decoupled from one another
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            Once the data buffering threshold is met, data is pointed to the
+            static HTTP Endpoint of an S3 bucket. Data is temporarily staged in
+            the bucket for two main reasons: to assist with retries of failed
+            deliveries and persist any records that errored out before being
+            stored in Timestream (which will prompt an alert from Synapse’s
+            monitoring setup, as we’ll discuss later), as well as to trigger a
+            Lambda function on being written.
+          </p>
+          <br />
+          <p>
+            Lambda is a serverless compute service that allows users to execute
+            code without provisioning servers. Lambdas can be invoked in
+            response to certain triggers making them event-driven, and they can
+            scale proportionally to the incoming workload by concurrently
+            invoking more instances of a function when needed. This ability to
+            continuously scale is perfect for Synapse because log data tends to
+            be very bursty.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/lambda-go.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 24: Synapse's Lambda function sorting and inserting records
+              into Timestream
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            The Lambda function serves to transform, sort, and load data into
+            Timestream, our selected time-series database. The team initially
+            wrote the Lambda function in JavaScript, but later rewrote it in
+            Golang because the Lambda function is pivotal to the throughput of
+            data ingestion and using a compiled language offered faster speeds
+            and lower overhead. This rewrite to Go netted us a two-fold increase
+            in throughput when processing 1,000 records.
+          </p>
+          <br />
+          <p>
+            Once invoked, Synapse’s Lambda function retrieves the newly written
+            records from the bucket, sorts, and stores them into separate tables
+            in Timestream based on the type property, which is added earlier
+            using Vector.
+          </p>
+          <br />
 
-        <!-- Section 5 -->
-        <h2 class="h2">5 Synapse's Architecture</h2>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/architecture.png" class="case-study-image" />
-          <figcaption>Fig. 17: Synapse's architecture</figcaption>
-        </figure>
-        <br />
-        <p>
-          We’ve seen how Synapse’s architecture is split up into four major conceptual sections. In this next section
-          we’re going to more closely examine these pieces as well as the individual components that comprise them.
-        </p>
-        <br />
+          <h3>5.3 Store</h3>
+          <p>
+            This takes us to Timestream, a time-series optimized database
+            service. With the user’s data extracted, transformed, and finally
+            loaded into Timestream, they are able to analyze and query this data
+            across arbitrary periods of time. Synapse has taken their raw logs
+            and metrics and converted them into a form that's easily analyzable
+            and processable.
+          </p>
+          <br />
+          <p>
+            This is possible because Timestream provides a SQL-like language to
+            query this data. This query language is extremely powerful because
+            not only is it already familiar to most developers, but also it adds
+            some very powerful functions that work with time-series datasets.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/timeseries-query.png"
+              class="case-study-image"
+            />
+            <figcaption>Fig. 25: Time-series analysis with SQL</figcaption>
+          </figure>
+          <br />
+          <p>
+            The power of a time-series database can be summed up by the idea
+            that changes in data over time are tracked as INSERTS, rather than
+            as UPDATES. There’s no rewriting of existing data when you’re
+            thinking in terms of time-series, there are just multiple
+            observations over time. This unlocks rich potential for graphing,
+            visualizing, and understanding trends in your data over time--
+            precisely what the team set out to do when we designed Synapse.
+          </p>
+          <br />
 
-        <h3>5.1 Collection</h3>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/collection.png" class="case-study-image" />
-          <figcaption>Fig. 18: Synapse's collection step</figcaption>
-        </figure>
-        <br />
-        <p>
-          For each service in a user’s distributed app that they want to monitor, they need to set up collection. Synapse
-          uses a collection agent called <a href="https://vector.dev/" target="_blank">Vector</a> to gather, transform,
-          and send a user’s distributed logs to the pipeline.
-        </p>
-        <br />
-        <p>
-          Raw logs are text based, unqueryable and generally hard to work with. Vector makes it possible to take this
-          raw, plaintext nginx access log and convert it to JSON prior to sending the log off to the pipeline for
-          further processing.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/highlighted-log.png" class="case-study-image" />
-          <figcaption>Fig. 19: Extracting information from raw logs is difficult</figcaption>
-        </figure>
-        <br />
-        <p>
-          Looking at this log, we can see several important pieces of information. The path that was requested, the
-          amount of time it took to complete the request, as well as the time the event occurred. Synapse needs to
-          somehow identify and capture this information from this dynamic log.
-        </p>
-        <br />
-        <p>
-          To properly function on each node it’s deployed on, Vector requires a lengthy configuration file. It includes
-          all of the log and metric sources you want to gather from and the sinks you’re sending to. It requires writing
-          esoteric regexes to transform those logs from plaintext to a structured format, and configuring your AWS
-          credentials to ship to the pipeline. Synapse adds a “type” field to each collected record, identifying the
-          service that produced the log. This type property is crucial for a sorting step that occurs later on in the
-          pipeline and which we’ll discuss below.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/vector-config.png" class="case-study-image" />
-          <figcaption>Fig. 20: A basic config file for vector is dozens of lines long</figcaption>
-        </figure>
-        <br />
-        <p>
-          Writing out all of this information is extremely laborious. A fully fleshed out configuration file is over 400
-          lines long, and this caused our team plenty of headaches when we were first manually typing it out.
-        </p>
-        <br />
-        <p>
-          In order to streamline this, the team built a `Synapse configure` CLI command that launches a configuration
-          wizard, providing a prompt to select which services our users want to monitor. With these services selected,
-          Synapse is able to dynamically generate the long config file Vector requires without manual effort.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/Synapse-config.gif" class="case-study-image" />
-          <figcaption>Fig. 21: Synapse's configure command</figcaption>
-        </figure>
-        <br />
-        <p>
-          Once Vector is properly configured, it gathers logs and metrics, transforms them from plaintext to JSON, and
-          then sends them off to the cloud pipeline. Once in the pipeline, the first stop is AWS Kinesis Data Firehose.
-        </p>
-        <br />
+          <h3>5.4 Monitor</h3>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/monitor.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 26: Monitoring section of Synapse's cloud infrastructure
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            With the aforementioned infrastructure in place, the team was able
+            to build a monitoring and alerting system to harness the incoming
+            logs. This enables some useful functionality, like the ability to
+            email our users as soon as critical errors in their distributed
+            system occur (like a web server suddenly only returning 500 response
+            codes). This core functionality is made possible by CloudWatch.
+          </p>
+          <br />
+          <p>
+            CloudWatch provides a centralized view of all the logs coming from
+            the user’s cloud infrastructure. Synapse users are able to set up
+            metric filters on incoming logs and set heuristic thresholds that,
+            when activated, will set off an alarm. Triggered alarms publish an
+            event to their corresponding Simple Notification Service topic,
+            which will in turn email any users that have subscribed to that
+            topic during setup. This allows us to watch for any errors as they
+            occur and immediately notify our users.
+          </p>
+          <br />
+          <p>
+            Finally, we arrive at Synapse’s custom-built data exploration and
+            dashboarding server.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/dashboard-charts.png"
+              class="case-study-image"
+            />
+            <figcaption>Fig. 27: Synapse's chart page</figcaption>
+          </figure>
+          <br />
+          <p>
+            We built a dashboarding hub to help users visualize and query their
+            data in near real-time as it's being produced. This dashboard is
+            available for view on any machine in the user’s distributed system
+            that has Synapse installed. The team has pre-populated the dashboard
+            with charts that allow users of Synapse to isolate anomalies and see
+            historical trends. These charts are generated and populated in real
+            time, providing an up-to-the-minute view of system state in a single
+            location.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/dashboard-query.png"
+              class="case-study-image"
+            />
+            <figcaption>Fig. 28: Synapse's query page</figcaption>
+          </figure>
+          <br />
+          <p>
+            Because accessing AWS functionality through their actual website GUI
+            can take time and effort, we also built in the ability to query
+            Timestream directly from the dashboarding hub, exploring any
+            returned rows for convenience and exporting the data as JSON with
+            the click of a button.
+          </p>
+          <br />
+          <p>
+            Now that we’ve individually examined each component of Synapse,
+            we’re better equipped to understand Synapse as a whole and how to
+            use it.
+          </p>
+          <br />
 
-        <h3>5.2 Transform</h3>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/transform.png" class="case-study-image" />
-          <figcaption>Fig. 22: Tranformation section of Synapse's cloud infrastructure</figcaption>
-        </figure>
-        <br />
-        <p>
-          Kinesis Data Firehose is a fully-managed, real-time streaming platform that captures, transforms & delivers
-          data. It ingests new data up to a predefined threshold (Synapse defaults to use one minute/1MB) in order to
-          optimize network efficiency, and because it’s completely serverless, it adds no additional infrastructure for
-          the users of Synapse to manage.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/connections-bad.png" class="case-study-image" />
-          <figcaption>Fig. 22: An impossible to manage web of connections between services</figcaption>
-        </figure>
-        <br />
-        <p>
-          In today’s distributed world, data produced by one service is often consumed by multiple other services.
-          Connecting all of these is difficult, time-consuming and hyper-specific. Synapse uses Kinesis to help decouple
-          services from one another. Instead of connecting every service together in a hyper-specific manner, each
-          service can publish to or consume from the Data Firehose.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/connections-good.png" class="case-study-image" />
-          <figcaption>Fig. 23: Services decoupled from one another</figcaption>
-        </figure>
-        <br />
-        <p>
-          Once the data buffering threshold is met, data is pointed to the static HTTP Endpoint of an S3 bucket. Data is
-          temporarily staged in the bucket for two main reasons: to assist with retries of failed deliveries and persist
-          any records that errored out before being stored in Timestream (which will prompt an alert from Synapse’s
-          monitoring setup, as we’ll discuss later), as well as to trigger a Lambda function on being written.
-        </p>
-        <br />
-        <p>
-          Lambda is a serverless compute service that allows users to execute code without provisioning servers. Lambdas
-          can be invoked in response to certain triggers making them event-driven, and they can scale proportionally to
-          the incoming workload by concurrently invoking more instances of a function when needed. This ability to
-          continuously scale is perfect for Synapse because log data tends to be very bursty.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/lambda-go.png" class="case-study-image" />
-          <figcaption>Fig. 24: Synapse's Lambda function sorting and inserting records into Timestream</figcaption>
-        </figure>
-        <br />
-        <p>
-          The Lambda function serves to transform, sort, and load data into Timestream, our selected time-series
-          database. The team initially wrote the Lambda function in JavaScript, but later rewrote it in Golang because
-          the Lambda function is pivotal to the throughput of data ingestion and using a compiled language offered
-          faster speeds and lower overhead. This rewrite to Go netted us a two-fold increase in throughput when
-          processing 1,000 records.
-        </p>
-        <br />
-        <p>
-          Once invoked, Synapse’s Lambda function retrieves the newly written records from the bucket, sorts, and stores
-          them into separate tables in Timestream based on the type property, which is added earlier using Vector.
-        </p>
-        <br />
+          <!-- Section 6 -->
+          <h2 class="h2">6 Installing and Using Synapse</h2>
+          <h3>6.1 Installing Synapse</h3>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/5-steps-to-install.png"
+              class="case-study-image large-image"
+            />
+            <figcaption>Fig. 29: Five Steps to Installing Synapse</figcaption>
+          </figure>
+          <br />
+          <p>
+            Synapse is an npm package, which means the first step is to download
+            and install it just like any other npm package. Make sure to use the
+            <code class="command">-g</code> flag so that the command is
+            available throughout your local environment.
+          </p>
+          <br />
+          <p>
+            The second step is to install the data collecting agent, Vector, on
+            the local machine. Synapse provides a command which helps the user
+            to install Vector given their particular package manager.
+          </p>
+          <br />
+          <p>
+            The third step is to configure Synapse for that server using the
+            <code class="command">Synapse configure</code>
+            command. This step results in two configuration files: 1. a file
+            that Vector uses to monitor the selected services on that machine,
+            2. A file that Synapse uses to deploy the pipeline, including AWS
+            credentials and database tables that match the selected services for
+            that server.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/Synapse-configure.gif"
+              class="case-study-image demo"
+            />
+            <figcaption>Fig. 30: Synapse Configure</figcaption>
+          </figure>
+          <br />
+          <p>
+            Synapse now knows which services the user wants to monitor on their
+            machine. The fourth step is to actually build the pipeline by
+            running the command <code class="command">Synapse deploy</code>.
+            Again, the pipeline provides a centralized location where all of the
+            monitoring data from the user's various servers will live.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/Synapse-deploy.gif"
+              class="case-study-image demo"
+            />
+            <figcaption>Fig. 31: Synapse Deploy</figcaption>
+          </figure>
+          <br />
+          <p>
+            Running the Synapse deploy command sets up the AWS infrastructure,
+            including the IAM role, the Kinesis Firehose stream, the S3 bucket,
+            the Lambda function, and the Timestream database with the correct
+            tables.
+          </p>
+          <br />
+          <p>
+            It asks if the user’s AWS credentials have the appropriate
+            permissions, providing a link where they can confirm that they do,
+            then it asks if they want to set up alerting, which will send them
+            an email under specific failure conditions.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/Synapse-teardown.gif"
+              class="case-study-image demo"
+            />
+            <figcaption>Fig. 32: Synapse Teardown</figcaption>
+          </figure>
+          <br />
+          <p>
+            The user can run the teardown command to remove all deployed AWS
+            services. It will ask them to confirm that the user wants to delete
+            the resources. The teardown command is for ease of use and to ensure
+            that there are no extra AWS services floating around in the user’s
+            account.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/vector-run.gif"
+              class="case-study-image demo"
+            />
+            <figcaption>Fig. 33: Running Vector</figcaption>
+          </figure>
+          <br />
+          <p>
+            Now that the pipeline is set up, the user is ready to send data to
+            it. They do this by running vector.
+          </p>
+          <br />
+          <p>
+            <!-- TODO: stylize code -->
+            The user starts Vector by running the command
+            <code class="command">vector --config vector-config.toml</code>,
+            passing in the configuration file generated from the configure
+            command. This file ensures that they are monitoring the appropriate
+            services on this machine. Vector is now streaming logs and metrics
+            to the AWS pipeline.
+          </p>
+          <br />
 
-        <h3>5.3 Store</h3>
-        <p>
-          This takes us to Timestream, a time-series optimized database service. With the user’s data extracted,
-          transformed, and finally loaded into Timestream, they are able to analyze and query this data across arbitrary
-          periods of time. Synapse has taken their raw logs and metrics and converted them into a form that's easily
-          analyzable and processable.
-        </p>
-        <br />
-        <p>
-          This is possible because Timestream provides a SQL-like language to query this data. This query language is
-          extremely powerful because not only is it already familiar to most developers, but also it adds some very
-          powerful functions that work with time-series datasets.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/timeseries-query.png" class="case-study-image" />
-          <figcaption>Fig. 25: Time-series analysis with SQL</figcaption>
-        </figure>
-        <br />
-        <p>
-          The power of a time-series database can be summed up by the idea that changes in data over time are tracked as
-          INSERTS, rather than as UPDATES. There’s no rewriting of existing data when you’re thinking in terms of
-          time-series, there are just multiple observations over time. This unlocks rich potential for graphing,
-          visualizing, and understanding trends in your data over time-- precisely what the team set out to do when we
-          designed Synapse.
-        </p>
-        <br />
+          <h3>6.2 Using Synapse</h3>
 
-        <h3>5.4 Monitor</h3>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/monitor.png" class="case-study-image" />
-          <figcaption>Fig. 26: Monitoring section of Synapse's cloud infrastructure</figcaption>
-        </figure>
-        <br />
-        <p>
-          With the aforementioned infrastructure in place, the team was able to build a monitoring and alerting system
-          to harness the incoming logs. This enables some useful functionality, like the ability to email our users as
-          soon as critical errors in their distributed system occur (like a web server suddenly only returning 500
-          response codes). This core functionality is made possible by CloudWatch.
-        </p>
-        <br />
-        <p>
-          CloudWatch provides a centralized view of all the logs coming from the user’s cloud infrastructure. Synapse
-          users are able to set up metric filters on incoming logs and set heuristic thresholds that, when activated,
-          will set off an alarm. Triggered alarms publish an event to their corresponding Simple Notification Service
-          topic, which will in turn email any users that have subscribed to that topic during setup. This allows us to
-          watch for any errors as they occur and immediately notify our users.
-        </p>
-        <br />
-        <p>
-          Finally, we arrive at Synapse’s custom-built data exploration and dashboarding server.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/dashboard-charts.png" class="case-study-image" />
-          <figcaption>Fig. 27: Synapse's chart page</figcaption>
-        </figure>
-        <br />
-        <p>
-          We built a dashboarding hub to help users visualize and query their data in near real-time as it's being
-          produced. This dashboard is available for view on any machine in the user’s distributed system that has Synapse
-          installed. The team has pre-populated the dashboard with charts that allow users of Synapse to isolate
-          anomalies and see historical trends. These charts are generated and populated in real time, providing an
-          up-to-the-minute view of system state in a single location.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/dashboard-query.png" class="case-study-image" />
-          <figcaption>Fig. 28: Synapse's query page</figcaption>
-        </figure>
-        <br />
-        <p>
-          Because accessing AWS functionality through their actual website GUI can take time and effort, we also built
-          in the ability to query Timestream directly from the dashboarding hub, exploring any returned rows for
-          convenience and exporting the data as JSON with the click of a button.
-        </p>
-        <br />
-        <p>
-          Now that we’ve individually examined each component of Synapse, we’re better equipped to understand Synapse as a
-          whole and how to use it.
-        </p>
-        <br />
+          <br />
+          <p>
+            Now that the user has data passing through to the database, they can
+            visit the frontend, which is accessed by running the command Synapse
+            start:server from any computer that has Synapse installed and
+            configured, and then visiting localhost port 3000 on a browser.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/frontend-home.gif"
+              class="case-study-image demo"
+            />
+            <figcaption>Fig. 34: Frontend Home</figcaption>
+          </figure>
+          <br />
+          <p>
+            There are three pages listed on the sidebar. A homepage, a charts
+            page, and a query page. On the homepage, the user can see what
+            services are being monitored and check that the pipeline is
+            successfully writing records to the database.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/frontend-charts.gif"
+              class="case-study-image demo"
+            />
+            <figcaption>Fig. 35: Frontend Charts</figcaption>
+          </figure>
+          <br />
+          <p>
+            On the charts page, the user sees real-time data for the services
+            currently being monitored. This includes key metrics from the
+            <a
+              href="https://grafana.com/blog/2018/08/02/the-red-method-how-to-instrument-your-services/"
+              target="_blank"
+              >RED method</a
+            >, such as the rate of requests, the number of errors among those
+            requests, and the duration of the requests.
+          </p>
+          <br />
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/frontend-query.gif"
+              class="case-study-image demo"
+            />
+            <figcaption>Fig. 36: Frontend Query</figcaption>
+          </figure>
+          <br />
+          <p>
+            The query page enables the user to query the Timestream database. In
+            this example, they query the nginx access logs for all 500 errors
+            that occurred in the last 2 hours. A user can also export the data
+            and begin to drill down to find the source of the problem.
+          </p>
+          <br />
 
+          <!-- Section 7 -->
+          <h2 class="h2">7 Implementation Challenges</h2>
+          <p>
+            We had to overcome 3 major technical challenges while building
+            Synapse.
 
-        <!-- Section 6 -->
-        <h2 class="h2">6 Installing and Using Synapse</h2>
-        <h3>6.1 Installing Synapse</h3>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/5-steps-to-install.png" class="case-study-image large-image" />
-          <figcaption>Fig. 29: Five Steps to Installing Synapse</figcaption>
-        </figure>
-        <br />
-        <p>
-          Synapse is an npm package, which means the first step is to download and install it just like any other npm
-          package. Make sure to use the <code class="command">-g</code> flag so that the command is available throughout
-          your local environment.
-        </p>
-        <br />
-        <p>
-          The second step is to install the data collecting agent, Vector, on the local machine. Synapse provides a
-          command which helps the user to install Vector given their particular package manager.
-        </p>
-        <br />
-        <p>
-          The third step is to configure Synapse for that server using the <code class="command">Synapse configure</code>
-          command. This step results in
-          two configuration files: 1. a file that Vector uses to monitor the selected services on that machine, 2. A
-          file that Synapse uses to deploy the pipeline, including AWS credentials and database tables that match the
-          selected services for that server.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/Synapse-configure.gif" class="case-study-image demo" />
-          <figcaption>Fig. 30: Synapse Configure</figcaption>
-        </figure>
-        <br />
-        <p>
-          Synapse now knows which services the user wants to monitor on their machine. The fourth step is to actually
-          build the
-          pipeline by running the command <code class="command">Synapse deploy</code>. Again, the pipeline provides a
-          centralized location where all
-          of the monitoring data from the user's various servers will live.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/Synapse-deploy.gif" class="case-study-image demo" />
-          <figcaption>Fig. 31: Synapse Deploy</figcaption>
-        </figure>
-        <br />
-        <p>
-          Running the Synapse deploy command sets up the AWS infrastructure, including the IAM role, the Kinesis Firehose
-          stream, the S3 bucket, the Lambda function, and the Timestream database with the correct tables.
-        </p>
-        <br />
-        <p>
-          It asks if the user’s AWS credentials have the appropriate permissions, providing a link where they can
-          confirm that they do, then it asks if they want to set up alerting, which will send them an email under
-          specific failure conditions.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/Synapse-teardown.gif" class="case-study-image demo" />
-          <figcaption>Fig. 32: Synapse Teardown</figcaption>
-        </figure>
-        <br />
-        <p>
-          The user can run the teardown command to remove all deployed AWS services. It will ask them to confirm that
-          the user
-          wants to delete the resources. The teardown command is for ease of use and to ensure that there are no extra
-          AWS services floating around in the user’s account.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/vector-run.gif" class="case-study-image demo" />
-          <figcaption>Fig. 33: Running Vector</figcaption>
-        </figure>
-        <br />
-        <p>
-          Now that the pipeline is set up, the user is ready to send data to it. They do this by running vector.
-        </p>
-        <br />
-        <p>
-          <!-- TODO: stylize code -->
-          The user starts Vector by running the command <code class="command">vector --config vector-config.toml</code>,
-          passing in the
-          configuration file generated from the configure command. This file ensures that they are monitoring the
-          appropriate services on this machine. Vector is now streaming logs and metrics to the AWS pipeline.
-        </p>
-        <br />
+            <!-- TODO: Bullet points -->
+            AWS: the optimistic Response object Real-time data transformations
+            What does Synapse visualize?
+          </p>
+          <br />
 
-        <h3>6.2 Using Synapse</h3>
+          <h3>7.1 AWS: the optimistic Response object</h3>
+          <p>
+            One major challenge the team faced while building the
+            <code>deploy</code> and <code>teardown</code> commands was related
+            to spinning up or destroying AWS services that depend on the
+            existence of another service in order to successfully deploy or that
+            cannot be destroyed while another service depends on it.
+            <code>deploy</code> fires off 37 API calls, while
+            <code>teardown</code> executes 25.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/api-calls.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 37: The services spun up/destroyed by Synapse's
+              <code>deploy</code> and <code>teardown</code> commands
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            For example, certain services couldn’t be spun up before the
+            requisite IAM permissions were created or attached, or Timestream
+            tables couldn’t be created until the database was successfully
+            created.
+          </p>
+          <br />
+          <p>
+            When an HTTP request is dependent on a successful response to a
+            previous one, you expect to be able to make the first request, wait
+            to receive the response, and only then send the second request.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/optimistic-response.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 38: Expected behavior when a second async request is
+              dependent on a successful response to a first
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            When using the AWS SDK, AWS returns an AWS Response object that
+            doesn’t necessarily indicate that the service has been created! So
+            when you predicate the next step on the receipt of the Response
+            object and send the subsequent request, it often fails.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/long-polling.gif"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 39: Our solution to premature responses: implementing
+              long-polling (with exponential backoff)
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            To overcome this, we implemented long polling AWS with exponential
+            back off. Synapse asks Amazon repeatedly whether the operation has
+            been completed, increasing the time between failed polls at an
+            exponential rate in order to avoid overwhelming the server or
+            hitting a rate limit. Once the AWS Response object returns a state
+            that is not <span class="bold">LOADING</span>, Synapse can then
+            react to that state change accordingly.
+          </p>
+          <br />
 
-        <br />
-        <p>
-          Now that the user has data passing through to the database, they can visit the frontend, which is accessed by
-          running
-          the command Synapse start:server from any computer that has Synapse installed and configured, and then visiting
-          localhost port 3000 on a browser.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/frontend-home.gif" class="case-study-image demo" />
-          <figcaption>Fig. 34: Frontend Home</figcaption>
-        </figure>
-        <br />
-        <p>
-          There are three pages listed on the sidebar. A homepage, a charts page, and a query page. On the homepage, the
-          user can see what services are being monitored and check that the pipeline is successfully writing records to
-          the database.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/frontend-charts.gif" class="case-study-image demo" />
-          <figcaption>Fig. 35: Frontend Charts</figcaption>
-        </figure>
-        <br />
-        <p>
-          On the charts page, the user sees real-time data for the services currently being monitored. This includes key
-          metrics from the <a href="https://grafana.com/blog/2018/08/02/the-red-method-how-to-instrument-your-services/"
-            target="_blank">RED method</a>, such as the rate of requests, the number of errors among those requests, and
-          the duration of the requests.
-        </p>
-        <br />
-        <br />
-        <figure>
-          <img src="assets/images/case-study/frontend-query.gif" class="case-study-image demo" />
-          <figcaption>Fig. 36: Frontend Query</figcaption>
-        </figure>
-        <br />
-        <p>
-          The query page enables the user to query the Timestream database. In this example, they query the nginx access
-          logs
-          for all 500 errors that occurred in the last 2 hours. A user can also export the data and begin to drill down
-          to find the source of the problem.
-        </p>
-        <br />
+          <h3>7.2 Transforming data in real-time</h3>
+          <p>
+            How does Synapse take raw, plain-text logs and prepare them for
+            insertion to a time-series database? To achieve this, the team had
+            to build in two separate data transformation steps throughout the
+            pipeline. The first happens at the point of collection, while the
+            second happens in the Lambda function triggered by Kinesis Data
+            Firehose writing to the S3 bucket. We have already discussed how
+            both work but to reiterate:
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/apache-log.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 40: Sample plaintext log line from a web server
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            Logs are typically emitted as plain-text. During the log collection
+            process, Synapse takes some steps to prepare it for insertion into
+            the database. It first has to parse the record using a regex pattern
+            written specifically to match this particular log format. Parsing
+            that plain-text log with such a regex pattern gives us a structured
+            JSON object. Synapse then injects a `type` key into the JSON object
+            to note the record source and transport it off the host server.
+          </p>
+          <br />
+          <p>
+            The second data transformation happens in the Lambda function where
+            Synapse takes an octet-stream, parses it, and then writes to the
+            database.
+          </p>
+          <br />
+          <p>
+            Part of the appeal of the Kinesis Data Firehose is that it can
+            accept data from any source: JSON, XML and numerous other formats.
+            Firehose just accepts that data without checking or enforcing its
+            validity. Unfortunately, the easiest way to accept any data is to
+            convert it to binary and keep appending it to a binary blob. This is
+            exactly what Firehose does and where it converts the JSON Synapse
+            built while collecting records into an octet-stream.
+          </p>
+          <br />
+          <p>
+            We first start by converting the binary data into a string. This
+            looks similar to an array of JSON records but is missing a few
+            tokens (brackets, commas, etc.) making it unparsable/invalid JSON.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/binary-to-json.gif"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 41: Using regex to parse a string back to JSON
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            We can use regex to insert those missing tokens and then
+            successfully parse the octet-stream back into JSON. Once the record
+            is parsable, Synapse checks that the <code>type</code> key that was
+            injected during the first data transformation phase. This key helps
+            us identify the source of the record, what data to pluck out and
+            store and what table within Timestream to insert it in.
+          </p>
+          <br />
 
+          <h3>7.3 What to Visualize</h3>
+          <p>
+            When Naptime’s servers are down and they view the Synapse dashboard,
+            what are the key metrics they need to see in order to resolve their
+            outage? The challenge here wasn’t in writing SQL queries, but
+            actually taking a step back and deciding how to represent what
+            Synapse tracks and measures visually.
+          </p>
+          <br />
+          <p>
+            There are some main schools of thought on what metrics matter most
+            for monitoring, named things like “The Four Golden Signals”, “USE”,
+            and the “RED Method”. Tom Wilkie, a former site reliability engineer
+            (SRE) at Google, created the microservice-oriented monitoring
+            philosophy called RED. It focuses on rate, errors & duration, and
+            the team found that it had the right balance of simplicity and
+            specificity for our use-case, as well as that it was particularly
+            well suited to time-series data.
 
-        <!-- Section 7 -->
-        <h2 class="h2">7 Implementation Challenges</h2>
-        <p>
-          We had to overcome 3 major technical challenges while building Synapse.
+            <!-- TODO: bullet points -->
+            <span class="bold">“Rate”</span> refers to the number of requests
+            per second a service is receiving.
+            <span class="bold">“Errors”</span> is the number of the requests
+            that receive an error response from the service.
+            <span class="bold">“Duration”</span> is the length of time the
+            service takes to complete a response to a request.
+          </p>
+          <br />
+          <p>
+            We found that RED matched our use case nicely, perhaps due to the
+            fact that microservice architectures are typically distributed
+            systems.
+          </p>
+          <br />
+          <p>
+            Tom Wilkie has written that “understanding the error rate, the
+            request rate, and then some distribution of latency gives you a
+            nice, consistent view of how your architecture is behaving.” That’s
+            exactly what we wanted Synapse to provide: a consistent view of how
+            your architecture is behaving over time.
+          </p>
+          <br />
 
-          <!-- TODO: Bullet points -->
-          AWS: the optimistic Response object
-          Real-time data transformations
-          What does Synapse visualize?
-        </p>
-        <br />
+          <!-- Section 8 -->
+          <h2 class="h2">8 Future Work</h2>
+          <p>
+            Of course, an open source project is never fully finished. While we
+            think Synapse is currently feature-complete, ready for people to use
+            and immediately benefit from, there are certain future work items
+            that would strengthen the overall framework.
+          </p>
+          <br />
+          <ul>
+            <li>
+              We would like to provide our users the ability to inject more and
+              more varied custom transforms into the pipeline. It’s possible as
+              of now if they go and edit the configuration files, but that’s
+              manual and Synapse is all about reducing toil.
+            </li>
+            <li>
+              We’d also like to provide built-in support for MySQL, which Vector
+              does not currently support as a native source but which they do
+              plan to build as part of a future milestone.
+            </li>
+            <li>
+              And finally, on the dashboard, we would like to provide syntax
+              highlighting for SQL queries as well as more out of the box graphs
+              and visualizations.
+            </li>
+          </ul>
 
-        <h3>7.1 AWS: the optimistic Response object</h3>
-        <p>
-          One major challenge the team faced while building the <code>deploy</code> and <code>teardown</code> commands
-          was related to spinning up or destroying AWS services that depend on the existence of another service in order
-          to successfully deploy or that cannot be destroyed while another service depends on it. <code>deploy</code>
-          fires off 37 API calls, while <code>teardown</code> executes 25.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/api-calls.png" class="case-study-image" />
-          <figcaption>Fig. 37: The services spun up/destroyed by Synapse's <code>deploy</code> and <code>teardown</code>
-            commands</figcaption>
-        </figure>
-        <br />
-        <p>
-          For example, certain services couldn’t be spun up before the requisite IAM permissions were created or
-          attached, or Timestream tables couldn’t be created until the database was successfully created.
-        </p>
-        <br />
-        <p>
-          When an HTTP request is dependent on a successful response to a previous one, you expect to be able to make
-          the first request, wait to receive the response, and only then send the second request.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/optimistic-response.png" class="case-study-image" />
-          <figcaption>Fig. 38: Expected behavior when a second async request is dependent on a successful response to a
-            first</figcaption>
-        </figure>
-        <br />
-        <p>
-          When using the AWS SDK, AWS returns an AWS Response object that doesn’t necessarily indicate that the service
-          has been created! So when you predicate the next step on the receipt of the Response object and send the
-          subsequent request, it often fails.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/long-polling.gif" class="case-study-image" />
-          <figcaption>Fig. 39: Our solution to premature responses: implementing long-polling (with exponential backoff)
-          </figcaption>
-        </figure>
-        <br />
-        <p>
-          To overcome this, we implemented long polling AWS with exponential back off. Synapse asks Amazon repeatedly
-          whether the operation has been completed, increasing the time between failed polls at an exponential rate in
-          order to avoid overwhelming the server or hitting a rate limit. Once the AWS Response object returns a state
-          that is not <span class="bold">LOADING</span>, Synapse can then react to that state change accordingly.
-        </p>
-        <br />
-
-        <h3>7.2 Transforming data in real-time</h3>
-        <p>
-          How does Synapse take raw, plain-text logs and prepare them for insertion to a time-series database? To achieve
-          this, the team had to build in two separate data transformation steps throughout the pipeline. The first
-          happens at the point of collection, while the second happens in the Lambda function triggered by Kinesis Data
-          Firehose writing to the S3 bucket. We have already discussed how both work but to reiterate:
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/apache-log.png" class="case-study-image" />
-          <figcaption>Fig. 40: Sample plaintext log line from a web server</figcaption>
-        </figure>
-        <br />
-        <p>
-          Logs are typically emitted as plain-text. During the log collection process, Synapse takes some steps to
-          prepare it for insertion into the database. It first has to parse the record using a regex pattern written
-          specifically to match this particular log format. Parsing that plain-text log with such a regex pattern gives
-          us a structured JSON object. Synapse then injects a `type` key into the JSON object to note the record source
-          and transport it off the host server.
-        </p>
-        <br />
-        <p>
-          The second data transformation happens in the Lambda function where Synapse takes an octet-stream, parses it,
-          and then writes to the database.
-        </p>
-        <br />
-        <p>
-          Part of the appeal of the Kinesis Data Firehose is that it can accept data from any source: JSON, XML and
-          numerous other formats. Firehose just accepts that data without checking or enforcing its validity.
-          Unfortunately, the easiest way to accept any data is to convert it to binary and keep appending it to a binary
-          blob. This is exactly what Firehose does and where it converts the JSON Synapse built while collecting records
-          into an octet-stream.
-        </p>
-        <br />
-        <p>
-          We first start by converting the binary data into a string. This looks similar to an array of JSON records but
-          is missing a few tokens (brackets, commas, etc.) making it unparsable/invalid JSON.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/case-study/binary-to-json.gif" class="case-study-image" />
-          <figcaption>Fig. 41: Using regex to parse a string back to JSON</figcaption>
-        </figure>
-        <br />
-        <p>
-          We can use regex to insert those missing tokens and then successfully parse the octet-stream back into JSON.
-          Once the record is parsable, Synapse checks that the <code>type</code> key that was injected during the first
-          data transformation phase. This key helps us identify the source of the record, what data to pluck out and
-          store and what table within Timestream to insert it in.
-        </p>
-        <br />
-
-        <h3>7.3 What to Visualize</h3>
-        <p>
-          When Naptime’s servers are down and they view the Synapse dashboard, what are the key metrics they need to see
-          in order to resolve their outage? The challenge here wasn’t in writing SQL queries, but actually taking a step
-          back and deciding how to represent what Synapse tracks and measures visually.
-        </p>
-        <br />
-        <p>
-          There are some main schools of thought on what metrics matter most for monitoring, named things like “The Four
-          Golden Signals”, “USE”, and the “RED Method”. Tom Wilkie, a former site reliability engineer (SRE) at Google,
-          created the microservice-oriented monitoring philosophy called RED. It focuses on rate, errors & duration, and
-          the team found that it had the right balance of simplicity and specificity for our use-case, as well as that
-          it was particularly well suited to time-series data.
-
-          <!-- TODO: bullet points -->
-          <span class="bold">“Rate”</span> refers to the number of requests per second a service is receiving.
-          <span class="bold">“Errors”</span> is the number of the requests that receive an error response from the
-          service.
-          <span class="bold">“Duration”</span> is the length of time the service takes to complete a response to a
-          request.
-        </p>
-        <br />
-        <p>
-          We found that RED matched our use case nicely, perhaps due to the fact that microservice architectures are
-          typically distributed systems.
-        </p>
-        <br />
-        <p>
-          Tom Wilkie has written that “understanding the error rate, the request rate, and then some distribution of
-          latency gives you a nice, consistent view of how your architecture is behaving.” That’s exactly what we wanted
-          Synapse to provide: a consistent view of how your architecture is behaving over time.
-        </p>
-        <br />
-
-
-        <!-- Section 8 -->
-        <h2 class="h2">8 Future Work</h2>
-        <p>
-          Of course, an open source project is never fully finished. While we think Synapse is currently
-          feature-complete, ready for people to use and immediately benefit from, there are certain future work items
-          that would strengthen the overall framework.
-        </p>
-        <br />
-        <ul>
-          <li>
-            We would like to provide our users the ability to inject more and more varied custom transforms into the
-            pipeline. It’s possible as of now if they go and edit the configuration files, but that’s manual and Synapse
-            is all about reducing toil.
-          </li>
-          <li>
-            We’d also like to provide built-in support for MySQL, which Vector does not currently support as a native
-            source but which they do plan to build as part of a future milestone.
-          </li>
-          <li>
-            And finally, on the dashboard, we would like to provide syntax highlighting for SQL queries as well as more
-            out of the box graphs and visualizations.
-          </li>
-        </ul>
-
-        <!-- Section 9 -->
-        <h2>9 Team</h2>
-        <br>
-        <br>
-        <div class="section team-section">
-          <div class="container">
-            <div data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
-              <div data-w-id="8ce4324a-ed8e-4436-9964-0cfbaf67c64a" style="
+          <!-- Section 9 -->
+          <h2>9 Team</h2>
+          <br />
+          <br />
+          <div class="section team-section">
+            <div class="container">
+              <div
+                data-duration-in="300"
+                data-duration-out="100"
+                class="tabs w-tabs"
+              >
+                <div
+                  data-w-id="8ce4324a-ed8e-4436-9964-0cfbaf67c64a"
+                  style="
                     transform: translate3d(0px, 55px, 0px) scale3d(1, 1, 1)
                       rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
                     transform-style: preserve-3d;
                     opacity: 0;
-                  " class="tabs-content w-tab-content">
-                <div>
-                  <div class="team-grid">
-                    <div class="team-member-wrap">
-                      <img src="assets/images/team/andrew.jpg" loading="lazy" alt="" />
-                      <div class="team-member-info">
-                        <div class="team-member-name">Aneesh Patel</div>
-                        <div class="team-member-location">Virginia Beach, VA</div>
+                  "
+                  class="tabs-content w-tab-content"
+                >
+                  <div>
+                    <div class="team-grid">
+                      <div class="team-member-wrap">
+                        <img
+                          src="assets/images/team/andrew.jpg"
+                          loading="lazy"
+                          alt=""
+                        />
+                        <div class="team-member-info">
+                          <div class="team-member-name">Aneesh Patel</div>
+                          <div class="team-member-location">
+                            Virginia Beach, VA
+                          </div>
+                        </div>
+                        <ul class="team-member-icons">
+                          <li>
+                            <a
+                              href="mailto:patelaneesh4@gmail.com"
+                              target="_blank"
+                            >
+                              <span class="team-member-icon">
+                                <i class="fas fa-envelope"></i>
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://google.com" target="_blank">
+                              <span class="team-member-icon">
+                                <i class="fas fa-globe"></i>
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.linkedin.com/in/aneesh-patel-62172b91/"
+                              target="_blank"
+                            >
+                              <span class="team-member-icon">
+                                <i class="fab fa-linkedin"></i>
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
                       </div>
-                      <ul class="team-member-icons">
-                        <li>
-                          <a href="mailto:patelaneesh4@gmail.com" target="_blank">
-                            <span class="team-member-icon">
-                              <i class="fas fa-envelope"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://google.com" target="_blank">
-                            <span class="team-member-icon">
-                              <i class="fas fa-globe"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.linkedin.com/in/aneesh-patel-62172b91/" target="_blank">
-                            <span class="team-member-icon">
-                              <i class="fab fa-linkedin"></i>
-                            </span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="team-member-wrap">
-                      <img src="assets/images/team/pete.png" loading="lazy" alt="">
-                      <div class="team-member-info">
-                        <div class="team-member-name">Dylan Jones</div>
-                        <div class="team-member-location">Vancouver, Canada</div>
+                      <div class="team-member-wrap">
+                        <img
+                          src="assets/images/team/pete.png"
+                          loading="lazy"
+                          alt=""
+                        />
+                        <div class="team-member-info">
+                          <div class="team-member-name">Dylan Jones</div>
+                          <div class="team-member-location">
+                            Vancouver, Canada
+                          </div>
+                        </div>
+                        <ul class="team-member-icons">
+                          <li>
+                            <a
+                              href="mailto:dylan.seijin.jones@gmail.com"
+                              target="_blank"
+                            >
+                              <span class="team-member-icon">
+                                <i class="fas fa-envelope"></i>
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://google.com" target="_blank">
+                              <span class="team-member-icon">
+                                <i class="fas fa-globe"></i>
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.linkedin.com/in/dylan-jones-053310218/"
+                              target="_blank"
+                            >
+                              <span class="team-member-icon">
+                                <i class="fab fa-linkedin"></i>
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
                       </div>
-                      <ul class="team-member-icons">
-                        <li>
-                          <a href="mailto:dylan.seijin.jones@gmail.com" target="_blank">
-                            <span class="team-member-icon">
-                              <i class="fas fa-envelope"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://google.com" target="_blank">
-                            <span class="team-member-icon">
-                              <i class="fas fa-globe"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.linkedin.com/in/dylan-jones-053310218/" target="_blank">
-                            <span class="team-member-icon">
-                              <i class="fab fa-linkedin"></i>
-                            </span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="team-member-wrap">
-                      <img src="assets/images/team/nick.jpeg" loading="lazy" alt="">
-                      <div class="team-member-info">
-                        <div class="team-member-name">Jay Gudsson</div>
-                        <div class="team-member-location">Vancouver, BC</div>
+                      <div class="team-member-wrap">
+                        <img
+                          src="assets/images/team/nick.jpeg"
+                          loading="lazy"
+                          alt=""
+                        />
+                        <div class="team-member-info">
+                          <div class="team-member-name">Jay Gudsson</div>
+                          <div class="team-member-location">Vancouver, BC</div>
+                        </div>
+                        <ul class="team-member-icons">
+                          <li>
+                            <a href="mailto:gudsson@gmail.com" target="_blank">
+                              <span class="team-member-icon">
+                                <i class="fas fa-envelope"></i>
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://gudsson.com" target="_blank">
+                              <span class="team-member-icon">
+                                <i class="fas fa-globe"></i>
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="https://linkedin.com/in/gudsson"
+                              target="_blank"
+                            >
+                              <span class="team-member-icon">
+                                <i class="fab fa-linkedin"></i>
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
                       </div>
-                      <ul class="team-member-icons">
-                        <li>
-                          <a href="mailto:gudsson@gmail.com" target="_blank">
-                            <span class="team-member-icon">
-                              <i class="fas fa-envelope"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://gudsson.com" target="_blank">
-                            <span class="team-member-icon">
-                              <i class="fas fa-globe"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://linkedin.com/in/gudsson" target="_blank">
-                            <span class="team-member-icon">
-                              <i class="fab fa-linkedin"></i>
-                            </span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="team-member-wrap">
-                      <img src="assets/images/team/angel.jpeg" loading="lazy" alt="">
-                      <div class="team-member-info">
-                        <div class="team-member-name">Justin Gustafson</div>
-                        <div class="team-member-location">Grand Rapids, MI</div>
+                      <div class="team-member-wrap">
+                        <img
+                          src="assets/images/team/angel.jpeg"
+                          loading="lazy"
+                          alt=""
+                        />
+                        <div class="team-member-info">
+                          <div class="team-member-name">Justin Gustafson</div>
+                          <div class="team-member-location">
+                            Grand Rapids, MI
+                          </div>
+                        </div>
+                        <ul class="team-member-icons">
+                          <li>
+                            <a href="mailto:jtwgus@gmail.com" target="_blank">
+                              <span class="team-member-icon">
+                                <i class="fas fa-envelope"></i>
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="http://jtwgus.com/" target="_blank">
+                              <span class="team-member-icon">
+                                <i class="fas fa-globe"></i>
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.linkedin.com/in/justin-gustafson-98063945/"
+                              target="_blank"
+                            >
+                              <span class="team-member-icon">
+                                <i class="fab fa-linkedin"></i>
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
                       </div>
-                      <ul class="team-member-icons">
-                        <li>
-                          <a href="mailto:jtwgus@gmail.com" target="_blank">
-                            <span class="team-member-icon">
-                              <i class="fas fa-envelope"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="http://jtwgus.com/" target="_blank">
-                            <span class="team-member-icon">
-                              <i class="fas fa-globe"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.linkedin.com/in/justin-gustafson-98063945/" target="_blank">
-                            <span class="team-member-icon">
-                              <i class="fab fa-linkedin"></i>
-                            </span>
-                          </a>
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </div>
@@ -1351,12 +1813,18 @@
             </div>
           </div>
         </div>
-    </article>
-    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f71dd169010d641cf65485c"
-      type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-      crossorigin="anonymous"></script>
-    <script src="https://assets.website-files.com/5f71dd169010d641cf65485c/js/webflow.6af2032ff.js"
-      type="text/javascript"></script>
+      </article>
+    </div>
+    <script
+      src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f71dd169010d641cf65485c"
+      type="text/javascript"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://assets.website-files.com/5f71dd169010d641cf65485c/js/webflow.6af2032ff.js"
+      type="text/javascript"
+    ></script>
     <script>
       /*!
        * toc - jQuery Table of Contents Plugin
@@ -1364,20 +1832,165 @@
        * http://projects.jga.me/toc/
        * copyright Greg Allen 2014
        * MIT License
-      */
-      !function (a) { a.fn.smoothScroller = function (b) { b = a.extend({}, a.fn.smoothScroller.defaults, b); var c = a(this); return a(b.scrollEl).animate({ scrollTop: c.offset().top - a(b.scrollEl).offset().top - b.offset }, b.speed, b.ease, function () { var a = c.attr("id"); a.length && (history.pushState ? history.pushState(null, null, "#" + a) : document.location.hash = a), c.trigger("smoothScrollerComplete") }), this }, a.fn.smoothScroller.defaults = { speed: 400, ease: "swing", scrollEl: "body,html", offset: 0 }, a("body").on("click", "[data-smoothscroller]", function (b) { b.preventDefault(); var c = a(this).attr("href"); 0 === c.indexOf("#") && a(c).smoothScroller() }) }(jQuery), function (a) { var b = {}; a.fn.toc = function (b) { var c, d = this, e = a.extend({}, jQuery.fn.toc.defaults, b), f = a(e.container), g = a(e.selectors, f), h = [], i = e.activeClass, j = function (b, c) { if (e.smoothScrolling && "function" == typeof e.smoothScrolling) { b.preventDefault(); var f = a(b.target).attr("href"); e.smoothScrolling(f, e, c) } a("li", d).removeClass(i), a(b.target).parent().addClass(i) }, k = function () { c && clearTimeout(c), c = setTimeout(function () { for (var b, c = a(window).scrollTop(), f = Number.MAX_VALUE, g = 0, j = 0, k = h.length; k > j; j++) { var l = Math.abs(h[j] - c); f > l && (g = j, f = l) } a("li", d).removeClass(i), b = a("li:eq(" + g + ")", d).addClass(i), e.onHighlight(b) }, 50) }; return e.highlightOnScroll && (a(window).bind("scroll", k), k()), this.each(function () { var b = a(this), c = a(e.listType); g.each(function (d, f) { var g = a(f); h.push(g.offset().top - e.highlightOffset); var i = e.anchorName(d, f, e.prefix); if (f.id !== i) { a("<span/>").attr("id", i).insertBefore(g) } var l = a("<a/>").text(e.headerText(d, f, g)).attr("href", "#" + i).bind("click", function (c) { a(window).unbind("scroll", k), j(c, function () { a(window).bind("scroll", k) }), b.trigger("selected", a(this).attr("href")) }), m = a("<li/>").addClass(e.itemClass(d, f, g, e.prefix)).append(l); c.append(m) }), b.html(c) }) }, jQuery.fn.toc.defaults = { container: "body", listType: "<ul/>", selectors: "h1,h2,h3", smoothScrolling: function (b, c, d) { a(b).smoothScroller({ offset: c.scrollToOffset }).on("smoothScrollerComplete", function () { d() }) }, scrollToOffset: 0, prefix: "toc", activeClass: "toc-active", onHighlight: function () { }, highlightOnScroll: !0, highlightOffset: 100, anchorName: function (c, d, e) { if (d.id.length) return d.id; var f = a(d).text().replace(/[^a-z0-9]/gi, " ").replace(/\s+/g, "-").toLowerCase(); if (b[f]) { for (var g = 2; b[f + g];)g++; f = f + "-" + g } return b[f] = !0, e + "-" + f }, headerText: function (a, b, c) { return c.text() }, itemClass: function (a, b, c, d) { return d + "-" + c[0].tagName.toLowerCase() } } }(jQuery);
+       */
+      !(function (a) {
+        (a.fn.smoothScroller = function (b) {
+          b = a.extend({}, a.fn.smoothScroller.defaults, b);
+          var c = a(this);
+          return (
+            a(b.scrollEl).animate(
+              {
+                scrollTop:
+                  c.offset().top - a(b.scrollEl).offset().top - b.offset,
+              },
+              b.speed,
+              b.ease,
+              function () {
+                var a = c.attr("id");
+                a.length &&
+                  (history.pushState
+                    ? history.pushState(null, null, "#" + a)
+                    : (document.location.hash = a)),
+                  c.trigger("smoothScrollerComplete");
+              }
+            ),
+            this
+          );
+        }),
+          (a.fn.smoothScroller.defaults = {
+            speed: 400,
+            ease: "swing",
+            scrollEl: "body,html",
+            offset: 0,
+          }),
+          a("body").on("click", "[data-smoothscroller]", function (b) {
+            b.preventDefault();
+            var c = a(this).attr("href");
+            0 === c.indexOf("#") && a(c).smoothScroller();
+          });
+      })(jQuery),
+        (function (a) {
+          var b = {};
+          (a.fn.toc = function (b) {
+            var c,
+              d = this,
+              e = a.extend({}, jQuery.fn.toc.defaults, b),
+              f = a(e.container),
+              g = a(e.selectors, f),
+              h = [],
+              i = e.activeClass,
+              j = function (b, c) {
+                if (
+                  e.smoothScrolling &&
+                  "function" == typeof e.smoothScrolling
+                ) {
+                  b.preventDefault();
+                  var f = a(b.target).attr("href");
+                  e.smoothScrolling(f, e, c);
+                }
+                a("li", d).removeClass(i), a(b.target).parent().addClass(i);
+              },
+              k = function () {
+                c && clearTimeout(c),
+                  (c = setTimeout(function () {
+                    for (
+                      var b,
+                        c = a(window).scrollTop(),
+                        f = Number.MAX_VALUE,
+                        g = 0,
+                        j = 0,
+                        k = h.length;
+                      k > j;
+                      j++
+                    ) {
+                      var l = Math.abs(h[j] - c);
+                      f > l && ((g = j), (f = l));
+                    }
+                    a("li", d).removeClass(i),
+                      (b = a("li:eq(" + g + ")", d).addClass(i)),
+                      e.onHighlight(b);
+                  }, 50));
+              };
+            return (
+              e.highlightOnScroll && (a(window).bind("scroll", k), k()),
+              this.each(function () {
+                var b = a(this),
+                  c = a(e.listType);
+                g.each(function (d, f) {
+                  var g = a(f);
+                  h.push(g.offset().top - e.highlightOffset);
+                  var i = e.anchorName(d, f, e.prefix);
+                  if (f.id !== i) {
+                    a("<span/>").attr("id", i).insertBefore(g);
+                  }
+                  var l = a("<a/>")
+                      .text(e.headerText(d, f, g))
+                      .attr("href", "#" + i)
+                      .bind("click", function (c) {
+                        a(window).unbind("scroll", k),
+                          j(c, function () {
+                            a(window).bind("scroll", k);
+                          }),
+                          b.trigger("selected", a(this).attr("href"));
+                      }),
+                    m = a("<li/>")
+                      .addClass(e.itemClass(d, f, g, e.prefix))
+                      .append(l);
+                  c.append(m);
+                }),
+                  b.html(c);
+              })
+            );
+          }),
+            (jQuery.fn.toc.defaults = {
+              container: "body",
+              listType: "<ul/>",
+              selectors: "h1,h2,h3",
+              smoothScrolling: function (b, c, d) {
+                a(b)
+                  .smoothScroller({ offset: c.scrollToOffset })
+                  .on("smoothScrollerComplete", function () {
+                    d();
+                  });
+              },
+              scrollToOffset: 0,
+              prefix: "toc",
+              activeClass: "toc-active",
+              onHighlight: function () {},
+              highlightOnScroll: !0,
+              highlightOffset: 100,
+              anchorName: function (c, d, e) {
+                if (d.id.length) return d.id;
+                var f = a(d)
+                  .text()
+                  .replace(/[^a-z0-9]/gi, " ")
+                  .replace(/\s+/g, "-")
+                  .toLowerCase();
+                if (b[f]) {
+                  for (var g = 2; b[f + g]; ) g++;
+                  f = f + "-" + g;
+                }
+                return (b[f] = !0), e + "-" + f;
+              },
+              headerText: function (a, b, c) {
+                return c.text();
+              },
+              itemClass: function (a, b, c, d) {
+                return d + "-" + c[0].tagName.toLowerCase();
+              },
+            });
+        })(jQuery);
     </script>
     <script>
       /* initialize */
-      $('.toc').toc({
-        'selectors': 'h2', //elements to use as headings
-        'container': 'article', //element to find all selectors in
-        'smoothScrolling': true, //enable or disable smooth scrolling on click
-        'prefix': 'toc', //prefix for anchor tags and class names
-        'highlightOnScroll': true, //add class to heading that is currently in focus
-        'highlightOffset': 100, //offset to trigger the next headline
+      $(".toc").toc({
+        selectors: "h2", //elements to use as headings
+        container: "article", //element to find all selectors in
+        smoothScrolling: true, //enable or disable smooth scrolling on click
+        prefix: "toc", //prefix for anchor tags and class names
+        highlightOnScroll: true, //add class to heading that is currently in focus
+        highlightOffset: 100, //offset to trigger the next headline
       });
     </script>
-</body>
-
+  </body>
 </html>
