@@ -780,13 +780,14 @@ h6 {
 p {
   margin-bottom: 10px;
   font-family: Nunito Sans, sans-serif;
-  font-size: 18px;
+  font-size: 1.3rem;
   line-height: 1.65;
 }
 
 li {
-  font-size: 18px;
+  /* font-size: 1.3rem; */
   line-height: 1.65;
+  font-family: Nunito Sans, sans-serif;
 }
 
 blockquote {

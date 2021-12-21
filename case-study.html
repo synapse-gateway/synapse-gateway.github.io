@@ -123,75 +123,91 @@
 
           <h3>1.1 What is Synapse?</h3>
           <p>
-            Synapse is an open-source, serverless monitoring framework for
-            small, distributed apps. Our team built Synapse in order to help
-            small teams handle the challenges of operating a distributed system.
+            Synapse is an open-source solution for building, deploying, and
+            monitoring a GraphQL Gateway. Synapse enables you to put your legacy
+            APIs behind a single GraphQL endpoint. It allows teams to easily
+            deploy a new GraphQL Gateway onto serverless AWS infrastructure and
+            monitor requests made to the gateway.
           </p>
           <br />
           <p>
-            Synapse enables you to collect, centralize, and store log and metric
-            data emitted by the various disparate pieces of your system. With
-            Synapse, when something goes down in production, there’s no race to
-            SSH into a dozen different nodes to figure out what’s gone wrong;
-            all of the log data you’d use for debugging has already been
-            collected, processed and tagged with the servers and services that
-            originated the individual records, and stored in a single database
-            for querying.
+            Synapse abstracts away the complex issues involved in moving your
+            legacy backend services to a GraphQL API gateway with a single
+            endpoint for client access. Developers are able to use a GUI to
+            configure the GraphQL gateway to include a wide variety of service
+            API endpoints including API types like REST, OpenAPI, JSON Schema,
+            GraphQL and even databases like Mongo and Postgres.
           </p>
           <br />
           <p>
-            All of this empowers the user to both greatly reduce costly downtime
-            or outages, and proactively improve the overall performance of their
-            systems. Prevention is important: you want to catch problems before
-            your users do. If you’re constantly applying ad-hoc, band-aid fixes,
-            you’re making your system more fragile instead of less.
+            Our case study will examine why and how we designed and created
+            Synapse. Our main goal was to create a relatively easy way to turn a
+            complex microservice infrastructure into a single GraphQL API and
+            deploy it to AWS efficiently. There were many challenges we faced in
+            doing so and this case study will explain how we solved those
+            difficulties and why we made the choices we did.
           </p>
           <br />
           <p>
-            To illustrate just exactly what Synapse does, let’s use the example
-            of a small company named NapTime.
+            First, we will explain the general web application infrastructure
+            and some of the problems it can present to modern day applications.
           </p>
           <br />
 
-          <h3>1.2 NapTime: An Example User Story</h3>
+          <h3>1.2 Monolithic Application Architecture</h3>
           <p>
-            NapTime has two engineers, and they recently completed the beta
-            build of their sleep monitoring app.
+            Traditionally, applications have been designed as and often start
+            out as monolithic applications, meaning that while the software may
+            have many different components, it is usually contained on one
+            server and tightly coupled, or interconnected, together. The
+            benefits of this type of architecture is that it is fairly simple to
+            develop, test, and deploy. It can scale up fairly well simply by
+            creating new instances of the application as needed behind a tool
+            such as a load balancer.
           </p>
           <br />
-          <p>
-            Their system itself has proven to be resilient so far, thanks to its
-            small size and simplicity.
-          </p>
+
           <figure>
             <img
               src="assets/images/case-study/naptime-early.png"
               class="case-study-image"
             />
-            <figcaption>Fig. 1: NapTime's beta architecture</figcaption>
+            <figcaption>Fig. 1: Example Monolithic Architecture</figcaption>
           </figure>
           <br />
           <p>
-            NapTime built a simple three-tier system in order to avoid premature
-            optimization, with their web server and application running on one
-            server, and their database on another.
+            However, the drawbacks of this architectural style become evident as
+            the application gets more complex and grows ever larger. Several
+            problems include:
           </p>
-          <br />
+
+          <ol>
+            <li>Size of the application can slow start up time</li>
+            <li>
+              Changing one part of the code can have an unanticipated ripple
+              effect elsewhere in the application
+            </li>
+            <li>
+              Reliability issues - a bug in any part could bring down the entire
+              application
+            </li>
+            <li>Barrier to adopting new technologies</li>
+            <li>Must redeploy entire application if there is an update</li>
+          </ol>
+
           <p>
-            The two engineers have been busy developing features and shipping
-            their first few builds. When an outage or critical bug pops up, it
-            derails their development flow. NapTime doesn’t currently have a
-            monitoring solution in place, so they’re totally reliant on either
-            hearing from users when something breaks, or coming across an issue
-            themselves by poking around the system.
+            These problems can lead to the adoption of what is known as a
+            microservices architecture.
           </p>
           <br />
 
-          <h3>1.3 An Outage at NapTime</h3>
+          <h3>1.3 Microservices Architecture</h3>
           <p>
-            What happens when an outage is reported? Say, for example, a couple
-            of users reach out to say that they’re trying to access their
-            homepages but they’re just receiving a 500-level error.
+            Instead of one, tightly coupled application, different services are
+            split into self-contained, loosely coupled microservices. Each
+            microservice is usually a small application unto itself that exposes
+            its own API for use by the other services and relies on its own
+            separate database if needed.
           </p>
           <br />
           <figure>
@@ -199,84 +215,111 @@
               src="assets/images/case-study/debugging-small.gif"
               class="case-study-image"
             />
-            <figcaption>
-              Fig. 2: How can NapTime determine what's wrong?
-            </figcaption>
+            <figcaption>Fig. 2: Example Microservices Architecture</figcaption>
           </figure>
           <br />
+          <p>The main benefits of a microservices architecture include:</p>
+          <ol>
+            <li>
+              Less complex application since each service can be managed
+              independently of the others
+            </li>
+            <li>
+              Each service can be developed independently by a team just focused
+              on that service
+            </li>
+            <li>Enables continuous deployment</li>
+            <li>Each service can be scaled independently</li>
+            <li>
+              Developers are not bound to a specific technology for all services
+            </li>
+          </ol>
+          <br />
           <p>
-            The engineers decide on three priority debugging steps: ensure that
-            each server in their system is up, ensure that each of the services
-            running on those servers is up, and check whether those services are
-            sending and receiving requests and responses successfully.
+            One main tool that is often necessitated by a microservices
+            architecture is an API gateway. Since there is no longer just one
+            main monolithic service containing all parts of the application,
+            this gateway is responsible for routing all incoming requests to the
+            proper service and providing the response.
           </p>
           <br />
+          <p>
+            Using a traditional REST API for either an API gateway or
+            microservice endpoints can have a negative effect on an
+            application’s performance.
+          </p>
+          <br />
+          <h3>1.4 What is an API?</h3>
+          <p>
+            An Application Programming Interface (API) provides a specification
+            for applications and devices to communicate with each other. For
+            example, an API is what allows one computer to get information from
+            a server or even another device. There are many ways to design and
+            build an API, as well as different specifications to use such as
+            OpenAPI, REST, JSON Schema, RPC and others.
+          </p>
+          <br />
+          <p>
+            As more and more people access the internet and applications via
+            their mobile devices, traditional REST APIs can cause issues with
+            app performance and efficient operations due to factors such as
+            limited bandwidth. An application often needs to make multiple
+            network requests to get data from the various services. Especially
+            when used on a mobile device on a network that may be slow or have
+            poor connection stability, having to make multiple requests for data
+            slows the app’s performance down significantly. This can be due to
+            the problem caused by REST APIs of under or over-fetching data in a
+            single request.
+          </p>
+          <br />
+          <h3>1.5 REST APIs</h3>
+          <p>
+            When one REST API endpoint does not return all the data that is
+            needed to fulfill the request, this results in under-fetching as the
+            client still requires more data from another endpoint, causing
+            additional network requests.
+          </p>
+          <p>
+            Over-fetching data may also occur and slow transmission speed when a
+            response contains more data than what is actually needed due to the
+            nature of what the REST endpoint is programmed to return.
+          </p>
+
+          <p>
+            Below is an example request to get all of a specific user’s posts
+            and display them with the user name who created the post. To obtain
+            this data we will actually need to make two separate requests. This
+            is because one request to the user/id endpoint does not get all the
+            data that is required.
+          </p>
           <figure>
             <img
-              src="assets/images/case-study/debugging-steps.gif"
+              src="assets/images/case-study/log-breakdown.png"
               class="case-study-image"
             />
             <figcaption>
-              Fig. 3: Some potential debugging steps for NapTime's engineers
+              Fig. 3: An example of a GET Request to /users/id
             </figcaption>
           </figure>
           <br />
           <p>
-            First, if they have a list of their static IP addresses, they can
-            use the Unix command line utility `ping` to check whether each of
-            the servers is up at all. If the servers are up, it’ll be useful to
-            see their health metrics. NapTime engineers might run a utility like
-            `top` on each of the servers to see a summary of the system’s health
-            (e.g. overall CPU load or available memory) as well as what
-            processes are running on the server.
+            This example illustrates two problems that can occur when
+            interacting with a REST API. First, one request to the user/id
+            endpoint does not get all the data that is required and thus
+            under-fetches what we need.
           </p>
-          <br />
           <p>
-            If everything checks out with the system’s health, it’s time to
-            start looking into the individual services running on each server.
-            If the engineers are interested in a running process, like an
-            application, they might check the status of their process manager.
-            Each service generally has a different method of checking its
-            health.
+            This also shows the over-fetching problem caused by REST APIs where
+            we only need the user name but are getting a response that also
+            includes the user address and birthday.
           </p>
-          <br />
           <p>
-            After the most obvious checks (e.g. is something even running?) come
-            the next steps. What if none of their checks turn up an issue?
-            Performing each of the aforementioned steps manually will tell them
-            how something is performing at the moment of observation, but what
-            about performance just before they checked? Or how about at the time
-            the complaints started coming in? The log files that each of
-            NapTime’s servers and services produce can provide the answers to
-            these questions.
-          </p>
-          <br />
-          <figure>
-            <img
-              src="assets/images/case-study/logs-historical.png"
-              class="case-study-image"
-            />
-            <figcaption>
-              Fig. 4: NapTime's servers and services write their historical
-              records to log files
-            </figcaption>
-          </figure>
-          <br />
-          <p>
-            Let’s say that the NapTime team is curious about what’s going on
-            with their Nginx web server. One of their next steps would be to
-            take a look at the access log file in the nginx subdirectory of
-            var/log.
-          </p>
-          <br />
-          <p>
-            Web servers like nginx and Apache produce access logs, where each
-            line contains information about each request sent to the system;
-            like the IP address of the requester, time of the request, the path
-            of the requested file, the server response code, the time it took
-            the server to fulfill the request, and more. If there are 500-level
-            errors occurring, exploring the access log of their web server is
-            where NapTime would find evidence of them.
+            Below we see the second network request to a different API endpoint
+            that is needed to fulfill the client’s main request for all posts
+            from a specific user. As you can see, this also over-fetches more
+            data than what the client is asking for by providing comments as
+            well. Perhaps the client only wanted the title of the posts but is
+            getting back the content also.
           </p>
           <br />
           <figure>
@@ -285,39 +328,62 @@
               class="case-study-image"
             />
             <figcaption>
-              Fig. 5: An example of a single record from a web server's
-              plain-text access log
+              Fig. 4: An example of a second GET Request to /users/id/posts
             </figcaption>
           </figure>
           <br />
           <p>
-            The individual log lines NapTime would find would look something
-            like the above diagram. An interested engineer can take logs like
-            these and analyze them, either one by one or aggregated, in order to
-            achieve a number of insights, like:
-            <!-- TODO: Bullet points -->
-            · Finding individual specific events in the past · Graphing trends
-            over time, like 500 response codes or aggregated requests per minute
-            · And alerting specific users when pre-defined heuristic thresholds
-            are met or surpassed
+            Being unable to obtain all the data the client needs in one network
+            request leads to multiple requests and slower response time from an
+            application. So what changes could be made to reduce the number of
+            network requests and improve the performance of a mobile app?
+          </p>
+          <p>
+            First, the developer could redesign all of their API endpoints to
+            meet the current demands of their clients. However, client demands
+            change and this would require a huge amount of overhaul of their
+            current systems.
+          </p>
+          <p>
+            Second, the developer could continue to create new API endpoints for
+            specific and often-requested data. This would eventually lead to an
+            immense API back-end that is constantly growing and trying to keep
+            up with changing client needs.
+          </p>
+          <p>
+            Finally, the option we believe would be best is to combine all the
+            backend services into a single endpoint, but how can we do this?
+          </p>
+          <p>One method that could be used is moving to a GraphQL API.</p>
+          <br />
+          <h2>2 Advent of GraphQL</h2>
+          <br />
+          <p>
+            The inflexibility of traditional API technologies led to the
+            development of GraphQL. GraphQL is a strongly-typed query language
+            for APIs developed by Facebook in 2012 to improve the performance of
+            their mobile applications by defining a specification that reduced
+            the need to prepare data on the server and parse it on the client’s
+            end. It allowed the client to request and receive exactly the data
+            that it needed, no less, no more.
           </p>
           <br />
-
-          <h3>1.4 Scaling up NapTime</h3>
           <p>
-            Let’s consider NapTime’s architecture and processes after they scale
-            a bit more. They still have a three-tier architecture, with
-            presentation, business logic, and storage abstracted away from each
-            other, but now they have more overall servers and services.
+            Despite being a more recently developed specification, GraphQL has
+            quickly become adopted throughout the industry since being released
+            by Facebook in 2015. According to the 2021 State of Javascript
+            Report, the percentage of developers using GraphQL has risen from 6%
+            in 2016 to 47% in 2021 topping the charts with a 94% developer
+            satisfaction rating. Also, over 84% of developers are either
+            interested in learning GraphQL or would definitely use it again.
           </p>
           <br />
+          <h3>2.1 What is GraphQL?</h3>
           <p>
-            Collecting and processing logs is straightforward when everything is
-            on a single machine, you just use some software to handle
-            aggregation. But when you have a distributed system with multiple
-            nodes, instead of just software you need both software AND some
-            infrastructure that can handle both transportation to and storage in
-            a new central location.
+            With GraphQL, the underlying available data is organized by a
+            schema. The schema creates a hierarchy of type definitions, which
+            typically represent objects. Type definitions have one or more
+            fields, which indicates the return type of the data.
           </p>
           <br />
           <figure>
@@ -325,33 +391,48 @@
               src="assets/images/case-study/naptime-scaled.png"
               class="case-study-image"
             />
-            <figcaption>
-              Fig. 6: NapTime's architecture after scaling
-            </figcaption>
+            <figcaption>Fig. 5: Example GraphQL API Schema</figcaption>
           </figure>
           <br />
           <p>
-            Suddenly NapTime is in charge of 8 nodes instead of 2, scaled out
-            app servers, more unique services, a load balancer, and multiple
-            databases. What is debugging like for them now? What if MongoDB
-            suddenly stops responding, or one of the app servers can no longer
-            write to the Main Postgres instance? How will NapTime isolate what
-            went wrong, let alone actually fix it? Their number of servers and
-            services keeps growing, and the number of connections between all of
-            them continues to grow exponentially. How is the team supposed to
-            get a holistic understanding of what’s happening across the entire
-            topology of their system?
+            This structure and strict type system means that we can query the
+            schema to see the data available for querying, as well as how return
+            objects may be structured. It also allows us to declare exactly
+            which fields from a returned type are needed, meaning the client
+            won’t overfetch from the application.
           </p>
           <br />
+          <figure>
+            <img
+              src="assets/images/case-study/naptime-scaled.png"
+              class="case-study-image"
+            />
+            <figcaption>Fig. 6: Example GraphQL Query</figcaption>
+          </figure>
+          <br />
           <p>
-            Monitoring is toil. That is, if you don’t have an automated
-            framework taking care of it for you. As detailed above, one key
-            component in “monitoring” is examining the log output of your
-            systems. That can mean reading through files thousands of lines
-            long, like NapTime’s Nginx Access Log, one line at a time. No one
-            wants to read log files line by line if it can be avoided. After
-            all, one of the main motivations of the field of software
-            engineering is automating the toil out of processes.
+            And lastly, the GraphQL specification allows us to perform multiple
+            queries in one request, even if the return types are independent,
+            solving the under-fetching issues and preventing the need for
+            multiple round-trips.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/naptime-scaled.png"
+              class="case-study-image"
+            />
+            <figcaption>Fig. 7: Example GraphQL Response</figcaption>
+          </figure>
+          <br />
+          <p>
+            Here is an example of a feature of GraphQL that allows nested
+            queries and therefore requires only one client network request to
+            obtain data from various resources-this prevents both under and
+            over-fetching. Books are related to an author, we are querying for
+            the authors and then sub-querying their books. Since the books are
+            not a scalar type but a custom type, we need to specify which of
+            their properties must be retrieved.
           </p>
           <br />
           <figure>
@@ -360,79 +441,94 @@
               class="case-study-image"
             />
             <figcaption>
-              Fig. 7: Running `tail -f` on a server/service's logfile can help
-              you understand what that server/service is doing over time
+              Fig. 8: Example GraphQL Nested Query and Response
             </figcaption>
           </figure>
           <br />
+          <h3>2.2 Benefits of GraphQL</h3>
+
+          <p>In summary, the main benefits of GraphQL include:</p>
+          <ol>
+            <li>
+              The client can customize queries to fetch the exact data that is
+              needed when they need it
+            </li>
+            <li>It reduces the over and under-fetching of data</li>
+            <li>
+              It reduces the number of calls made over the network by the client
+              to the API
+            </li>
+            <li>
+              GraphQL provides a unified and optimized public API of services
+              reachable through a single endpoint.
+            </li>
+          </ol>
+
+          <br />
+          <h3>2.3 Switching to a GraphQL API</h3>
+
           <p>
-            On Unix-like systems, a common strategy to gain a quick insight into
-            what’s happening with a service is to run the command `tail -f` on
-            the log file to which that service writes. Tail prints the last 10
-            lines of a given file to STDOUT, and the `-f` flag indicates that
-            the program should continue to “follow”, streaming new lines to
-            STDOUT as they are written to the file.
+            From an existing API that is composed of many different endpoints,
+            how can a company switch to GraphQL? One approach would be to change
+            all of the current service endpoints into GraphQL. However this
+            would require a significant investment of time and money, as well as
+            a complete redesign of all service APIs to the GraphQL format.
           </p>
           <br />
           <p>
-            This process worked fine for NapTime when they wanted to watch the
-            real time stream of log messages on one machine or two. But what
-            about now that their system is distributed across nearly a dozen
-            servers? Are their engineers going to open a dozen terminal windows
-            and SSH onto each individual server?
+            Another common problem that would likely have to be addressed is
+            that some of the service APIs used by the company may in fact be
+            owned by third parties, such as a payment processor or email
+            service. These would not be available for the developer to change in
+            any way and have to be accessed in their current API format.
+          </p>
+          <p>The best option would be to use a GraphQL server.</p>
+          <br />
+
+          <h3>2.4 Using a GraphQL Server</h3>
+          <p>
+            When we use a GraphQL server, the client can now simply make one
+            request to a single endpoint for the service, reducing the need for
+            multiple network requests from the client to the server. The GraphQL
+            server can use what are called resolver functions to access any API
+            type that an existing service may have and return the requested
+            data.
+          </p>
+          <br />
+          <figure>
+            <img
+              src="assets/images/case-study/single-source.gif"
+              class="case-study-image"
+            />
+            <figcaption>Fig. 9: Example GraphQL Server</figcaption>
+          </figure>
+          <br />
+          <p>
+            However, the company may have several issues to deal with: a way to
+            integrate existing APIs without needing to redesign each one; be
+            able to interact with different API types their services might have
+            like REST, Open API, JSON schema, or even databases like MongoDB or
+            SQL; integrate third-party APIs that we cannot change; and/or the
+            fact that GraphQL is a whole new concept for the developers and they
+            need something that doesn’t require a complex knowledge of GraphQL
+            to get started.
           </p>
           <br />
           <p>
-            Monitoring distributed applications is exponentially harder. The
-            Naptime engineers simply wouldn’t be able to watch and comprehend
-            the stream of logs coming in for every service on each server in
-            real time. They would want to be able to capture those logs as
-            they’re written or emitted and save them for later. Ideally on a
-            central server of some kind, so they don’t have to go SSHing around
-            to find what they need in the stress of an outage.
+            To address these challenges, we can use a GraphQL API Gateway to
+            access all our backend services with one request.
           </p>
           <br />
 
-          <h3>1.5 Observability</h3>
+          <h3>2.5 GraphQL API Gateway</h3>
           <p>
-            The visibility that a team like NapTime seeks into their system is
-            summed up by the concept of observability.
+            In the configuration without a gateway, you can see in the diagram
+            below that the client still has to make multiple trips to different
+            graphql servers to access each service endpoint. However, when we
+            use a GraphQL gateway, the client can now simply make one request to
+            a single endpoint, reducing the need for multiple network requests
+            from the client to the server.
           </p>
-          <br />
-          <!-- TODO: Ø Cindy blockquote formatting here -->
-          <p>
-            Due to the nature of software, no complex system is ever healthy.
-          </p>
-          <br />
-          <p>
-            Distributed systems in particular are pathologically unpredictable.
-            When multiple services in a distributed system are communicating
-            with each other over the wire, each hosted on a potentially
-            ephemeral node, the possible failure conditions are nearly endless.
-            What if a server is down? What if a service is down? What if both
-            services are up but are failing to communicate for some reason? Et
-            cetera.
-          </p>
-          <br />
-          <p>
-            In light of these challenges, a team must also keep in mind to
-            design their systems to facilitate debugging.. Things will break and
-            outages will occur. Hope is not a strategy; but preparedness is.
-          </p>
-          <br />
-
-          <h3>1.6 Need for a monitoring strategy</h3>
-          <p>
-            Things can get messy very quickly. Without a centralized platform
-            for handling the collection, transportation, and storage of your
-            data, those valuable records can get lost or never collected in the
-            first place. Developing a strategy for the collection,
-            centralization, and retention of your log and metric data means that
-            you don’t prematurely forfeit the benefits that logs and metrics
-            provide.
-          </p>
-          <br />
-          <p>Synapse acts as that strategy.</p>
           <br />
           <figure>
             <img
@@ -440,51 +536,178 @@
               class="case-study-image"
             />
             <figcaption>
-              Fig. 8: Synapse provides a single source of historical truth for
-              application state
+              Fig. 10: A transition from individual servers to a GraphQL gateway
             </figcaption>
           </figure>
           <br />
           <p>
-            A team can SSH into each of the nodes in their system, configure and
-            deploy a logging pipeline using Synapse’s cli tool, , and start
-            shipping all of their log and metric data off of their servers and
-            onto a central store. The logs and metrics produced can come either
-            from services running on the server, like nginx or Postgres, or from
-            the server itself, in the form of host metrics like CPU load or
-            available memory.
+            A GraphQL server can functionally act as an API Gateway for
+            underlying data sources. Each underlying data source would have a
+            corresponding schema (subschema) that describes what data can be
+            queried from that specific source. Non-GraphQL APIs would require
+            resolver functions that expose this subschema - and we’ll talk more
+            about resolvers later.
           </p>
           <br />
           <p>
-            Synapse provides a single, centralized log management solution,
-            untangling the web of data producers and consumers. No more routing
-            logs from individual sources to multiple destinations over time. No
-            more custom aggregation scripts, cron jobs, or any of that. Synapse
-            collects the logs and metrics emitted from distributed servers and
-            services over time, building a single source of historical state.
+            The GraphQL gateway will aggregate these schemas into a single
+            schema which the client/service can now query as a single endpoint.
+            This solves the problem of under-fetching because all underlying
+            APIs are now accessible via a single client request.
           </p>
           <br />
+          <h3>2.6 Benefits of Using a GraphQL API Gateway</h3>
+
           <p>
-            That single source of truth about system and service state and
-            performance empowers the user to:
-            <!-- TODO: Bullet points -->
-            · Ensure that all output or generated data is reliably and
-            automatically captured, without having to do it manually · Avoid
-            context switching, or jumping between databases and machines trying
-            to dig up whatever went wrong · And reduce debugging time, because
-            everything exists in a single database and can be queried and
-            explored like normal relational data.
+            In summary, the benefits of using a GraphQL API Gateway include:
           </p>
+          <ol>
+            <li>Having one single endpoint to query and access all data</li>
+            <li>
+              Reducing under and over-fetching of resources from the client’s
+              perspective. The client can customize queries to only grab exactly
+              the data it needs. This is very helpful for improving the speed
+              and efficiency of mobile applications while reducing the number of
+              network requests.
+            </li>
+            <li>
+              A final benefit is that the gate provides a reduced attack surface
+              in terms of security. The focus can be enforcing security at the
+              gateway level rather than at each service’s API
+            </li>
+          </ol>
+
           <br />
           <p>
-            Each of these benefits brings the user closer to the holy grail for
-            engineers: automating away manual toil.
+            We now need to consider the best way to actually create an API
+            gateway using GraphQL and how Synapse can make doing so a smooth and
+            simple task.
+          </p>
+          <br />
+          <h2>3 Creating a GraphQL Gateway</h2>
+          <br />
+          <p>
+            There are two possible ways to create a GraphQL Gateway: Schema
+            stitching and Schema Federation.
+          </p>
+          <br />
+          <h3>3.1 Schema Federation</h3>
+          <p>
+            To imagine how federation works it is helpful to think of one’s
+            underlying services as puzzle pieces. As seen in Figure XXX, each
+            piece would be aware and designed to potentially fit together with
+            the others. From this, one can see that federation assumes a
+            company’s schema should be a distributed responsibility.
+          </p>
+          <figure>
+            <img
+              src="assets/images/case-study/single-source.gif"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 11: Federation Puzzle Piece Analogy to combine service
+              schemas
+            </figcaption>
+          </figure>
+          <br />
+          <p>
+            To implement federation, underlying services need to be aware of
+            each other’s data and contain all of the logic for communicating
+            with one another to enable interwoven schemas, which allows for
+            nesting data across multiple services. Since the logic resides
+            within the services, the gateway acts as a thin layer responsible
+            for combining requested data and is able to be configured
+            automatically by reading the schemas of each underlying service.
+          </p>
+          <br />
+          <h3>3.2 Schema Stitching</h3>
+          <p>
+            To imagine how stitching works, it is helpful to think of one’s
+            underlying services as individual pieces of fabric. As seen in
+            Figure XXX, the pieces of fabric are completely separate and have no
+            knowledge they could potentially be stitched together. The gateway
+            acts as the seamstress, orchestrating the combining of the pieces
+            into one seamless schema. For this reason, stitching assumes a
+            company’s schema should be a centralized responsibility.
+          </p>
+          <figure>
+            <img
+              src="assets/images/case-study/single-source.gif"
+              class="case-study-image"
+            />
+            <figcaption>Fig. 12: Stitching Pieces of Fabric Analogy</figcaption>
+          </figure>
+          <br />
+          <p>
+            In stitching’s implementation, underlying services are unaware of
+            each other, meaning they are able to be left unaltered. The gateway
+            is what contains all the logic for combining services.
+          </p>
+          <br />
+          <h3>3.3 Stitching vs. Federation</h3>
+          <p>
+            To determine which method is best for our purpose, we need to
+            compare the advantages and disadvantages of stitching and
+            federation.
+          </p>
+          <br />
+
+          <p>
+            Federation allows for faster development since new changes don’t
+            require full coordination with other services, allowing teams to
+            work on different services in parallel. Additionally, federation
+            needs a much “thinner” Gateway layer. Since the logic for combining
+            services is within the services themselves, the Gateway does not
+            contain much logic and can be considered less of a critical piece of
+            architecture.
+          </p>
+          <br />
+
+          <p>
+            However, both of these advantages come at a cost. Federation
+            requires developers to alter their underlying services to contain
+            the logic for combining them together. Not only does this alter the
+            services, but requires a high learning curve for the federation
+            specification, which is needed to add the logic. Additionally, by
+            linking the services together at the service layer, each service
+            becomes more tightly coupled to each other.
+          </p>
+          <br />
+
+          <p>
+            Stitching, on the other hand, allows underlying services to be
+            unaltered and uncoupled from each other, as all the logic resides in
+            the Gateway. Each service can remain the same stand-alone service it
+            was before the Gateway was introduced, needing no additional logic.
+            Additionally, the logic in the Gateway is written in the pure
+            GraphQL specification, rather than using the federation
+            specification, which can be thought of as its own language. This
+            significantly lowers the learning curve to adopting a GraphQL
+            Gateway.
+          </p>
+          <br />
+
+          <p>
+            However, stitching also has some disadvantages. Since all of the
+            logic resides in the gateway, the gateway now becomes a much more
+            critical piece of architecture. Additionally, stitching results in
+            an increase in coordination between teams. This is because any time
+            a new feature is released by a team, they must make sure the feature
+            won’t produce a breaking change to the gateway.
+          </p>
+          <br />
+
+          <p>
+            Our team decided to focus on a Schema Stitching solution since one
+            of the primary aims of our tool was to lower the skill curve of
+            adopting GraphQL and allowing underlying services to remain
+            unaltered. Let’s investigate deeper into what Synapse is.
           </p>
           <br />
 
           <!-- Section 2 -->
-          <h2 class="h2">2 Overview of Synapse</h2>
-          <h3>2.1 How does Synapse help teams?</h3>
+          <h2 class="h2">4 Overview of Synapse</h2>
+          <h3>4.1 How does Synapse help teams?</h3>
           <p>
             To explore exactly how Synapse empowers small teams working on
             distributed applications, let’s think back to the example of NapTime
@@ -583,7 +806,7 @@
           <br />
 
           <!-- Section 3 -->
-          <h2 class="h2">3 Who should use Synapse?</h2>
+          <h2 class="h2">5 Who should use Synapse?</h2>
           <p>
             When it comes to picking a monitoring solution, companies generally
             consider three options: buy, operate, or build.
@@ -689,7 +912,7 @@
           <br />
 
           <!-- Section 4 -->
-          <h2 class="h2">4 Design Decisions</h2>
+          <h2 class="h2">6 Design Decisions</h2>
 
           <p>
             Our primary goal while designing Synapse was to help teams start
@@ -877,7 +1100,7 @@
           <br />
 
           <!-- Section 5 -->
-          <h2 class="h2">5 Synapse's Architecture</h2>
+          <h2 class="h2">7 Synapse's Architecture</h2>
           <br />
           <figure>
             <img
@@ -1215,7 +1438,7 @@
           <br />
 
           <!-- Section 6 -->
-          <h2 class="h2">6 Installing and Using Synapse</h2>
+          <h2 class="h2">8 Installing and Using Synapse</h2>
           <h3>6.1 Installing Synapse</h3>
           <br />
           <figure>
@@ -1393,7 +1616,7 @@
           <br />
 
           <!-- Section 7 -->
-          <h2 class="h2">7 Implementation Challenges</h2>
+          <h2 class="h2">9 Implementation Challenges</h2>
           <p>
             We had to overcome 3 major technical challenges while building
             Synapse.
@@ -1596,7 +1819,7 @@
           <br />
 
           <!-- Section 8 -->
-          <h2 class="h2">8 Future Work</h2>
+          <h2 class="h2">10 Future Work</h2>
           <p>
             Of course, an open source project is never fully finished. While we
             think Synapse is currently feature-complete, ready for people to use
@@ -1624,7 +1847,7 @@
           </ul>
 
           <!-- Section 9 -->
-          <h2>9 Team</h2>
+          <h2>11 Team</h2>
           <br />
           <br />
           <div class="section team-section">
