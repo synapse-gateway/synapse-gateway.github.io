@@ -71,11 +71,9 @@
             >
               <img
                 src="assets/images/logo-color.png"
-                alt=""
+                alt="synapse"
                 class="template-logo"
-                style="max-width: 33%"
               />
-              <p class="work-sans" style="display: inline">synapse</p>
             </a>
 
             <nav role="navigation" class="nav-menu w-nav-menu">
@@ -706,478 +704,725 @@
           <br />
 
           <h2 class="h2">4. Overview of Synapse</h2>
-        
+
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
             <figcaption>Fig. 13: Synapse is a GraphQL Gateway</figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As seen in Figure 13, Synapse is a GraphQL API Gateway solution, which creates and 
-            deploys a GraphQL server, allowing users to connect various types of different legacy 
-            APIs and data sources using GraphQL and resulting in a single endpoint for clients to query. 
+            As seen in Figure 13, Synapse is a GraphQL API Gateway solution,
+            which creates and deploys a GraphQL server, allowing users to
+            connect various types of different legacy APIs and data sources
+            using GraphQL and resulting in a single endpoint for clients to
+            query.
           </p>
           <p>
-            The primary goal behind Synapse was to provide an intuitive way to unify legacy APIs into a single 
-            GraphQL endpoint. Additionally, our team wanted to include some extra features, inspired by some 
-            other GraphQL API Gateway solutions, which would allow developers with smaller skill sets to be 
-            able to utilize Synapse. 
+            The primary goal behind Synapse was to provide an intuitive way to
+            unify legacy APIs into a single GraphQL endpoint. Additionally, our
+            team wanted to include some extra features, inspired by some other
+            GraphQL API Gateway solutions, which would allow developers with
+            smaller skill sets to be able to utilize Synapse.
           </p>
           <p>
-            In the 2021 State of API Integration Report, respondents said they felt GraphQL would become the 
-            de facto standard, but felt skill sets were the largest barrier. For that reason, Synapse made it 
-            a priority to allow developers with little knowledge of GraphQL to use it, more specifically to adopt 
-            a GraphQL API Gateway. Synapse attempted to accomplish this with three main features.
+            In the 2021 State of API Integration Report, respondents said they
+            felt GraphQL would become the de facto standard, but felt skill sets
+            were the largest barrier. For that reason, Synapse made it a
+            priority to allow developers with little knowledge of GraphQL to use
+            it, more specifically to adopt a GraphQL API Gateway. Synapse
+            attempted to accomplish this with three main features.
           </p>
           <p>
-            First, our team aimed to have a simple and intuitive way to configure the GraphQL Gateway. Synapse 
-            provides an intuitive GUI interface to allow the developer to easily add their existing APIs and data 
-            sources to the Gateway. This eliminated the need to add and modify configuration files manually in a 
-            backend directory or require learning the GraphQL syntax.
+            First, our team aimed to have a simple and intuitive way to
+            configure the GraphQL Gateway. Synapse provides an intuitive GUI
+            interface to allow the developer to easily add their existing APIs
+            and data sources to the Gateway. This eliminated the need to add and
+            modify configuration files manually in a backend directory or
+            require learning the GraphQL syntax.
           </p>
           <p>
-            Additionally, our team wanted to include the option for developers to be able to automatically deploy 
-            their configured Gateway on AWS with minimal effort. Synapse provides a single command for deploying 
-            to AWS once the Gateway has been configured. 
+            Additionally, our team wanted to include the option for developers
+            to be able to automatically deploy their configured Gateway on AWS
+            with minimal effort. Synapse provides a single command for deploying
+            to AWS once the Gateway has been configured.
           </p>
           <p>
-            Lastly, our team aimed to allow the developer an easy way to monitor all requests coming through 
-            their new Gateway. Synapse creates a monitoring dashboard for viewing request latencies, as well 
-            as any errors produced by requests that hit the Gateway. We will explain these features thoroughly 
-            later in our case study.
+            Lastly, our team aimed to allow the developer an easy way to monitor
+            all requests coming through their new Gateway. Synapse creates a
+            monitoring dashboard for viewing request latencies, as well as any
+            errors produced by requests that hit the Gateway. We will explain
+            these features thoroughly later in our case study.
           </p>
 
           <h2>5. Who Should Use Synapse</h2>
           <h3>5.1 Existing Solutions</h3>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 14: Existing GraphQL API Gateway Solutions</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 14: Existing GraphQL API Gateway Solutions
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            When it comes to solutions for creating a GraphQL API gateway, companies have a few options as 
-            seen in Figure 14. It is important to note there aren’t really any managed solutions that use 
-            Federation due the logic having to be interspersed within underlying services. A small company 
-            may be able to utilize federation themselves in a DIY fashion, but they may not have the 
-            resources or time needed for training developers to learn the federation specification and then 
-            reworking all their legacy APIs and data sources. Let’s look at the options for a small company 
-            that does not have a lot of time or resources to spend and would like to keep their legacy APIs 
-            and data sources unaltered. 
+            When it comes to solutions for creating a GraphQL API gateway,
+            companies have a few options as seen in Figure 14. It is important
+            to note there aren’t really any managed solutions that use
+            Federation due the logic having to be interspersed within underlying
+            services. A small company may be able to utilize federation
+            themselves in a DIY fashion, but they may not have the resources or
+            time needed for training developers to learn the federation
+            specification and then reworking all their legacy APIs and data
+            sources. Let’s look at the options for a small company that does not
+            have a lot of time or resources to spend and would like to keep
+            their legacy APIs and data sources unaltered.
           </p>
           <p>
-            First, they could pick an integration platform as a service option (IPaaS) such as AWS AppSync. 
-            Such a service will have a lot of features, including an intuitive GUI interface for setting up 
-            the gateway, as well as extensive monitoring and security features. The downside would be that 
-            such a service could be very costly for a small company and would limit the company’s flexibility 
-            to move platforms in the future, inducing getting locked into a specific vendor like AWS.
+            First, they could pick an integration platform as a service option
+            (IPaaS) such as AWS AppSync. Such a service will have a lot of
+            features, including an intuitive GUI interface for setting up the
+            gateway, as well as extensive monitoring and security features. The
+            downside would be that such a service could be very costly for a
+            small company and would limit the company’s flexibility to move
+            platforms in the future, inducing getting locked into a specific
+            vendor like AWS.
           </p>
           <p>
-            Additionally, they could choose an Open Core option like GraphQL Portal. Using this type of service, 
-            they would have the flexibility of deploying where they want, the ease of easy configuration through 
-            an intuitive GUI, as well as many additional features including monitoring and security. The downside 
-            of this option would be that a small company may not be able to afford the cost of using the full 
-            features of this service on top of the deployment cost. 
+            Additionally, they could choose an Open Core option like GraphQL
+            Portal. Using this type of service, they would have the flexibility
+            of deploying where they want, the ease of easy configuration through
+            an intuitive GUI, as well as many additional features including
+            monitoring and security. The downside of this option would be that a
+            small company may not be able to afford the cost of using the full
+            features of this service on top of the deployment cost.
           </p>
           <p>
-            Third, they could opt to create the Gateway themselves manually. This would allow the company the 
-            freedom to host where they want, while also creating whatever features they deem necessary for their 
-            unique situation. However, for a small company, the complexity of creating all the features and doing 
-            it manually may drive the cost, in terms of training their employees and development time, much too high. 
-            Their employees may be new to GraphQL and they may not have the resources and time to go through the 
-            training and development process.
+            Third, they could opt to create the Gateway themselves manually.
+            This would allow the company the freedom to host where they want,
+            while also creating whatever features they deem necessary for their
+            unique situation. However, for a small company, the complexity of
+            creating all the features and doing it manually may drive the cost,
+            in terms of training their employees and development time, much too
+            high. Their employees may be new to GraphQL and they may not have
+            the resources and time to go through the training and development
+            process.
           </p>
           <p>
-            Synapse was created to fill a void for a small company that may not have all their needs met by 
-            the existing solutions.
+            Synapse was created to fill a void for a small company that may not
+            have all their needs met by the existing solutions.
           </p>
           <h3>5.2 Synapse vs. Existing Solutions</h3>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 15: Solutions for a GraphQL API Gateway Solutions</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 15: Solutions for a GraphQL API Gateway Solutions
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As seen in figure 15, Synapse provides an easy and intuitive GUI for configuration 
-            and monitoring, and gives the company the option to deploy where they want. Synapse stands 
-            out by offering a feature to automatically deploy onto AWS. The only cost involved with 
-            using Synapse would be the cost of hosting on AWS. Everything else is free and open source. 
-            Although Synapse looks attractive compared to other options, it does have the tradeoff of 
-            not providing quite as many features as other services. The monitoring in Synapse has fewer 
-            features and Synapse currently does not provide additional features such as gateway security.
-            However, for a small company looking to take advantage of GraphQL while keeping their existing 
-            APIs and data sources, Synapse can provide all the features they need at a low cost.
+            As seen in figure 15, Synapse provides an easy and intuitive GUI for
+            configuration and monitoring, and gives the company the option to
+            deploy where they want. Synapse stands out by offering a feature to
+            automatically deploy onto AWS. The only cost involved with using
+            Synapse would be the cost of hosting on AWS. Everything else is free
+            and open source. Although Synapse looks attractive compared to other
+            options, it does have the tradeoff of not providing quite as many
+            features as other services. The monitoring in Synapse has fewer
+            features and Synapse currently does not provide additional features
+            such as gateway security. However, for a small company looking to
+            take advantage of GraphQL while keeping their existing APIs and data
+            sources, Synapse can provide all the features they need at a low
+            cost.
           </p>
           <h2>6. Synapse Walkthrough</h2>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
             <figcaption>Fig. 16: Four Phases of Synapse</figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As you can see in Figure 16, using Synapse is split into four phases. First, the developer will 
-            download and setup Synapse on their local machine. Then, they use the provided GUI interface, more 
-            formally known as the Gateway Manager, to configure their Synapse GraphQL Gateway. Once configured, 
-            the developer is able to test out their Gateway on their local machine using the Apollo server 
-            provided in the gateway. Lastly, if desired, the developer can deploy Synapse onto AWS where the 
-            Synapse architecture will be modified, preparing it for high volume traffic.
+            As you can see in Figure 16, using Synapse is split into four
+            phases. First, the developer will download and setup Synapse on
+            their local machine. Then, they use the provided GUI interface, more
+            formally known as the Gateway Manager, to configure their Synapse
+            GraphQL Gateway. Once configured, the developer is able to test out
+            their Gateway on their local machine using the Apollo server
+            provided in the gateway. Lastly, if desired, the developer can
+            deploy Synapse onto AWS where the Synapse architecture will be
+            modified, preparing it for high volume traffic.
           </p>
           <p>
-            Since the architecture changes slightly in production, Synapse technically has two states: one for 
-            configuration and one for production. In configuration, everything is run on the developer’s local 
-            machine. They download Synapse, and start it up on their local machine. They then configure the 
-            GraphQL Gateway. Once configured, the Gateway is able to be tested on their local machine. 
+            Since the architecture changes slightly in production, Synapse
+            technically has two states: one for configuration and one for
+            production. In configuration, everything is run on the developer’s
+            local machine. They download Synapse, and start it up on their local
+            machine. They then configure the GraphQL Gateway. Once configured,
+            the Gateway is able to be tested on their local machine.
           </p>
           <p>
-            After testing of the Gateway, the developer is able to deploy Synapse into production, where their 
-            Synapse application will now be hosted and run on AWS. At this point, Synapse is in the production 
-            state and the developer loses the ability to configure the Gateway through the deployed Gateway Manager. 
-            However, this functionality is replaced with management of users for the Gateway Manager. Additionally, 
-            when deployed, Synapse will use a new MongoDB database, removing all data from the configuration phase 
-            and being seeded with the credentials of the root user. This allows the production gateway data to be 
-            completely separate from testing data that may have been collected during configuration.
+            After testing of the Gateway, the developer is able to deploy
+            Synapse into production, where their Synapse application will now be
+            hosted and run on AWS. At this point, Synapse is in the production
+            state and the developer loses the ability to configure the Gateway
+            through the deployed Gateway Manager. However, this functionality is
+            replaced with management of users for the Gateway Manager.
+            Additionally, when deployed, Synapse will use a new MongoDB
+            database, removing all data from the configuration phase and being
+            seeded with the credentials of the root user. This allows the
+            production gateway data to be completely separate from testing data
+            that may have been collected during configuration.
           </p>
           <p>
-            Let’s investigate deeper, going through the four phases shown in Figure 16.
+            Let’s investigate deeper, going through the four phases shown in
+            Figure 16.
           </p>
           <h3>6.1 Download and Setup</h3>
           <p>
-            To start, the developer must first download and configure Synapse to run on 
-            their local machine. They are able to do so by running the command 
-            <code>npx @synapse-team/start-synapse</code>. This command will prompt the 
-            user for a couple inputs, and then will set up Synapse on their local machine 
-            so it can be started right away.
+            To start, the developer must first download and configure Synapse to
+            run on their local machine. They are able to do so by running the
+            command
+            <code>npx @synapse-team/start-synapse</code>. This command will
+            prompt the user for a couple inputs, and then will set up Synapse on
+            their local machine so it can be started right away.
           </p>
           <p>
-            Afterwards, the developer is able to start using Synapse on their local machine 
-            by running the command <code>synapse up</code>. This will start up and run the 
-            entire architecture on the developer’s local machine. Keep in mind, this architecture 
-            is Synapse in its configuration state, as shown in Figure 17.
+            Afterwards, the developer is able to start using Synapse on their
+            local machine by running the command <code>synapse up</code>. This
+            will start up and run the entire architecture on the developer’s
+            local machine. Keep in mind, this architecture is Synapse in its
+            configuration state, as shown in Figure 17.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 17: Synapse Architecture in Configuration State</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 17: Synapse Architecture in Configuration State
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            Synapse consists of three components: the GraphQL Gateway, the Gateway Manager, 
-            and MongoDB. Each part is containerized via Docker and when the <code>synapse up</code> command 
-            is run, a docker-compose file is used to start up all three containers.
+            Synapse consists of three components: the GraphQL Gateway, the
+            Gateway Manager, and MongoDB. Each part is containerized via Docker
+            and when the <code>synapse up</code> command is run, a
+            docker-compose file is used to start up all three containers.
           </p>
           <h3>6.2 Configure</h3>
           <p>
-            Now that Synapse is running on their local machine, the developer is able to configure and customize 
-            the GraphQL Gateway. As mentioned, the synapse up command instantiates a containerized instance 
-            of the Gateway Manager on the developer’s local machine. The Gateway Manager is essentially a GUI 
-            interface that allows the developer to configure their Gateway, with a couple additional features. 
+            Now that Synapse is running on their local machine, the developer is
+            able to configure and customize the GraphQL Gateway. As mentioned,
+            the synapse up command instantiates a containerized instance of the
+            Gateway Manager on the developer’s local machine. The Gateway
+            Manager is essentially a GUI interface that allows the developer to
+            configure their Gateway, with a couple additional features.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 18: How the Gateway Manager Interacts with the GraphQL API Gateway</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 18: How the Gateway Manager Interacts with the GraphQL API
+              Gateway
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As you can see in Figure 18, the Gateway Manager makes changes to the developer’s external file 
-            system on their local machine, which updates and configures the GraphQL API Gateway. After changes 
-            are made to the file system, the GraphQL API Gateway container is restarted to reflect those changes. 
-            Therefore, the two don’t talk directly to each other, but are linked by the local file system.
+            As you can see in Figure 18, the Gateway Manager makes changes to
+            the developer’s external file system on their local machine, which
+            updates and configures the GraphQL API Gateway. After changes are
+            made to the file system, the GraphQL API Gateway container is
+            restarted to reflect those changes. Therefore, the two don’t talk
+            directly to each other, but are linked by the local file system.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 19: Configuring the Gateway Through the Gateway Manager</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 19: Configuring the Gateway Through the Gateway Manager
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As shown in Figure 19, the Gateway Manager lets the developer configure the Gateway by providing a 
-            Data Sources tab where the user can add data sources to their Gateway. They can easily add as many 
-            data sources as they’d like with intuitive forms and tooltips showing them what is required of them. 
-            All they have to do is add some data sources, input the necessary files/URLs and click on “Create Synapse” 
-            and their GraphQL Gateway will be configured and ready to be queried. Synapse was able to do this under the 
-            hood through the open-source tool GraphQL Mesh. GraphQL Mesh is able to take in a variety of data sources 
-            and automatically create a unified schema and set of resolver functions for them. We will investigate what 
-            a schema and resolvers are and then look at how GraphQL Mesh integrates into Synapse.
+            As shown in Figure 19, the Gateway Manager lets the developer
+            configure the Gateway by providing a Data Sources tab where the user
+            can add data sources to their Gateway. They can easily add as many
+            data sources as they’d like with intuitive forms and tooltips
+            showing them what is required of them. All they have to do is add
+            some data sources, input the necessary files/URLs and click on
+            “Create Synapse” and their GraphQL Gateway will be configured and
+            ready to be queried. Synapse was able to do this under the hood
+            through the open-source tool GraphQL Mesh. GraphQL Mesh is able to
+            take in a variety of data sources and automatically create a unified
+            schema and set of resolver functions for them. We will investigate
+            what a schema and resolvers are and then look at how GraphQL Mesh
+            integrates into Synapse.
           </p>
           <h5>Schema and Resolvers</h5>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
             <figcaption>Fig. 20: Typical GraphQL Server</figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            To explain what a schema and resolver functions are, we will follow a GraphQL request 
-            through a typical GraphQL server, as seen in Figure 20.
+            To explain what a schema and resolver functions are, we will follow
+            a GraphQL request through a typical GraphQL server, as seen in
+            Figure 20.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
             <figcaption>Fig. 21: Validation of Schema</figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As seen in Figure 21, when a request comes in, the GraphQL server will first parse and validate the 
-            request to make sure it is compatible with the GraphQL schema that the server is using. One can think 
-            of the schema as a list of rules for how GraphQL requests need to be formatted with regards to the data 
-            being requested. This usually is manually written in accordance with the GraphQL specification and can take 
-            a significant amount of time, even for someone who may not be new to GraphQL.
+            As seen in Figure 21, when a request comes in, the GraphQL server
+            will first parse and validate the request to make sure it is
+            compatible with the GraphQL schema that the server is using. One can
+            think of the schema as a list of rules for how GraphQL requests need
+            to be formatted with regards to the data being requested. This
+            usually is manually written in accordance with the GraphQL
+            specification and can take a significant amount of time, even for
+            someone who may not be new to GraphQL.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 22: Resolver Functions Retrieve Necessary Data</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 22: Resolver Functions Retrieve Necessary Data
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            If the validation passes, the server will create an execution plan and pass off the request to the resolvers, 
-            as seen in Figure 22. The resolvers are functions that dictate how to grab information needed from the 
-            request. In the example shown in Figure 22, the resolver functions would have to make requests to the correct 
-            REST API endpoints to retrieve the necessary data for the GraphQL server to send a response back to the client. 
-            If the data source was a database instead of a REST API, the resolvers would be responsible for querying that 
-            database. Usually, all of these functions would have to be manually written by the developer and then the 
-            information they retrieved would have to be parsed and put in the correct format for the server to serve a 
-            response back to the client. 
+            If the validation passes, the server will create an execution plan
+            and pass off the request to the resolvers, as seen in Figure 22. The
+            resolvers are functions that dictate how to grab information needed
+            from the request. In the example shown in Figure 22, the resolver
+            functions would have to make requests to the correct REST API
+            endpoints to retrieve the necessary data for the GraphQL server to
+            send a response back to the client. If the data source was a
+            database instead of a REST API, the resolvers would be responsible
+            for querying that database. Usually, all of these functions would
+            have to be manually written by the developer and then the
+            information they retrieved would have to be parsed and put in the
+            correct format for the server to serve a response back to the
+            client.
           </p>
           <h5>GraphQL Mesh</h5>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 23: GraphQL Mesh Automatically Creates Unified Schema and Set of Resolvers</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 23: GraphQL Mesh Automatically Creates Unified Schema and Set
+              of Resolvers
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As mentioned before and shown in Figure 23, GraphQL Mesh is able to take in a variety of data sources and 
-            automatically create a unified schema and set of resolvers for them.  The way GraphQL Mesh does this is through 
-            either introspection or taking in a specification file that outlines a certain data source. 
+            As mentioned before and shown in Figure 23, GraphQL Mesh is able to
+            take in a variety of data sources and automatically create a unified
+            schema and set of resolvers for them. The way GraphQL Mesh does this
+            is through either introspection or taking in a specification file
+            that outlines a certain data source.
           </p>
-          
+
           <h6>Introspection</h6>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 24: Introspection Request to PostgreSQL</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 24: Introspection Request to PostgreSQL
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            Introspection is essentially making a request to an API or database to inspect the models or types it is composed of. 
-            An example of how GraphQL Mesh might introspect a PostgreSQL database is shown in Figure 24. First, GraphQL Mesh makes 
-            an introspection request, which looks at the database to see that it has a books table. GraphQL Mesh is able to take 
-            this information and create a GraphQL schema with a type of Book and associated subfields, as well as resolver 
-            functions. If GraphQL Mesh was introspecting a GraphQL endpoint instead, it would get the GraphQL schema as a response 
-            that it could just use directly. This is why the Gateway Manager is able to have the developer only input a URL for 
-            some data sources like GraphQL or PostgreSQL.
+            Introspection is essentially making a request to an API or database
+            to inspect the models or types it is composed of. An example of how
+            GraphQL Mesh might introspect a PostgreSQL database is shown in
+            Figure 24. First, GraphQL Mesh makes an introspection request, which
+            looks at the database to see that it has a books table. GraphQL Mesh
+            is able to take this information and create a GraphQL schema with a
+            type of Book and associated subfields, as well as resolver
+            functions. If GraphQL Mesh was introspecting a GraphQL endpoint
+            instead, it would get the GraphQL schema as a response that it could
+            just use directly. This is why the Gateway Manager is able to have
+            the developer only input a URL for some data sources like GraphQL or
+            PostgreSQL.
           </p>
           <h6>Specification File</h6>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 25: Open API Specification File for REST API</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 25: Open API Specification File for REST API
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            A specification file is a file in a yaml or json format that describes all the entities supplied by a certain endpoint, 
-            as well as all the operations for them. The example in Figure 25 shows a specification file that defines a REST API. 
-            As you can see, this file shows all the operations, as well as entities that those operations apply to. GraphQL Mesh 
-            is able to use this file to automatically create a GraphQL schema and resolvers. This allows the Gateway Manager to 
-            only require the developer to upload one of these files to integrate certain data sources like REST APIs. 
+            A specification file is a file in a yaml or json format that
+            describes all the entities supplied by a certain endpoint, as well
+            as all the operations for them. The example in Figure 25 shows a
+            specification file that defines a REST API. As you can see, this
+            file shows all the operations, as well as entities that those
+            operations apply to. GraphQL Mesh is able to use this file to
+            automatically create a GraphQL schema and resolvers. This allows the
+            Gateway Manager to only require the developer to upload one of these
+            files to integrate certain data sources like REST APIs.
           </p>
           <h5>How Synapse Uses GraphQL Mesh</h5>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 26: Synapse Gateway is an Apollo Server Instance</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 26: Synapse Gateway is an Apollo Server Instance
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            The Synapse GraphQL Gateway provides a wrapper for GraphQL Mesh and an easy way to interact with it using the Gateway Manager. 
-            As seen in Figure 26, under the hood, the Synapse Gateway is really just an instance of Apollo Server. Apollo provides a 
-            GraphQL library, which includes a server, specifically an Apollo Server which is designed specifically for GraphQL. This 
-            server is able to be instantiated as a fully functional GraphQL server if supplied with the correct GraphQL schema and resolvers.
+            The Synapse GraphQL Gateway provides a wrapper for GraphQL Mesh and
+            an easy way to interact with it using the Gateway Manager. As seen
+            in Figure 26, under the hood, the Synapse Gateway is really just an
+            instance of Apollo Server. Apollo provides a GraphQL library, which
+            includes a server, specifically an Apollo Server which is designed
+            specifically for GraphQL. This server is able to be instantiated as
+            a fully functional GraphQL server if supplied with the correct
+            GraphQL schema and resolvers.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 27: Synapse uses GraphQL Schema and Resolver Generated from GraphQL Mesh</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 27: Synapse uses GraphQL Schema and Resolver Generated from
+              GraphQL Mesh
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As seen in Figure 27, the Synapse GraphQL Gateway uses the automated schema and resolver from GraphQL Mesh by passing it to an 
-            Apollo Server instance. Apollo Server is part of the Apollo library and is essentially a GraphQL server that can be instantiated by 
-            providing an appropriate schema and resolver functions. In addition to the schema and resolvers, we pass two plugins to the Apollo 
-            Server to retrieve monitoring data from requests that hit the server. We will go over these in more detail in the Implementation 
-            Details section.
+            As seen in Figure 27, the Synapse GraphQL Gateway uses the automated
+            schema and resolver from GraphQL Mesh by passing it to an Apollo
+            Server instance. Apollo Server is part of the Apollo library and is
+            essentially a GraphQL server that can be instantiated by providing
+            an appropriate schema and resolver functions. In addition to the
+            schema and resolvers, we pass two plugins to the Apollo Server to
+            retrieve monitoring data from requests that hit the server. We will
+            go over these in more detail in the Implementation Details section.
           </p>
           <h3>6.3 Test</h3>
-          <p>With the Gateway configured, the developer is able to test the Gateway on their local machine. </p>
+          <p>
+            With the Gateway configured, the developer is able to test the
+            Gateway on their local machine.
+          </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
             <figcaption>Fig. 28: GraphQL Playground</figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As seen in Figure 28, a GraphQL playground is provided to the developer when they navigate to their GraphQL Gateway on their local 
-            machine. The playground allows them to test out sample queries and errors to see if the gateway is working as intended.
+            As seen in Figure 28, a GraphQL playground is provided to the
+            developer when they navigate to their GraphQL Gateway on their local
+            machine. The playground allows them to test out sample queries and
+            errors to see if the gateway is working as intended.
           </p>
           <p>
-            Synapse also provides the developer the freedom to go into their local repository and manually add extra logic to their Gateway, 
-            which was not provided by default through Synapse. This may include, for example, custom queries or extra permission features. If 
-            the developer decides to do this, they only need to run the command <code>synapse restart</code> after the changes are made and the Gateway will 
-            update with their changes. 
+            Synapse also provides the developer the freedom to go into their
+            local repository and manually add extra logic to their Gateway,
+            which was not provided by default through Synapse. This may include,
+            for example, custom queries or extra permission features. If the
+            developer decides to do this, they only need to run the command
+            <code>synapse restart</code> after the changes are made and the
+            Gateway will update with their changes.
           </p>
           <h5>Monitoring</h5>
           <p>
-            Additionally, the Gateway Manager provides monitoring of the GraphQL Gateway to aid in testing, as well as to monitor production traffic.
+            Additionally, the Gateway Manager provides monitoring of the GraphQL
+            Gateway to aid in testing, as well as to monitor production traffic.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 29: Monitoring Request Latencies Through Gateway Manager</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 29: Monitoring Request Latencies Through Gateway Manager
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As you can see in Figure 29, the developer is able to monitor request latencies through the Gateway Manager. It will show the developer 
-            their slowest requests, as well as requests within certain time frames. These requests can be filtered by individual request, or even by 
-            individual field resolvers to find the slowest latencies easily and efficiently. 
+            As you can see in Figure 29, the developer is able to monitor
+            request latencies through the Gateway Manager. It will show the
+            developer their slowest requests, as well as requests within certain
+            time frames. These requests can be filtered by individual request,
+            or even by individual field resolvers to find the slowest latencies
+            easily and efficiently.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 30: Monitoring Errors Through Gateway Manager</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 30: Monitoring Errors Through Gateway Manager
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As you can see in Figure 30, the developer is also able to monitor errors through the Gateway Manager. Errors can be filtered by hour 
-            range and provide information that includes when the error occurred, the origin of the request that caused the error, the actual list 
-            of errors from the request, as well as the original query that was sent in the request to cause the errors.
+            As you can see in Figure 30, the developer is also able to monitor
+            errors through the Gateway Manager. Errors can be filtered by hour
+            range and provide information that includes when the error occurred,
+            the origin of the request that caused the error, the actual list of
+            errors from the request, as well as the original query that was sent
+            in the request to cause the errors.
           </p>
           <h5>Use of MongoDB Database</h5>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 31: Data Stored In and Retrieved From MongoDB</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 31: Data Stored In and Retrieved From MongoDB
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            All monitoring data is stored in the MongoDB, which retrieves the data from the GraphQL Gateway, as seen in Figure 31. Our team used 
+            All monitoring data is stored in the MongoDB, which retrieves the
+            data from the GraphQL Gateway, as seen in Figure 31. Our team used
             MongoDB instead of a relational database for a few reasons.
           </p>
           <p>
-            First, our data was going to have a very high write-to-read ratio. We wanted to store every request that came in, envisioning that 
-            the user would only check the Gateway Manager for monitoring every so often. In order to accommodate an extremely high write 
-            volume, MongoDB seemed like a good choice as document stores scale very well, more so than relational databases. This is because 
-            document stores are able to be easily scaled horizontally since documents are typically not interconnected. Relational databases, 
-            on the other hand, are very hard to shard and scale horizontally because of how connected all the data is to each other. 
+            First, our data was going to have a very high write-to-read ratio.
+            We wanted to store every request that came in, envisioning that the
+            user would only check the Gateway Manager for monitoring every so
+            often. In order to accommodate an extremely high write volume,
+            MongoDB seemed like a good choice as document stores scale very
+            well, more so than relational databases. This is because document
+            stores are able to be easily scaled horizontally since documents are
+            typically not interconnected. Relational databases, on the other
+            hand, are very hard to shard and scale horizontally because of how
+            connected all the data is to each other.
           </p>
           <p>
-            Secondly, our data was not inherently relational. The data was split into four main collections: errors, whole requests, resolvers, 
-            and users. None of the collections needed information from each other and served their purpose as standalone documents. A relational 
-            database would have been much more attractive if we had to make use of foreign key relations, but since our data is not connected at 
-            all, we opted for a database that would be more efficient at handling a high volume of writes with the tradeoff of losing increased 
-            performance if we ever wanted to connect our data in the future.
+            Secondly, our data was not inherently relational. The data was split
+            into four main collections: errors, whole requests, resolvers, and
+            users. None of the collections needed information from each other
+            and served their purpose as standalone documents. A relational
+            database would have been much more attractive if we had to make use
+            of foreign key relations, but since our data is not connected at
+            all, we opted for a database that would be more efficient at
+            handling a high volume of writes with the tradeoff of losing
+            increased performance if we ever wanted to connect our data in the
+            future.
           </p>
           <p>
-            Lastly, we did not want to adhere to the strict schemas imposed by relational databases. GraphQL queries, by their nature, can vary 
-            significantly, and therefore, errors and responses may sometimes differ greatly from predetermined schemas. We wanted to go with a 
-            database where we would be able to dump information as it came regardless of schema since there was so much variation that could 
-            be observed.
+            Lastly, we did not want to adhere to the strict schemas imposed by
+            relational databases. GraphQL queries, by their nature, can vary
+            significantly, and therefore, errors and responses may sometimes
+            differ greatly from predetermined schemas. We wanted to go with a
+            database where we would be able to dump information as it came
+            regardless of schema since there was so much variation that could be
+            observed.
           </p>
           <h3>6.4 Deploy</h3>
           <p>
-            With the Gateway fully tested, the developer is able to deploy their Gateway. To start, the developer must first teardown Synapse 
-            on their local machine by running the command <code>synapse restart</code>. 
+            With the Gateway fully tested, the developer is able to deploy their
+            Gateway. To start, the developer must first teardown Synapse on
+            their local machine by running the command
+            <code>synapse restart</code>.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
             <figcaption>Fig. 32: Synapse Automated Deployment</figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As seen in Figure 32, the developer then only needs to run the command synapse deploy and their Synapse application will be 
-            deployed on AWS in the production state. The only architectural difference in the production state is that the Gateway Manager 
-            container changes slightly. The functionality of adding data sources and configuring the Gateway is no longer present and is 
-            replaced by a User Management tab.
+            As seen in Figure 32, the developer then only needs to run the
+            command synapse deploy and their Synapse application will be
+            deployed on AWS in the production state. The only architectural
+            difference in the production state is that the Gateway Manager
+            container changes slightly. The functionality of adding data sources
+            and configuring the Gateway is no longer present and is replaced by
+            a User Management tab.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 33: User Management Replaces Adding Data Sources in Gateway Manager once in Production</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 33: User Management Replaces Adding Data Sources in Gateway
+              Manager once in Production
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As seen in Figure 33, admin and root users are able to view all authorized users and their roles and delete users at their 
-            pleasure. In addition, they also are able to create new users and assign them an admin or non-admin role.
+            As seen in Figure 33, admin and root users are able to view all
+            authorized users and their roles and delete users at their pleasure.
+            In addition, they also are able to create new users and assign them
+            an admin or non-admin role.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
             <figcaption>Fig. 34: Synapse Architecture on AWS</figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            After the deployment is complete, the Synapse landscape on AWS looks as shown in Figure 34. Each part of Synapse is put on 
-            Amazon’s Elastic Container Registry (AWS ECS). For each part, an AWS Fargate instance is also provisioned. Fargate is a 
-            technology that you can use with Amazon ECS to run containers without having to manage servers or clusters of Amazon EC2 
-            instances. In addition, a load balancer is created and put in front of ECS clusters that are composed of the three 
-            containerized applications. This architecture allows Synapse to be able to handle high volume and traffic through AWS’ 
-            automatic scaling/descaling.
+            After the deployment is complete, the Synapse landscape on AWS looks
+            as shown in Figure 34. Each part of Synapse is put on Amazon’s
+            Elastic Container Registry (AWS ECS). For each part, an AWS Fargate
+            instance is also provisioned. Fargate is a technology that you can
+            use with Amazon ECS to run containers without having to manage
+            servers or clusters of Amazon EC2 instances. In addition, a load
+            balancer is created and put in front of ECS clusters that are
+            composed of the three containerized applications. This architecture
+            allows Synapse to be able to handle high volume and traffic through
+            AWS’ automatic scaling/descaling.
           </p>
           <h2>7. Implementation Details</h2>
           <p>
-            As seen in the walkthrough, Synapse provides monitoring of requests, as well as an automated deployment using a single 
-            command. We can investigate further how this is possible.
+            As seen in the walkthrough, Synapse provides monitoring of requests,
+            as well as an automated deployment using a single command. We can
+            investigate further how this is possible.
           </p>
           <h3>7.1 Monitoring</h3>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 35: Synapse GraphQL Gateway Architecture</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 35: Synapse GraphQL Gateway Architecture
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As you can see in Figure 35, the Synapse GraphQL API Gateway passes two plugins to the Apollo Server 
-            instance. These plugins are what allowed Synapse to capture monitoring data from each request.
+            As you can see in Figure 35, the Synapse GraphQL API Gateway passes
+            two plugins to the Apollo Server instance. These plugins are what
+            allowed Synapse to capture monitoring data from each request.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
-            <figcaption>Fig. 36: useTiming Plugin from GraphQL Envelop</figcaption>
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
+            <figcaption>
+              Fig. 36: useTiming Plugin from GraphQL Envelop
+            </figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            The useTiming plugin from the open-source tool GraphQL Envelop was used to capture request and resolver latency 
-            data. As shown in Figure 36, the useTiming plugin provides several events throughout the lifecycle of a GraphQL 
-            request where data could be pulled from. The events highlighted in Figure 36, the on-Resolver-Measurement event 
-            and the on-Execution-Measurement event, allowed us to grab the total request latency, as well as data on the 
-            latency of the individual resolvers. Our team created a callback function that captured the data we needed at 
-            these events and stored it in MongoDB.
+            The useTiming plugin from the open-source tool GraphQL Envelop was
+            used to capture request and resolver latency data. As shown in
+            Figure 36, the useTiming plugin provides several events throughout
+            the lifecycle of a GraphQL request where data could be pulled from.
+            The events highlighted in Figure 36, the on-Resolver-Measurement
+            event and the on-Execution-Measurement event, allowed us to grab the
+            total request latency, as well as data on the latency of the
+            individual resolvers. Our team created a callback function that
+            captured the data we needed at these events and stored it in
+            MongoDB.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
             <figcaption>Fig. 37: Apollo Server Events</figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            An Apollo Server Custom plugin was used to capture error data from requests. Since Synapse uses Apollo Server 
-            under the hood, we were able to take advantage of Apollo Server events to capture error data. As seen in 
-            Figure 37, Apollo Server events are different from the events the useTiming plugin emits, with Apollo Server 
-            emitting a did-Encounter-Errors event that we were able to create a listener for.
+            An Apollo Server Custom plugin was used to capture error data from
+            requests. Since Synapse uses Apollo Server under the hood, we were
+            able to take advantage of Apollo Server events to capture error
+            data. As seen in Figure 37, Apollo Server events are different from
+            the events the useTiming plugin emits, with Apollo Server emitting a
+            did-Encounter-Errors event that we were able to create a listener
+            for.
           </p>
           <h3>7.2 Deployment</h3>
           <p>
-            Although the developer only needs to run the command synapse deploy to deploy their Synapse application, 
-            under the hood many different API calls are made through the Amazon CLI. This was all possible by using 
-            AWS Copilot.
+            Although the developer only needs to run the command synapse deploy
+            to deploy their Synapse application, under the hood many different
+            API calls are made through the Amazon CLI. This was all possible by
+            using AWS Copilot.
           </p>
           <figure>
-            <img src="assets/images/case-study/naptime-early.png" class="case-study-image" />
+            <img
+              src="assets/images/case-study/naptime-early.png"
+              class="case-study-image"
+            />
             <figcaption>Fig. 38: Deployment via AWS Copilot</figcaption>
           </figure>
-          <br>
+          <br />
           <p>
-            As seen in Figure 38, AWS Copilot provides a CLI that is able to take Dockerfiles and provision the 
-            necessary resources to deploy and put them up on AWS. Under the hood, Copilot takes the Dockerfiles 
-            and registers them to the AWS Elastic Container Registry, which is Amazon’s version of Dockerhub. 
-            Once the containers are registered, AWS will generate a CloudFormation template based on some inputs 
-            to the command line. After the CloudFormation Template is generated, Copilot will deploy the 
-            containers onto their elastic container service (AWS ECS) and then provision the other resources 
-            defined in the generated CloudFormation template to make sure the application is scalable and production-ready.
+            As seen in Figure 38, AWS Copilot provides a CLI that is able to
+            take Dockerfiles and provision the necessary resources to deploy and
+            put them up on AWS. Under the hood, Copilot takes the Dockerfiles
+            and registers them to the AWS Elastic Container Registry, which is
+            Amazon’s version of Dockerhub. Once the containers are registered,
+            AWS will generate a CloudFormation template based on some inputs to
+            the command line. After the CloudFormation Template is generated,
+            Copilot will deploy the containers onto their elastic container
+            service (AWS ECS) and then provision the other resources defined in
+            the generated CloudFormation template to make sure the application
+            is scalable and production-ready.
           </p>
           <p>
-            Copilot is able to do this by executing API calls to the AWS CLI under the hood. For that reason, the 
-            only prerequisite for deploying with Synapse is that the developer has the AWS CLI configured with their credentials. 
+            Copilot is able to do this by executing API calls to the AWS CLI
+            under the hood. For that reason, the only prerequisite for deploying
+            with Synapse is that the developer has the AWS CLI configured with
+            their credentials.
           </p>
           <p>
-            The Synapse CLI command synapse deploy aliases commands made to Copilot for deployment. Additionally, Synapse 
-            automatically provisions default settings in manifest files for AWS and provides all the necessary Dockerfiles.
+            The Synapse CLI command synapse deploy aliases commands made to
+            Copilot for deployment. Additionally, Synapse automatically
+            provisions default settings in manifest files for AWS and provides
+            all the necessary Dockerfiles.
           </p>
 
           <h1>STOP HERE</h1>
 
           <!-- Section 2 -->
-          
+
           <!-- Section 9 -->
           <h2>11 Team</h2>
           <br />
