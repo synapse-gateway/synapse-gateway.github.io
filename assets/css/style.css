@@ -299,7 +299,9 @@ label {
 .case-study-image {
   margin: 40px auto;
   display: block;
-  width: 70%;
+  /* width: 70%; */
+  max-width: 700px;
+  max-height: 500px;
 }
 
 .demo {
