@@ -53,6 +53,7 @@
   </head>
 
   <body>
+    <!--Navbar-->
     <div class="navigation-wrap">
       <div
         data-collapse="medium"
@@ -101,7 +102,9 @@
         <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
       </div>
     </div>
+
     <div id="sidebar" class="toc"></div>
+
     <div class="section header">
       <article class="container case-study-container">
         <div class="hero-text-container">
@@ -114,6 +117,7 @@
           <!-- Section 1 -->
           <h2 class="h2">1 Introduction</h2>
           <br />
+
           <p>
             We have seen a huge shift in computing architecture over the past
             decade, with engineers opting to modularize and distribute their
@@ -129,11 +133,11 @@
             traditional API technologies. Although new approaches to API design
             have emerged to address some of these issues, adoption of these
             alternatives typically requires a complete redesign of each service.
-            The last decade has seen a paradigm shift in computing
-            infrastructure. Etc...
           </p>
 
+          <br />
           <h3>1.1 What is Synapse?</h3>
+
           <p>
             Synapse is an open-source solution for building, deploying, and
             monitoring a GraphQL Gateway. Synapse enables you to put your legacy
@@ -141,7 +145,6 @@
             deploy a new GraphQL Gateway onto serverless AWS infrastructure and
             monitor requests made to the gateway.
           </p>
-          <br />
           <p>
             Synapse abstracts away the complex issues involved in moving your
             legacy backend services to a GraphQL API gateway with a single
@@ -150,7 +153,6 @@
             API endpoints including API types like REST, OpenAPI, JSON Schema,
             GraphQL and even databases like Mongo and Postgres.
           </p>
-          <br />
           <p>
             Our case study will examine why and how we designed and created
             Synapse. Our main goal was to create a relatively easy way to turn a
@@ -159,14 +161,14 @@
             doing so and this case study will explain how we solved those
             difficulties and why we made the choices we did.
           </p>
-          <br />
           <p>
             First, we will explain the general web application infrastructure
             and some of the problems it can present to modern day applications.
           </p>
-          <br />
 
+          <br />
           <h3>1.2 Monolithic Application Architecture</h3>
+
           <p>
             Traditionally, applications have been designed as and often start
             out as monolithic applications, meaning that while the software may
@@ -177,7 +179,6 @@
             creating new instances of the application as needed behind a tool
             such as a load balancer.
           </p>
-          <br />
 
           <figure>
             <img
@@ -186,7 +187,7 @@
             />
             <figcaption>Fig. 1: Example Monolithic Architecture</figcaption>
           </figure>
-          <br />
+
           <p>
             However, the drawbacks of this architectural style become evident as
             the application gets more complex and grows ever larger. Several
@@ -211,8 +212,8 @@
             These problems can lead to the adoption of what is known as a
             microservices architecture.
           </p>
-          <br />
 
+          <br />
           <h3>1.3 Microservices Architecture</h3>
           <p>
             Instead of one, tightly coupled application, different services are
@@ -221,7 +222,7 @@
             its own API for use by the other services and relies on its own
             separate database if needed.
           </p>
-          <br />
+
           <figure>
             <img
               src="assets/images/case-study/microservice-diagram.png"
