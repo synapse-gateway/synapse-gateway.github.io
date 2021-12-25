@@ -7,14 +7,14 @@ html {
 body {
   margin: 0;
   background-color: #fff;
-  font-family: Inter, sans-serif;
+  font-family: Nunito, sans-serif;
   color: #b5bbbf;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 20px;
   margin: 0;
   min-height: 100%;
   font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 20px;
   color: #333;
 }
@@ -93,7 +93,7 @@ figcaption {
 
 #sidebar {
   /* background: #fff; */
-  width: 30%;
+  width: 28%;
   float: left;
   /* transform: translateY(32.5%); */
   box-sizing: border-box;
@@ -112,6 +112,7 @@ figcaption {
 #sidebar ul li {
   margin: 20px 0;
   color: #0a0188;
+  font-size: 1.2rem;
 }
 
 .toc-active a {
@@ -119,10 +120,6 @@ figcaption {
   font-weight: bold;
 }
 
-/*#sidebar ul li a {
-  font-weight: bold;
-}
-*/
 #sidebar ul a {
   text-decoration: none;
 }
