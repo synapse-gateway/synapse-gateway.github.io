@@ -111,6 +111,12 @@ figcaption {
 
 #sidebar ul li {
   margin: 20px 0;
+  color: #0a0188;
+}
+
+.toc-active a {
+  color: #e4017d;
+  font-weight: bold;
 }
 
 /*#sidebar ul li a {
@@ -118,12 +124,11 @@ figcaption {
 }
 */
 #sidebar ul a {
-  color: #161d6f;
   text-decoration: none;
 }
 
 #sidebar ul a:hover {
-  color: #98ded9;
+  color: #e4017d;
 }
 
 #sidebar ul ul {
@@ -608,7 +613,7 @@ label {
 }
 
 .fa-github:hover {
-  color: #98ded9;
+  color: #e4017d;
 }
 
 .diagram {
@@ -676,7 +681,7 @@ label {
 
 .team-member-name {
   margin-bottom: 10px;
-  color: #161d6f;
+  color: #0a0188;
   font-size: 18px;
   font-weight: 500;
   text-align: center;
@@ -699,16 +704,16 @@ ul.team-member-icons li {
 
 .team-member-icon {
   margin: 0px 5px;
-  color: #161d6f;
+  color: #0a0188;
 }
 
 .team-member-icon:hover {
-  color: #98ded9;
+  color: #e4017d;
 }
 
 .work-sans {
   font-family: Work Sans, sans-serif;
-  color: #161d6f;
+  color: #0a0188;
 }
 
 .nunito {
@@ -718,7 +723,7 @@ ul.team-member-icons li {
 
 h1 {
   font-family: Work Sans, sans-serif;
-  color: #161d6f;
+  color: #0a0188;
   font-size: 64px;
   font-weight: 700;
   letter-spacing: -0.04em;
@@ -751,7 +756,7 @@ h3 {
 h4 {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #161d6f;
+  color: #0a0188;
   font-family: Work Sans, sans-serif;
   font-size: 30px;
   line-height: 1.4;
@@ -761,7 +766,7 @@ h4 {
 h5 {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #161d6f;
+  color: #0a0188;
   font-family: Work Sans, sans-serif;
   font-size: 24px;
   line-height: 1.4;
@@ -771,7 +776,7 @@ h5 {
 h6 {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #161d6f;
+  color: #0a0188;
   font-family: Work Sans, sans-serif;
   font-size: 15px;
   line-height: 1;
@@ -803,7 +808,7 @@ blockquote {
 
 a {
   font-family: Inter, sans-serif;
-  color: #161d6f;
+  color: #0a0188;
   /*  font-size: 20px;*/
   line-height: 1.3;
   /*  font-weight: 500;*/
@@ -811,7 +816,7 @@ a {
 }
 
 a:hover {
-  color: #98ded9;
+  color: #e4017d;
 }
 
 .section {
@@ -901,7 +906,7 @@ a:hover {
   -ms-flex-align: center;
   align-items: center;
   border-radius: 25px;
-  background-image: linear-gradient(111deg, #161d6f, #98ded9);
+  background-image: linear-gradient(111deg, #0a0188, #e4017d);
 }
 
 .black-h2 {
@@ -1193,7 +1198,7 @@ a:hover {
   -ms-flex-align: center;
   align-items: center;
   border-radius: 100px;
-  background-color: #161d6f;
+  background-color: #0a0188;
   color: #fff;
   font-size: 16px;
   text-decoration: none;
@@ -1212,7 +1217,7 @@ a:hover {
 }
 
 .primary-button:hover {
-  background-image: linear-gradient(111deg, #161d6f, #98ded9);
+  background-image: linear-gradient(111deg, #0a0188, #e4017d);
 }
 
 .button-container {
@@ -1351,14 +1356,14 @@ a:hover {
   padding: 20px 12px;
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
-  color: #161d6f;
+  color: #0a0188;
   font-size: 15px;
   font-weight: 500;
   text-decoration: none;
 }
 
 .link-block:hover {
-  color: #98ded9;
+  color: #e4017d;
 }
 
 .navigation-container {
