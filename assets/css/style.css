@@ -86,9 +86,14 @@ button::-moz-focus-inner {
 
 figure {
   text-align: center;
+  margin-bottom: 40px;
 }
+
 figcaption {
   text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+  color: #7c7a7a;
 }
 
 #sidebar {
@@ -299,11 +304,20 @@ label {
 }
 
 .case-study-image {
-  margin: 40px auto;
+  margin: 40px auto 25px;
   display: block;
-  /* width: 70%; */
+  max-width: 600px;
+  max-height: 400px;
+}
+
+.case-study-image.enlarge {
   max-width: 700px;
   max-height: 500px;
+}
+
+.case-study-image.shrink {
+  max-width: 500px;
+  max-height: 400px;
 }
 
 .demo {
@@ -1970,4 +1984,30 @@ a:hover {
 /* Synapse ADDITIONS */
 .bold {
   font-weight: bold;
+}
+
+.case-study-section h2,
+h3,
+h4,
+h5 {
+  padding-top: 1.5rem;
+}
+
+.case-study-section p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.case-study-section :not(.team) ul li {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.case-study-section ol {
+  padding-inline-start: 60px;
+}
+
+code {
+  background-color: #eeeeee;
+  padding: 0 2px;
 }
