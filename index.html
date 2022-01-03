@@ -52,6 +52,7 @@
     />
   </head>
   <body>
+    <!--Navbar-->
     <div class="navigation-wrap">
       <div
         data-collapse="medium"
@@ -68,14 +69,22 @@
               class="brand w-nav-brand w--current"
               aria-label="home"
             >
-            <img
-            src="assets/images/logo-color.png"
-            alt=""
-            class="template-logo"
-            onmouseover="hover(this);"
-            onmouseout="unhover(this);"
-          />
+              <img
+                src="assets/images/logo-color.png"
+                alt=""
+                class="template-logo"
+                onmouseover="hover(this);"
+                onmouseout="unhover(this);"
+              />
             </a>
+
+            <nav role="navigation" class="nav-menu w-nav-menu">
+              <a href="/case-study" class="link-block w-inline-block">
+                <div>Case Study</div>
+              </a>
+              <a href="/team" class="link-block w-inline-block">
+                <div>Team</div>
+              </a>
             </nav>
           </div>
           <div class="navigation-right">
@@ -94,16 +103,192 @@
         <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
       </div>
     </div>
+
+    <!--Jumbotron-->
     <div class="section header">
       <div class="container">
         <div class="hero-text-container">
+          <h1 class="h2 centered">Synapse <span id="spin">creates&nbsp;</span></h1>
+          <h1 class="h2 centered">your GraphQL API Gateway.</h1>
           <br /><br />
-          <br /><br />
-          <h1 class="h2 centered">Coming soon...</h1>
-          <br /><br />
+          <p class="intro-paragraph white-paragraph centered bottom-margin">
+            Synapse is an open-source tool to build, deploy, and monitor a GraphQL Gateway, enabling you to put your legacy APIs behind a single GraphQL endpoint.
+          </p>
+          <div class="button-container">
+            <a
+              href="/case-study"
+              class="primary-button right-margin w-inline-block"
+            >
+              <div class="primary-button-text">Read Case Study</div>
+            </a>
+          </div>
+        </div>
+
+        <div
+          data-w-id="c8b52af7-58af-18c7-65ce-aa2950b6601f"
+          class="hero-images-container"
+        >
+          <!--Foreground Image-->
+          <img
+            src="assets/images/synapse-deploy.gif"
+            alt=""
+            class="hero-image-left"
+            style="
+              border-radius: 8px;
+              will-change: transform;
+              transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1)
+                rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+              transform-style: preserve-3d;
+              filter: drop-shadow(0px 0px 10px rgb(73, 73, 73));
+            "
+          /><!--Background Image--><img
+            src="assets/images/add-datasources.gif"
+            alt=""
+            class="hero-image-right"
+          />
         </div>
       </div>
     </div>
+
+    <!--Ad Banner #1-->
+    <div class="section">
+      <div class="container">
+        <div data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
+          <div
+            data-w-id="8ce4324a-ed8e-4436-9964-0cfbaf67c64a"
+            style="
+              transform: translate3d(0px, 55px, 0px) scale3d(1, 1, 1)
+                rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+              transform-style: preserve-3d;
+              opacity: 0;
+            "
+            class="tabs-content w-tab-content"
+          >
+            <div
+              data-w-tab="Tab 1"
+              class="w-tab-pane w--tab-active"
+              id="w-tabs-0-data-w-pane-0"
+              role="tabpanel"
+              aria-labelledby="w-tabs-0-data-w-tab-0"
+            >
+              <div class="tab-container">
+                <div class="tab-text-wrap">
+                  <h2 class="white-h2 phone-centered">
+                    Wave goodbye to<br /> over- and under-fetching data &#x1f44b;
+                  </h2>
+                  <p
+                    class="
+                      intro-paragraph
+                      white-paragraph
+                      bottom-margin
+                      phone-centered
+                    "
+                    id="intro-paragraph-2"
+                  >
+                    Synapse builds a single GraphQL endpoint that integrates all your existing data sources without altering them, enabling the client to get exactly the data they request.  No more, no less.
+                  </p>
+                </div>
+                <div class="tab-image-wrap">
+                  <img
+                    src="assets/images/chattr-with-synapse.gif"
+                    loading="lazy"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Ad Banner #2-->
+    <div class="section second-banner">
+      <div class="container">
+        <div data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
+          <div
+            data-w-id="8ce4324a-ed8e-4436-9964-0cfbaf67c64a"
+            style="
+              transform: translate3d(0px, 55px, 0px) scale3d(1, 1, 1)
+                rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+              transform-style: preserve-3d;
+              opacity: 0;
+            "
+            class="tabs-content w-tab-content"
+          >
+        
+          <div
+              data-w-tab="Tab 1"
+              class="w-tab-pane w--tab-active"
+              id="w-tabs-0-data-w-pane-0"
+              role="tabpanel"
+              aria-labelledby="w-tabs-0-data-w-tab-0"
+            >
+              <div class="tab-container">
+                <div class="tab-image-wrap">
+                  <img
+                    src="assets/images/monitoring.gif"
+                    loading="lazy"
+                    alt=""
+                  />
+                </div>
+                <div class="tab-text-wrap">
+                  <h2 class="white-h2 phone-centered">
+                    Monitor your GraphQL API Gateway
+                  </h2>
+                  <p
+                    class="
+                      intro-paragraph
+                      white-paragraph
+                      bottom-margin
+                      phone-centered
+                    "
+                    id="intro-paragraph-2"
+                  >
+                    Aftering building your Gateway, Synapse lets you monitor request latencies and errors through the Gateway Manager.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="padding-top: 0px;">
+        <a
+        href="https://github.com/synapse-gateway/synapse-builder"
+        target="_blank"
+        class="primary-button w-inline-block"
+      >
+      <div class="primary-button-text">Try It Out!</div>
+      </a>
+    </div>
+    <!--<div class="section">
+      <div class="container cta">
+        <div
+          class="vertical-cta"
+          style="
+            transform: translate3d(0px, 55px, 0px) scale3d(1, 1, 1)
+              rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+            transform-style: preserve-3d;
+            opacity: 0;
+          "
+        >
+          <div class="vertical-cta-wrap">
+            <h2 class="black-h2">Interested in learning more?</h2>
+            <p class="black-paragraph centered">
+              Our remote team recently gave a presentation on Synapse across the US.<br />
+            </p>
+            <a href="/" target="_blank" class="tertiary-button w-inline-block">
+              <div class="primary-button-text">Try It Out</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>-->
     <script
       src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f71dd169010d641cf65485c"
       type="text/javascript"
@@ -118,3 +303,4 @@
     <script type="text/javascript" src="assets/scripts/logo-btn.js"></script>
   </body>
 </html>
+
